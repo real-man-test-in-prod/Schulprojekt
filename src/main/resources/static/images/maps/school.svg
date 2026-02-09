@@ -1,102 +1,50 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
    width="1920"
    height="1080"
    viewBox="0 0 1920 1080"
    version="1.1"
    id="svg1"
-   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
-   sodipodi:docname="school.svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview1"
-     pagecolor="#505050"
-     bordercolor="#ffffff"
-     borderopacity="1"
-     inkscape:showpageshadow="true"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="1"
-     inkscape:deskcolor="#505050"
-     inkscape:document-units="px"
-     inkscape:clip-to-page="true"
-     labelstyle="default"
-     showgrid="true"
-     guidecolor="#000000"
-     guideopacity="0.6"
-     guidehicolor="#ffffff"
-     guidehiopacity="0.49803922"
-     inkscape:lockguides="true"
-     inkscape:zoom="0.35355339"
-     inkscape:cx="1046.518"
-     inkscape:cy="717.00628"
-     inkscape:window-width="1920"
-     inkscape:window-height="1009"
-     inkscape:window-x="1912"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1">
-    <inkscape:grid
-       id="grid2"
-       units="px"
-       originx="0"
-       originy="0"
-       spacingx="1"
-       spacingy="1"
-       empcolor="#ffffff"
-       empopacity="0.30196078"
-       color="#000000"
-       opacity="0.14901961"
-       empspacing="10"
-       enabled="true"
-       visible="true" />
-  </sodipodi:namedview>
   <defs
      id="defs1" />
   <g
-     inkscape:label="Ebene 1"
-     inkscape:groupmode="layer"
      id="layer1"
      style="fill:#ffffff">
     <path
        id="floor_1"
        style="fill:#ffffff;stroke:#000000;stroke-width:15.9893"
-       inkscape:label="floor_1"
        d="M 8.0051718,8.0058381 H 1912.0065 V 1072.001 H 8.0051718 Z" />
     <path
        id="room_6"
        style="fill:#ffffff;stroke:#000000;stroke-width:5"
-       inkscape:label="room_6"
+
        d="m 1448.1069,655.42279 h 469.3717 v 422.05601 h -469.3717 z" />
     <path
        id="room_5"
        style="fill:#ffffff;stroke:#000000;stroke-width:5"
-       inkscape:label="room_5"
+
        d="M 973.73615,655.42999 H 1443.1078 V 1077.486 H 973.73615 Z" />
     <path
        id="room_4"
        style="opacity:1;fill:#ffffff;stroke:#000000;stroke-width:5"
-       inkscape:label="room_4"
+
        d="M 499.36157,655.43451 H 968.73328 V 1077.4905 H 499.36157 Z" />
     <path
        id="room_3"
        style="fill:#ffffff;stroke:#000000;stroke-width:5"
-       inkscape:label="room_3"
+
        d="M 1447.8843,2.7222755 H 1917.256 V 424.77828 h -469.3717 z"
        onclick="a" />
     <path
        id="room_2"
        style="fill:#ffffff;stroke:#000000;stroke-width:5"
-       inkscape:label="room_2"
+
        d="M 973.42548,2.5346644 H 1442.7972 V 424.59066 H 973.42548 Z" />
     <path
        id="room_1"
        style="opacity:1;fill:#ffffff;stroke:#000000;stroke-width:5"
-       inkscape:label="room_1"
+
        d="m 498.96317,2.551115 h 469.3717 V 424.60711 h -469.3717 z" />
   </g>
 </svg>
