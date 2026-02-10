@@ -5,69 +5,72 @@
 </head>
 <body>
 <h1>Schule</h1>
+<div style="width: 70%; height: auto; display: flex; justify-content: center; align-items: center;">
+    <svg
+            th:width=auto
+            th:height=auto
+            display=""
+            maxlength=""
+            viewBox="0 0 1920 1080"
+            version="1.1"
+            id="svg1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:svg="http://www.w3.org/2000/svg">
+        <defs
+                id="defs1" />
+        <g
+                id="layer1"
+                style="fill:#ffffff">
 
-<svg
-        width="1920"
-        height="1080"
-        viewBox="0 0 1920 1080"
-        version="1.1"
-        id="svg1"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:svg="http://www.w3.org/2000/svg">
-    <defs
-            id="defs1" />
-    <g
-            id="layer1"
-            style="fill:#ffffff">
-        <a th:href=@{rooms/floor_1}>
-        <path
-                id="floor_1"
-                style="fill:#ffffff;stroke:#000000;stroke-width:15.9893"
-                d="M 8.0051718,8.0058381 H 1912.0065 V 1072.001 H 8.0051718 Z" />
-        </a>
-
-        <a th:href=@{rooms/room_6}>
-        <path
-                id="room_6"
-                style="fill:#ffffff;stroke:#000000;stroke-width:5"
-
-                d="m 1448.1069,655.42279 h 469.3717 v 422.05601 h -469.3717 z" />
-            </a>
-        <a th:href=@{rooms/room_5}>
             <path
-                id="room_5"
-                style="fill:#ffffff;stroke:#000000;stroke-width:5"
+                    id="floor_1"
+                    style="fill:#ffffff;stroke:#000000;stroke-width:15.9893"
+                    d="M 8.0051718,8.0058381 H 1912.0065 V 1072.001 H 8.0051718 Z" />
 
-                d="M 973.73615,655.42999 H 1443.1078 V 1077.486 H 973.73615 Z" />
-            </a>
-        <a th:href=@{rooms/room_4}><path
-                id="room_4"
-                style="opacity:1;fill:#ffffff;stroke:#000000;stroke-width:5"
 
-                d="M 499.36157,655.43451 H 968.73328 V 1077.4905 H 499.36157 Z" />
+            <a th:href=@{rooms/room_6}>
+            <path
+                    id="room_6"
+                    style="fill:#ffffff;stroke:#000000;stroke-width:5"
+
+                    d="m 1448.1069,655.42279 h 469.3717 v 422.05601 h -469.3717 z" />
                 </a>
-        <a th:href=@{rooms/room_3}>
-            <path
-                id="room_3"
-                style="fill:#ffffff;stroke:#000000;stroke-width:5"
-
-                d="M 1447.8843,2.7222755 H 1917.256 V 424.77828 h -469.3717 z"
-                onclick="a" />
-                    </a>
-            <a th:href=@{rooms/room_2}>
+            <a th:href=@{rooms/room_5} >
                 <path
-                id="room_2"
-                style="fill:#ffffff;stroke:#000000;stroke-width:5"
+                    id="room_5"
+                    style="fill:#ffffff;stroke:#000000;stroke-width:5"
 
-                d="M 973.42548,2.5346644 H 1442.7972 V 424.59066 H 973.42548 Z" />
+                    d="M 973.73615,655.42999 H 1443.1078 V 1077.486 H 973.73615 Z" />
+                </a>
+            <a th:href=@{rooms/room_4}><path
+                    id="room_4"
+                    style="opacity:1;fill:#ffffff;stroke:#000000;stroke-width:5"
+
+                    d="M 499.36157,655.43451 H 968.73328 V 1077.4905 H 499.36157 Z" />
+                    </a>
+            <a th:href=@{rooms/room_3}>
+                <path
+                    id="room_3"
+                    style="fill:#ffffff;stroke:#000000;stroke-width:5"
+
+                    d="M 1447.8843,2.7222755 H 1917.256 V 424.77828 h -469.3717 z"
+                    onclick="a" />
                         </a>
-            <a th:href=@{rooms/room_1}><path
-                id="room_1"
-                style="opacity:1;fill:#ffffff;stroke:#000000;stroke-width:5"
+                <a th:href=@{rooms/room_2}>
+                    <path
+                    id="room_2"
+                    style="fill:#ffffff;stroke:#000000;stroke-width:5"
 
-                d="m 498.96317,2.551115 h 469.3717 V 424.60711 h -469.3717 z" />
-            </a>
-    </g>
-</svg>
+                    d="M 973.42548,2.5346644 H 1442.7972 V 424.59066 H 973.42548 Z" />
+                            </a>
+                <a th:href=@{rooms/room_1}><path
+                    id="room_1"
+                    style="opacity:1;fill:#ffffff;stroke:#000000;stroke-width:5"
+
+                    d="m 498.96317,2.551115 h 469.3717 V 424.60711 h -469.3717 z" />
+                </a>
+        </g>
+    </svg>
+</div>
 </body>
 </html>
