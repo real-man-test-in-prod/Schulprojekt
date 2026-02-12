@@ -3,6 +3,7 @@
 
 <head>
     <title>School Map</title>
+    <link rel="stylesheet" th:href="@{/css/dialog.css}">
 </head>
 
 <body>
@@ -15,6 +16,9 @@
                 stroke="#000000" stroke-width="5" />
         </a>
     </svg>
+        <div th:replace="fragments/dialog :: dialog"></div>
+
+        <script th:src="@{/js/dialog.js}"></script>
 </body>
 
 </html>
