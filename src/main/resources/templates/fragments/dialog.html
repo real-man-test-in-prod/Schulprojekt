@@ -37,7 +37,7 @@
                 <!-- Render choice buttons -->
                 <div class="choices" th:if="${choices != null}">
                     <button type="button" th:each="ch : ${choices}" class="dialog-choice" th:text="${ch.label}"
-                        th:attr="data-reply=${ch.reply}, data-continue-url=${ch.continueUrl}">Choice</button>
+                        th:attr="data-reply=${ch['reply']}, data-continue-url=${ch['continueUrl']}">Choice</button>
                 </div>
 
                 <!-- Keep continue and cancel as secondary controls -->
