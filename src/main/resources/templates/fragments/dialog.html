@@ -1,0 +1,50 @@
+<div xmlns:th="http://www.thymeleaf.org" th:fragment="dialog">
+    <div class="dialog-overlay"
+        th:if="${introText != null or imageUrl != null or outroText != null or dialogMessages != null or choices != null}">
+    </div>
+
+    <div class="dialog-modal"
+        th:if="${introText != null or imageUrl != null or outroText != null or dialogMessages != null or choices != null}"
+        role="dialog" aria-modal="true">
+        <div class="dialog-content">
+            <div class="dialog-body">
+                <div class="dialog-messages">
+                    <!-- Render messages if provided -->
+                    <div th:if="${dialogMessages != null}">
+                        <div th:each="msg : ${dialogMessages}" class="msg"
+                            th:classappend="${msg.sender == 'npc'} ? ' npc' : ' player'">
+                            <div class="avatar" th:if="${msg.sender == 'npc'}">NPC</div>
+                            <div class="avatar" th:if="${msg.sender != 'npc'}">YOU</div>
+                            <div class="bubble" th:text="${msg.text}">Message text</div>
+                        </div>
+                    </div>
+
+                    <!-- Fallback: use introText as first NPC message when no dialogMessages -->
+                    <div th:unless="${dialogMessages != null}">
+                        <div class="msg npc">
+                            <div class="avatar">NPC</div>
+                            <div class="bubble" th:if="${introText}" th:text="${introText}">Intro text</div>
+                        </div>
+                        <p class="dialog-intro" th:if="${introText == null}" th:text="${introText}">Intro text</p>
+                    </div>
+                </div>
+
+                <img class="dialog-image" th:if="${imageUrl}" th:src="${imageUrl}" alt="dialog image" />
+                <p class="dialog-outro" th:if="${outroText}" th:text="${outroText}">Outro text</p>
+            </div>
+
+            <div class="dialog-actions">
+                <!-- Render choice buttons -->
+                <div class="choices" th:if="${choices != null}">
+                    <button type="button" th:each="ch : ${choices}" class="dialog-choice" th:text="${ch.label}"
+                        th:attr="data-reply=${ch.reply}, data-continue-url=${ch.continueUrl}">Choice</button>
+                </div>
+
+                <!-- Keep continue and cancel as secondary controls -->
+                <button type="button" class="dialog-continue"
+                    th:attr="data-continue-url=${continueUrl}">Continue</button>
+                <button type="button" class="dialog-cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
