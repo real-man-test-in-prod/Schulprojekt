@@ -1,0 +1,28 @@
+{
+  "name": "schulprojekt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx @tailwindcss/cli -i ./style.css -o src/main/resources/static/css/main.css --minify",
+    "watch": "npx @tailwindcss/cli -i ./style.css -o src/main/resources/static/css/main.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/real-man-test-in-prod/Schulprojekt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/real-man-test-in-prod/Schulprojekt/issues"
+  },
+  "homepage": "https://github.com/real-man-test-in-prod/Schulprojekt#readme",
+  "devDependencies": {
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+  }
+}

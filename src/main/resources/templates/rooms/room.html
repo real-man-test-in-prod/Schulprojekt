@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>School Map</title>
+    <link rel="stylesheet" th:href="@{/css/dialog.css}">
+
+</head>
+<body>
+<h1 th:text="${roomId}"></h1>
+<h1 th:text="${roomText}"></h1>
+<p th:text="${roomDescription}"></p>
+<div th:replace="fragments/dialog :: dialog"></div>
+
+</body>
+</html>
