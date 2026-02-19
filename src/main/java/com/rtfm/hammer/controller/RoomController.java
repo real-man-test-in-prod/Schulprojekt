@@ -1,15 +1,34 @@
 package com.rtfm.hammer.controller;
 
+import com.rtfm.hammer.service.DialogueService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import tools.jackson.databind.ObjectMapper;
 
 import java.util.List;
 import java.util.Map;
 
 @Controller
+@AllArgsConstructor
 public class RoomController {
+    private DialogueService dialogueService;
+
+    @GetMapping("/rooms/{character}/{id}")
+    public String getDialogue(@PathVariable String character, @PathVariable Integer id, Model model) {
+        try{
+            final var mapper = new ObjectMapper();
+            final var dialogueJson = mapper.writeValueAsString(dialogueService.loadDialogue(character));
+            model.addAttribute("dialogue", dialogueJson);
+            model.addAttribute("currentDialogue", id);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return "rooms/room";
+    }
+
     @GetMapping("/rooms/{roomId}")
         public String room(@PathVariable String roomId, Model model) {
         String roomText;
