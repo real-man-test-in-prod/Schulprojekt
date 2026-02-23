@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>School Map</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+        <link rel="stylesheet" th:href="@{/css/dialog.css}">
+</head>
+<body>
+<h1 th:text="${roomId}"></h1>
+<h1 th:text="${roomText}"></h1>
+<p th:text="${roomDescription}"></p>
+<!--<div th:replace="fragments/dialog :: dialog"></div>-->
+
+
+<!-- Textbox that displays the dialogue text-->
+<div class="relative w-[1222px] h-[217px] overflow-hidden" th:attr="data-dialogue=${dialogue},data-id=${id}"
+     id="dialogue-wrap">
+    <img src="/images/dialogue/textbox.svg" alt="Textbox" class="absolute inset-0 w-full h-full"/>
+    <div class="absolute inset-5 align-top flex items-start px-6 text-white text-5xl font-bold text-outline-blue" id="textbox">
+    </div>
+</div>
+
+<script src="/js/room.js"></script>
+</body>
+</html>
