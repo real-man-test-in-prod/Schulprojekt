@@ -1,10 +1,6 @@
 package com.rtfm.hammer.model.dialogue;
 
-import lombok.Getter;
+import com.rtfm.hammer.model.Step;
 
-@Getter
-public class Dialogue {
-
-    private Integer id;
-    private Line line;
+public class Dialogue extends Step {
 }
