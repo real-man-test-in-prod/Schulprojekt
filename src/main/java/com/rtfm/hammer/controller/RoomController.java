@@ -18,17 +18,12 @@ public class RoomController {
 
     @GetMapping("/rooms/{character}/{id}")
     public String getDialogue(@PathVariable String character, @PathVariable Integer id, Model model) {
-        try{
-            final var mapper = new ObjectMapper();
-            final var dialogueJson = mapper.writeValueAsString(dialogueService.loadDialogue(character));
-            model.addAttribute("dialogue", dialogueJson);
-            model.addAttribute("currentDialogue", id);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+        model.addAttribute("dialogue", dialogueService.loadDialogue(character));
+        model.addAttribute("id", id);
         return "rooms/room";
     }
 
+    @Deprecated
     @GetMapping("/rooms/{roomId}")
         public String room(@PathVariable String roomId, Model model) {
         String roomText;
