@@ -13,7 +13,7 @@ This allows structured progression and easy extension.
 | room_intro | Basics | Introduction to the game and concepts |  
 | room_java | Java | Java fundamentals and syntax |  
 | room_db | Database | SQL and database basics |  
-| room_wirtschaft | Security | Basic Wirtschaft concepts |  
+| room_wirtschaft | Wirtschaft | Basic Wirtschaft concepts |  
   
 ---  
   
