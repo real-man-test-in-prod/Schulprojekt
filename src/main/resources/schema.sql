@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS MC_ANSWER (
     answer_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     question_id INT NOT NULL,
     option_text TEXT NOT NULL,
-    points INT NOT NULL DEFAULT 0,
+    points INT DEFAULT 0,
     is_correct BOOLEAN NOT NULL DEFAULT FALSE,
     option_order INT NOT NULL,
     CONSTRAINT uq_mc_answer_question_order UNIQUE (question_id, option_order),
