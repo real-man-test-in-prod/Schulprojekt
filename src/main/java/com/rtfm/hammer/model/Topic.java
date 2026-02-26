@@ -4,6 +4,7 @@ public enum Topic {
     BASICS,
     JAVA,
     DATABASE,
-    Wirtschaft
+    Wirtschaft,
+    Netzwerke
 
 }
