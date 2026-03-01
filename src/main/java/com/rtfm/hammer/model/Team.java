@@ -1,0 +1,29 @@
+package com.rtfm.hammer.model;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import java.util.List;
+
+@Entity
+@Table(name = "TEAM")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Team {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "team_id")
+    private Integer teamId;
+
+    @Column(name = "name", nullable = false, length = 255)
+    private String name;
+
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    private List<QuestionSet> questionSets;
+}
