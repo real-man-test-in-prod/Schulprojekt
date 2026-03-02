@@ -14,7 +14,6 @@ This allows structured progression and easy extension.
 | room_java | Java | Java fundamentals and syntax |  
 | room_db | Database | SQL and database basics |  
 | room_wirtschaft | Wirtschaft | Basic Wirtschaft concepts |  
-| room_IT-Netzwerk | IT-Netzwerk | Basic IT-Netzwerk concepts |
   
 ---  
   
