@@ -3,27 +3,30 @@
 <head>
     <title>School Map</title>
     <link rel="stylesheet" th:href="@{/css/main.css}">
-        <link rel="stylesheet" th:href="@{/css/dialog.css}">
+    <link rel="stylesheet" th:href="@{/css/dialog.css}">
 </head>
 <body th:attr="data-dialogue=${dialogue},data-id=${id}" id="body">
-<!--<h1 th:text="${roomId}"></h1>-->
-<!--<h1 th:text="${roomText}"></h1>-->
-<!--<p th:text="${roomDescription}"></p>-->
-<!--<div th:replace="fragments/dialog :: dialog"></div>-->
 
-
-<!-- Textbox that displays the speaker name text-->
-<div>
-
-</div>
-
-<!-- Textbox for dialogue -->
-<div class="relative w-[1222px] h-[217px] overflow-hidden">
-    <img src="/images/dialogue/textbox.svg" alt="Textbox" class="absolute inset-0 w-full h-full"/>
-    <div class="absolute inset-5 align-top items-start px-6 text-white text-5xl font-bold text-outline-blue" id="textbox">
+<div id="game" class="game-container">
+    <div class="h-[55%] pt-[5%]">
+    </div>
+    <div class="h-[5%]">
+    </div>
+    <!--        <img src="/images/dialogue/textbox.svg" alt="textbox" class="absolute inset-0 w-full h-full"/>-->
+    <!--        <div class="absolute inset-5 align-top items-start px-6 text-white text-5xl font-bold text-outline-blue"-->
+    <!--             id="textbox">-->
+    <!--        </div> -->
+    <div class="px-[5%] pt-[5%] pb-[1%] h-[40%]">
+        <div class="relative h-full">
+            <img src="/images/dialogue/textbox.svg" alt="textbox" class="absolute h-full"/>
+            <div class="absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-scroll"
+                 id="textbox">
+            </div>
+        </div>
     </div>
 </div>
 
-<script src="/js/room.js"></script>
+<script src="/js/textDisplay.js"></script>
+<script src="/js/screenSize.js"></script>
 </body>
 </html>
