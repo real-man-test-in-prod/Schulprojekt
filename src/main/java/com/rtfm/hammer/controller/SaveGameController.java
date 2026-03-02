@@ -1,35 +1,41 @@
 package com.rtfm.hammer.controller;
 
-import com.rtfm.hammer.service.StorageService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import com.rtfm.hammer.model.SaveGame;
+import com.rtfm.hammer.service.SaveGameService;
+import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
+import java.util.Map;
 
-@Controller
+@RestController
+@RequestMapping("/saves")
 public class SaveGameController {
 
-    private final StorageService storageService;
+    private final SaveGameService saveGameService;
 
-    public SaveGameController(StorageService storageService) {
-        this.storageService = storageService;
+    public SaveGameController(SaveGameService saveGameService) {
+        this.saveGameService = saveGameService;
     }
 
+    @PostMapping
+    public Map<String, String> saveGame(@RequestBody SaveGame saveGame) {
+        String code = saveGameService.save(saveGame.getSaveGameName(), saveGame.getSaveGameState(), saveGame.getDate());
+        return Map.of("saveCode", code);
+    }
 
-    @GetMapping("/saves")
-    public String index()
-    {
+    @GetMapping
+    public String index() {
         return "Saves";
     }
 
-    @PostMapping("saves")
-    public ResponseEntity<String> store(@RequestBody String saveGame) throws IOException {
-        storageService.save("test.txt", saveGame);
-        return ResponseEntity.status(HttpStatus.OK).body("Saved Successfully");
+    @GetMapping("/{code}")
+    public SaveGame load(@PathVariable String code) {
+        return saveGameService.loadByCode(code);
+    }
+
+    @PutMapping("/{code}")
+    public Map<String, String> update(@PathVariable String code, @RequestBody SaveGame saveGame) {
+        saveGameService.update(code, saveGame.getSaveGameState(), saveGame.getDate());
+        return Map.of("status", "updated");
     }
 
 }

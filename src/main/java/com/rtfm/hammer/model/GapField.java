@@ -9,7 +9,7 @@ import lombok.ToString;
 import java.util.List;
 
 @Entity
-@Table(name = "GAP_FIELD")
+@Table(name = "gap_field")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

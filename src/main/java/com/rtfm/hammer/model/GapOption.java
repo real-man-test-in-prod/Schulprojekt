@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(name = "GAP_OPTION")
+@Table(name = "gap_option")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -2,10 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Save Games</title>
+    <title>Homepage</title>
     <link rel="stylesheet" th:href="@{/css/main.css}">
 </head>
-<body>
-
+<body class="w-screen h-screen bg-violet-400">
+<div class="flex flex-col min-h-screen gap-4 justify-center items-center">
+    <h1 class="text-2xl font-semibold p-2 rounded bg-pink-200">Teachers Nightmare</h1>
+    <div class="flex flex-col gap-4 justify-center items-center overflow-y-scroll">
+        <div class="bg-pink-200 rounded p-2 flex justify-between gap-4 w-96">
+            <div class="flex flex-col gap-2">
+                <p>Miguels Spiel</p>
+                <p>25.01.2026</p>
+            </div>
+            <div class="flex flex-col gap-2">
+                <p>Current Room: 1</p>
+                <p>Current Building: 1</p>
+            </div>
+        </div>
+        <div class="bg-pink-200 rounded p-2 flex justify-between gap-4 w-96">
+            <div class="flex flex-col gap-2">
+                <p>Maher Spiel</p>
+                <p>25.01.2026</p>
+            </div>
+            <div class="flex flex-col gap-2">
+                <p>Current Room: 1</p>
+                <p>Current Building: 1</p>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
