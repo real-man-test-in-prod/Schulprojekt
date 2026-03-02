@@ -34,20 +34,24 @@ public class RoomController {
             roomDescription="Hier gehen wir die Wirtschaft themen durch";
         } 
         else if (roomId.equals("room_5")) {
-            roomText = "Willkommen im Datenschutz und IT-Sicherheit-Raum Raum 5";
-            roomDescription="Hier gehen wir die Datenschutz themen durch";
+            roomText = "Willkommen im Maschinelles-Lernen-Raum Raum 5";
+            roomDescription="Hier gehen wir die Maschinelles-Lernen themen durch";
         } 
         else if (roomId.equals("room_4")) {
-            roomText = "Willkommen im IT-Netzwerke-Raum Raum 4";
-            roomDescription="Hier gehen wir die Netzwerke themen durch";
+            roomText = "Willkommen im Recht-Raum Raum 4";
+            roomDescription="Hier gehen wir die Recht themen durch";
         } 
         else if (roomId.equals("room_3")) {
             roomText = "Willkommen im Datenbank-Raum Raum 3";
             roomDescription="Hier gehen wir die Datenbank themen durch";
         } 
         else if (roomId.equals("room_2")) {
-            roomText = "Willkommen im Java-Raum Raum 2";
+            roomText = "Willkommen im Programmierung-Raum Raum 2";
             roomDescription="Hier gehen wir die Java themen durch";
+        }
+        else if (roomId.equals("room_1")) {
+            roomText = "Willkommen im UML-Raum Raum 1";
+            roomDescription="Hier gehen wir die UML themen durch";
         }
         else {
             roomText = "Unbekannter Raum ergebnis: "+ roomId;
