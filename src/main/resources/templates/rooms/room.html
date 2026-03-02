@@ -6,6 +6,9 @@
         <link rel="stylesheet" th:href="@{/css/dialog.css}">
 </head>
 <body>
+<div th:insert="fragments/backToHomepage.html :: backToHomepage"
+     style="margin-bottom: 8%"></div>
+
 <h1 th:text="${roomId}"></h1>
 <h1 th:text="${roomText}"></h1>
 <p th:text="${roomDescription}"></p>
