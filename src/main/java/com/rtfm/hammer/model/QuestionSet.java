@@ -9,7 +9,7 @@ import lombok.ToString;
 import java.util.List;
 
 @Entity
-@Table(name = "QUESTION_SET")
+@Table(name = "question_set")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,7 +23,7 @@ public class QuestionSet {
     @Column(name = "team_id", nullable = false)
     private Integer teamId;
 
-    @Column(name = "title", nullable = false, length = 255)
+    @Column(name = "title", nullable = false)
     private String title;
 
     @ManyToOne(fetch = FetchType.LAZY)

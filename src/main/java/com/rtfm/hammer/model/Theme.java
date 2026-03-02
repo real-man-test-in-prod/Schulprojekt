@@ -9,7 +9,7 @@ import lombok.ToString;
 import java.util.List;
 
 @Entity
-@Table(name = "THEME")
+@Table(name = "theme")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,7 +20,7 @@ public class Theme {
     @Column(name = "theme_id")
     private Integer themeId;
 
-    @Column(name = "name", nullable = false, length = 255)
+    @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "description", columnDefinition = "TEXT")

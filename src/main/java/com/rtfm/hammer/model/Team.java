@@ -9,7 +9,7 @@ import lombok.ToString;
 import java.util.List;
 
 @Entity
-@Table(name = "TEAM")
+@Table(name = "team")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,7 +20,7 @@ public class Team {
     @Column(name = "team_id")
     private Integer teamId;
 
-    @Column(name = "name", nullable = false, length = 255)
+    @Column(name = "name", nullable = false)
     private String name;
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
