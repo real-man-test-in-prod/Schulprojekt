@@ -30,13 +30,33 @@ public class RoomController {
         String roomDescription = "";
 
         if (roomId.equals("room_6")) {
-            roomText = "Willkommen im Netzwerk-Raum Raum 6";
-            roomDescription="Hier gehen wir die Netzwerk themen durch";
-        } else {
+            roomText = "Willkommen im Wirtschaft-Raum Raum 6";
+            roomDescription="Hier gehen wir die Wirtschaft themen durch";
+        } 
+        else if (roomId.equals("room_5")) {
+            roomText = "Willkommen im Maschinelles-Lernen-Raum Raum 5";
+            roomDescription="Hier gehen wir die Maschinelles-Lernen themen durch";
+        } 
+        else if (roomId.equals("room_4")) {
+            roomText = "Willkommen im Recht-Raum Raum 4";
+            roomDescription="Hier gehen wir die Recht themen durch";
+        } 
+        else if (roomId.equals("room_3")) {
+            roomText = "Willkommen im Datenbank-Raum Raum 3";
+            roomDescription="Hier gehen wir die Datenbank themen durch";
+        } 
+        else if (roomId.equals("room_2")) {
+            roomText = "Willkommen im Programmierung-Raum Raum 2";
+            roomDescription="Hier gehen wir die Java themen durch";
+        }
+        else if (roomId.equals("room_1")) {
+            roomText = "Willkommen im UML-Raum Raum 1";
+            roomDescription="Hier gehen wir die UML themen durch";
+        }
+        else {
             roomText = "Unbekannter Raum ergebnis: "+ roomId;
 
-        }
-        model.addAttribute("roomText", roomText);
+        }        model.addAttribute("roomText", roomText);
         model.addAttribute("roomId", roomId);
         model.addAttribute("roomDescription", roomDescription);
 
