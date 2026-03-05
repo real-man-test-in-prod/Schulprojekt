@@ -3,11 +3,14 @@
 <head>
     <title>School Map</title>
     <link rel="stylesheet" th:href="@{/css/main.css}">
-        <link rel="stylesheet" th:href="@{/css/dialog.css}">
+    <link rel="stylesheet" th:href="@{/css/dialog.css}">
 </head>
 <body>
-<div th:insert="fragments/backToHomepage.html :: backToHomepage"
-     style="margin-bottom: 8%"></div>
+<div style="margin-bottom: 8%; grid-row: auto" >
+    <div th:insert="fragments/backToHomepage.html :: backToHomepage"></div>
+    <button style="position: fixed; top: 20px; right: 120px"
+            class="rounded bg-purple-300 p-2 shadow-md cursor-pointer"> School Map</button>
+</div>
 
 <h1 th:text="${roomId}"></h1>
 <h1 th:text="${roomText}"></h1>
@@ -19,7 +22,8 @@
 <div class="relative w-[1222px] h-[217px] overflow-hidden" th:attr="data-dialogue=${dialogue},data-id=${id}"
      id="dialogue-wrap">
     <img src="/images/dialogue/textbox.svg" alt="Textbox" class="absolute inset-0 w-full h-full"/>
-    <div class="absolute inset-5 align-top flex items-start px-6 text-white text-5xl font-bold text-outline-blue" id="textbox">
+    <div class="absolute inset-5 align-top flex items-start px-6 text-white text-5xl font-bold text-outline-blue"
+         id="textbox">
     </div>
 </div>
 
