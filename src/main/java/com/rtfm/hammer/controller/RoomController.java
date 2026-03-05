@@ -14,7 +14,8 @@ public class RoomController {
 
     @GetMapping("/rooms/{id}")
     public String getDialogue(@PathVariable Integer id, Model model) {
-        model.addAttribute("dialogue", dialogueService.loadDialogue(id));
+        model.addAttribute("step", dialogueService.loadDialogue(id));
+        model.addAttribute("nextId", id + 1);
         return "rooms/room";
     }
 

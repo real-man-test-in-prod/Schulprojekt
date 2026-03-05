@@ -6,8 +6,7 @@ import com.rtfm.hammer.model.questions.BinaryQuestion;
 import org.springframework.stereotype.Service;
 import tools.jackson.databind.ObjectMapper;
 
-import static com.rtfm.hammer.model.dialogue.Character.SCHUELER;
-import static com.rtfm.hammer.model.dialogue.Character.SNILLOR;
+import static com.rtfm.hammer.model.dialogue.Character.*;
 
 @Service
 public class DialogueService {
@@ -20,10 +19,10 @@ public class DialogueService {
 
     private Step getStepById(Integer id) {
         return switch (id) {
-            case 0 -> new Dialogue(0, SNILLOR, "Willkommen zu dem Unterricht der Informationslehrenden Krassheit");
-            case 1 -> new Dialogue(1, SNILLOR, "Lass uns mit dem Unterricht beginnen!");
+            case 0 -> new Dialogue(0, TEACHER, "Willkommen zu dem Unterricht der Informationslehrenden Krassheit");
+            case 1 -> new Dialogue(1, TEACHER, "Lass uns mit dem Unterricht beginnen!");
             case 2 -> new Dialogue(2, SCHUELER, "Geil!");
-            case 3 -> new BinaryQuestion(3, SNILLOR, "Ist Informatik coolio????", true);
+            case 3 -> new BinaryQuestion(3, TEACHER, "Ist Informatik coolio????", true);
             default -> new Dialogue(null, null, "Das solltest du nicht sehen");
         };
 
