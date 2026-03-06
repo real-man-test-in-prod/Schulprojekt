@@ -22,13 +22,16 @@
     <div class="px-[5%] pt-[4%] pb-[1%] h-[40%]">
         <div class="relative h-full">
             <img src="/images/dialogue/textbox.svg" alt="textbox" class="absolute h-full"/>
-            <div class="absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-scroll"
+            <div class="absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden"
                  id="textbox">
             </div>
         </div>
     </div>
 </div>
 
+<script th:inline="javascript">
+    const dialogue = /*[[${roomDialogue.days[0].dialogue}]]*/ [];
+</script>
 <script src="/js/textDisplay.js"></script>
 <script src="/js/screenSize.js"></script>
 <script src="/js/scaleCharacters.js"></script>

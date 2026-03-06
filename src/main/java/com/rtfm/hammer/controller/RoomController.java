@@ -12,10 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class RoomController {
     private DialogueService dialogueService;
 
-    @GetMapping("/rooms/{id}")
-    public String getDialogue(@PathVariable Integer id, Model model) {
-        model.addAttribute("step", dialogueService.loadDialogue(id));
-        model.addAttribute("nextId", id + 1);
+    @GetMapping("/rooms/{roomCode}")
+    public String getDialogue(@PathVariable String roomCode, Model model) {
+        model.addAttribute("roomDialogue", dialogueService.loadRoomDialogue(roomCode));
         return "rooms/room";
     }
 

@@ -1,9 +1,7 @@
 const wrap = document.getElementById("body");
 const textbox = document.getElementById("textbox");
 
-const step = JSON.parse(wrap.dataset.step);
-let id = Number.parseInt(wrap.dataset.id, 10);
-
+let currentIndex = 0;
 let isTyping = false;
 let textIsDisplayed = false;
 
@@ -14,10 +12,14 @@ wrap.addEventListener("click", () => {
 });
 
 function render() {
-    if(!textIsDisplayed){
-        typeText(step.text ?? "End.");
+    if (!textIsDisplayed) {
+        if (currentIndex >= dialogue.length) return;
+        const entry = dialogue[currentIndex++];
+        textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + entry.speaker.toLowerCase();
+        typeText(entry.text);
     } else {
-        window.location.href = "/rooms/" + (id + 1);
+        textIsDisplayed = false;
+        render();
     }
 }
 
