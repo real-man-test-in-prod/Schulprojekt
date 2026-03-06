@@ -5,7 +5,7 @@
     <link rel="stylesheet" th:href="@{/css/main.css}">
     <link rel="stylesheet" th:href="@{/css/dialog.css}">
 </head>
-<body th:attr="data-step=${step},data-id=${id}" id="body">
+<body id="body">
 
 <div id="game" class="game-container">
     <div class="h-[55%] pt-[5%] flex">
@@ -30,10 +30,8 @@
 </div>
 
 <script th:inline="javascript">
-    const dialogue = /*[[${roomDialogue.days[0].dialogue}]]*/ [];
-</script>
-<script th:inline="javascript">
-    const questions = /*[[${day1Questions}]]*/ [];
+    const roomData = /*[[${roomDialogue}]]*/ {};
+    const allDaysQuestions = /*[[${allDaysQuestions}]]*/ [];
 </script>
 <script src="/js/textDisplay.js"></script>
 <script src="/js/screenSize.js"></script>
