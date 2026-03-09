@@ -41,7 +41,7 @@ public class Question {
     @Column(name = "points", nullable = false)
     private Integer points;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "question_set_id", insertable = false, updatable = false)
     @ToString.Exclude
     private QuestionSet questionSet;

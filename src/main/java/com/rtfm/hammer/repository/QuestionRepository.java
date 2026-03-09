@@ -12,6 +12,14 @@ import java.util.List;
 public interface QuestionRepository extends JpaRepository<Question, Integer> {
 
     /**
+     * Find Question by ID;
+     * @param questionId the question ID
+     * @return question
+     */
+
+    Question findByQuestionId(Integer questionId);
+
+    /**
      * Find all questions in a specific question set.
      *
      * @param questionSetId the question set ID
