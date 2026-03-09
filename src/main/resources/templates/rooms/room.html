@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>School Map</title>
     <link rel="stylesheet" th:href="@{/css/main.css}">
     <link rel="stylesheet" th:href="@{/css/dialog.css}">
 </head>
 <body>
-<div style="margin-bottom: 8%; grid-row: auto" >
+<div style="margin-bottom: 8%; grid-row: auto">
     <div th:insert="fragments/backToHomepage.html :: backToHomepage"></div>
-    <button style="position: fixed; top: 20px; right: 120px"
-            class="rounded bg-purple-300 p-2 shadow-md cursor-pointer"> School Map</button>
+    <a th:href="@{/school}"
+       style="position: fixed; top: 20px; right: 120px"
+       class="rounded bg-purple-300 p-2 shadow-md cursor-pointer"> School Map</a>
 </div>
 
 <h1 th:text="${roomId}"></h1>
