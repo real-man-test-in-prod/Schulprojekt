@@ -30,4 +30,7 @@ public class SaveGame {
     @Column(name = "saveGameName")
     private String saveGameName;
 
+    @Column(name = "score")
+    private int score;
+
 }

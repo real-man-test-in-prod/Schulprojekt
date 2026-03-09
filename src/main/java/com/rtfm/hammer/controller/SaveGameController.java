@@ -18,7 +18,7 @@ public class SaveGameController {
 
     @PostMapping
     public Map<String, String> saveGame(@RequestBody SaveGame saveGame) {
-        String code = saveGameService.save(saveGame.getSaveGameName(), saveGame.getSaveGameState(), saveGame.getDate());
+        String code = saveGameService.save(saveGame.getSaveGameName(), saveGame.getSaveGameState(), saveGame.getDate(), saveGame.getScore());
         return Map.of("saveCode", code);
     }
 
@@ -26,15 +26,23 @@ public class SaveGameController {
     public String index() {
         return "Saves";
     }
+   
 
-    @GetMapping("/{code}")
-    public SaveGame load(@PathVariable String code) {
-        return saveGameService.loadByCode(code);
-    }
+   
+   @GetMapping("/{code}")
+    public Map<String, Object> load(@PathVariable String code) {
+    SaveGame saveGame = saveGameService.loadByCode(code);
+
+        return Map.of(
+            "saveGame", saveGame,
+            "medal", saveGameService.getMedalForSaveGame(saveGame)
+    );
+}
+
 
     @PutMapping("/{code}")
     public Map<String, String> update(@PathVariable String code, @RequestBody SaveGame saveGame) {
-        saveGameService.update(code, saveGame.getSaveGameState(), saveGame.getDate());
+        saveGameService.update(code, saveGame.getSaveGameState(), saveGame.getDate(), saveGame.getScore());
         return Map.of("status", "updated");
     }
 

@@ -3,7 +3,8 @@ package com.rtfm.hammer.model;
 public enum Topic {
     JAVA,
     DATABASE,
-    NETZWERKE,
-    DATENSHUTZ,
+    Maschinelles_lernen,
+    Recht,
+    UML,
     WIRTSCHAFT
 }
