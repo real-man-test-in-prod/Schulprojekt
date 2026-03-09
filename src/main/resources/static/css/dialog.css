@@ -15,3 +15,31 @@ body {
 .text-outline-blue {
     -webkit-text-stroke: 1px #000000;
 }
+
+.answer-options-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.option-button {
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 2px solid #1a3a5c;
+    background-color: #1a3a5c;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.option-button:hover {
+    background-color: #2a5a8c;
+    border-color: #2a5a8c;
+}

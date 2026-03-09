@@ -1,0 +1,189 @@
+{
+  "roomCode": "room_db",
+  "title": "Datenbankmodellierung",
+  "npcName": "Herr Müller",
+  "description": "Vier Tage Datenbankmodellierung mit Herrn Müller – ERM, Normalisierung, Schlüssel, Anomalien, relationales Modell. Am Ende jedes Tages wartet ein Tagestest.",
+
+  "characters": {
+    "TEACHER": "Herr Müller – Fachinformatiker-Lehrer seit 14 Jahren. Kommt immer mit einem ER-Diagramm rein, das er an die Tafel malt, obwohl das Smartboard daneben hängt.",
+    "STUDENT": "Tim – Azubi im 2. Lehrjahr, eine Woche vor der IHK. Clever, aber manchmal zu vorschnell. Hat Angst vor Normalisierung. Jonas, sein Kumpel, sitzt neben ihm und schreibt ihm ab und zu Zettel."
+  },
+
+  "days": [
+
+    {
+      "dayIndex": 1,
+      "title": "Tag 1 – ERM Grundlagen & Kardinalitäten",
+      "setting": "Montagmorgen, 8:10 Uhr. Herrn Müllers Raum riecht nach Kaffee. An der Tafel stehen zwei Rechtecke und ein Rautensymbol – sein Standardeinstieg.",
+      "dialogue": [
+        { "seq": 1,  "speaker": "SYSTEM",   "text": "Montag, 08:10 Uhr. Herr Müller zeichnet schweigend ein Rechteck an die Tafel. Darunter schreibt er: 'Kunde'. Er dreht sich um." },
+        { "seq": 2,  "speaker": "TEACHER",  "text": "Guten Morgen. Wir haben eine Woche bis zur IHK. Fangen wir mit dem Fundament an. Tim, was ist das hier?" },
+        { "seq": 3,  "speaker": "STUDENT",  "text": "Eine... Tabelle?" },
+        { "seq": 4,  "speaker": "TEACHER",  "text": "Nein. Noch nicht. Das ist eine Entität im Entity-Relationship-Modell. Bevor wir Tabellen anlegen, modellieren wir. Weißt du, warum?" },
+        { "seq": 5,  "speaker": "STUDENT",  "text": "Damit man die Struktur versteht, bevor man etwas baut?" },
+        { "seq": 6,  "speaker": "TEACHER",  "text": "Genau. Das ERM ist ein konzeptionelles Modell – es beschreibt Objekte der realen Welt und ihre Beziehungen, unabhängig davon, welche Datenbank man später benutzt. Was ist also eine Entität?" },
+        { "seq": 7,  "speaker": "STUDENT",  "text": "Ein eindeutig identifizierbares Objekt der realen Welt. Also Kunde, Produkt, Bestellung." },
+        { "seq": 8,  "speaker": "TEACHER",  "text": "Richtig. Und dieses Rechteck hier – er tippt auf die Tafel – das ist die grafische Darstellung. Was wäre dann ein Attribut?" },
+        { "seq": 9,  "speaker": "STUDENT",  "text": "Eine Eigenschaft der Entität. Also beim Kunden zum Beispiel Name, Adresse, Geburtsdatum." },
+        { "seq": 10, "speaker": "TEACHER",  "text": "Korrekt. Im Diagramm als Ellipse, verbunden mit dem Rechteck. Gibt es verschiedene Arten von Attributen?" },
+        { "seq": 11, "speaker": "STUDENT",  "text": "Hm... einfache Attribute? Und ich glaube zusammengesetzte?" },
+        { "seq": 12, "speaker": "TEACHER",  "text": "Gut. Zusammengesetzte Attribute bestehen aus Teilattributen – Adresse zum Beispiel aus Straße, PLZ und Ort. Dann gibt es noch mehrwertige Attribute – die können mehrere Werte haben. Beispiel?" },
+        { "seq": 13, "speaker": "STUDENT",  "text": "Telefonnummern? Ein Kunde kann mehrere haben." },
+        { "seq": 14, "speaker": "TEACHER",  "text": "Genau. Und abgeleitete Attribute – die lassen sich aus anderen berechnen. Alter zum Beispiel aus dem Geburtsdatum. Die speichert man meist gar nicht, sondern berechnet sie bei Bedarf. Jetzt zum interessanten Teil: Wie stehen Entitäten in Beziehung zueinander?" },
+        { "seq": 15, "speaker": "STUDENT",  "text": "Über... Beziehungen? Mit Kardinalitäten?" },
+        { "seq": 16, "speaker": "TEACHER",  "text": "Richtig. Was ist die Kardinalität 1:n?" },
+        { "seq": 17, "speaker": "STUDENT",  "text": "Einem Datensatz auf der 1-Seite können mehrere auf der n-Seite zugeordnet sein. Also ein Kunde hat viele Bestellungen." },
+        { "seq": 18, "speaker": "TEACHER",  "text": "Gut. Und m:n?" },
+        { "seq": 19, "speaker": "STUDENT",  "text": "Viele zu vielen. Also ein Student belegt viele Kurse, ein Kurs hat viele Studenten." },
+        { "seq": 20, "speaker": "TEACHER",  "text": "Korrekt. Und wie setzt man eine m:n-Beziehung im relationalen Modell um? Das ist eine klassische Prüfungsfrage." },
+        { "seq": 21, "speaker": "STUDENT",  "text": "Über eine Zwischentabelle, die die Primärschlüssel beider Tabellen als Fremdschlüssel enthält." },
+        { "seq": 22, "speaker": "TEACHER",  "text": "Sehr schön. Und die 1:1-Beziehung – wie löst man die?" },
+        { "seq": 23, "speaker": "STUDENT",  "text": "Entweder man fügt den Primärschlüssel der einen Tabelle als Fremdschlüssel in die andere ein, oder man fasst beide zu einer Tabelle zusammen." },
+        { "seq": 24, "speaker": "TEACHER",  "text": "Korrekt. Gut. Es gibt noch eine spezielle Notation – die Min-Max-Notation. Was bedeutet zum Beispiel (0,1) bei einer Entität?" },
+        { "seq": 25, "speaker": "STUDENT",  "text": "Dass sie... mindestens null und höchstens einmal an der Beziehung teilnimmt? Also optional, aber nur einmal?" },
+        { "seq": 26, "speaker": "TEACHER",  "text": "Genau. Und (1,n) bedeutet mindestens einmal, beliebig oft. Das wird in der Prüfung manchmal statt der klassischen Pfeile verwendet. Noch eine letzte Frage: Was ist der Unterschied zwischen einer Entität und einem Entitätstyp?" },
+        { "seq": 27, "speaker": "STUDENT",  "text": "Entitätstyp ist die Klasse, also das Konzept 'Kunde'. Entität ist eine konkrete Instanz, also der Kunde Müller mit der ID 42." },
+        { "seq": 28, "speaker": "TEACHER",  "text": "Sehr präzise. Das wird oft durcheinander gebracht. Tagestest." },
+        { "seq": 29, "speaker": "STUDENT",  "text": "Schon? Ich dachte wir haben noch..." },
+        { "seq": 30, "speaker": "TEACHER",  "text": "Die IHK wartet nicht. Zehn Fragen." }
+      ],
+      "dailyTest": {
+        "intro": { "speaker": "SYSTEM", "text": "Tagestest – Tag 1: ERM Grundlagen & Kardinalitäten. 10 Fragen. Herr Müller trinkt seinen ersten Kaffee des Tages." },
+        "questionRefs": ["db_q01","db_q02","db_q03","db_q06","db_q07","db_q24","db_q30","db_q31","db_q36","db_q21"],
+        "outro": { "speaker": "TEACHER", "text": "Morgen Normalisierung. Das ist der Teil, den viele unterschätzen – und dann in der Prüfung bereuen. Schlaft gut." }
+      }
+    },
+
+    {
+      "dayIndex": 2,
+      "title": "Tag 2 – Normalisierung: 1NF, 2NF, 3NF & Anomalien",
+      "setting": "Dienstag, 10:45 Uhr. Nach der Pause. Tim hat Jonas gefragt, ob Normalisierung 'wirklich so wichtig' ist. Jonas hat geschulterzuckt. Tim findet das nicht beruhigend.",
+      "dialogue": [
+        { "seq": 1,  "speaker": "SYSTEM",   "text": "Dienstag, 10:45 Uhr. Herr Müller hat auf der Folie drei Stufen eingezeichnet: 1NF, 2NF, 3NF. Darunter steht: 'Anomalien sind das Problem, Normalisierung die Lösung.'" },
+        { "seq": 2,  "speaker": "TEACHER",  "text": "Guten Morgen. Tim, was ist eine Anomalie in einer Datenbank?" },
+        { "seq": 3,  "speaker": "STUDENT",  "text": "Wenn... Daten nicht stimmen? Also Fehler?" },
+        { "seq": 4,  "speaker": "TEACHER",  "text": "Nicht ganz. Anomalien entstehen nicht durch falsche Daten, sondern durch eine schlechte Struktur. Stell dir vor: Schüler und Kurse alles in einer Tabelle. KursName steht für jeden Schüler nochmal drin. Was passiert, wenn du den Kursnamen ändern willst?" },
+        { "seq": 5,  "speaker": "STUDENT",  "text": "Du musst ihn in jeder Zeile ändern. Und wenn du eine vergisst, ist er inkonsistent." },
+        { "seq": 6,  "speaker": "TEACHER",  "text": "Exakt. Das ist eine Änderungsanomalie. Und wenn du einen neuen Kurs anlegen willst, aber noch kein Schüler eingetragen ist?" },
+        { "seq": 7,  "speaker": "STUDENT",  "text": "Dann kannst du ihn gar nicht eintragen, weil die Schüler-ID fehlt?" },
+        { "seq": 8,  "speaker": "TEACHER",  "text": "Genau. Einfügeanomalie. Und wenn der letzte Schüler eines Kurses die Schule verlässt und du ihn löschst?" },
+        { "seq": 9,  "speaker": "STUDENT",  "text": "Dann verlierst du alle Informationen über den Kurs mit." },
+        { "seq": 10, "speaker": "TEACHER",  "text": "Löschanomalie. Alle drei Typen entstehen durch dieselbe Ursache: zu viele unabhängige Informationen in einer Tabelle. Die Lösung ist Normalisierung. Was fordert die Erste Normalform?" },
+        { "seq": 11, "speaker": "STUDENT",  "text": "Alle Attributwerte müssen atomar sein. Keine Listen oder zusammengesetzten Werte in einer Zelle." },
+        { "seq": 12, "speaker": "TEACHER",  "text": "Richtig. Eine Zelle, ein Wert. Konkretes Beispiel: In einer Spalte steht 'Müller, Schmidt, Wagner' als ein einziger String. Was ist das Problem?" },
+        { "seq": 13, "speaker": "STUDENT",  "text": "Das ist nicht atomar – drei Namen in einer Zelle. Verletzt die 1NF." },
+        { "seq": 14, "speaker": "TEACHER",  "text": "Korrekt. Und die 2NF?" },
+        { "seq": 15, "speaker": "STUDENT",  "text": "Die Tabelle muss in 1NF sein, und jedes Nicht-Schlüssel-Attribut muss vom gesamten Primärschlüssel abhängen – nicht nur von einem Teil." },
+        { "seq": 16, "speaker": "TEACHER",  "text": "Wichtig: Die 2NF greift nur, wenn der Primärschlüssel aus mehreren Attributen zusammengesetzt ist. Wenn du nur eine einzelne ID als Schlüssel hast, bist du automatisch in 2NF, sofern du in 1NF bist. Beispiel: Tabelle mit (BestellungID, ArtikelID) als Schlüssel – und KundenName hängt nur von BestellungID ab. Welche Normalform?" },
+        { "seq": 17, "speaker": "STUDENT",  "text": "2NF verletzt. KundenName hängt nur von einem Teil des Schlüssels ab – partielle Abhängigkeit." },
+        { "seq": 18, "speaker": "TEACHER",  "text": "Gut. Und die Lösung?" },
+        { "seq": 19, "speaker": "STUDENT",  "text": "KundenName in eine separate Kunden-Tabelle auslagern, mit BestellungID als Fremdschlüssel." },
+        { "seq": 20, "speaker": "TEACHER",  "text": "Richtig. Jetzt die 3NF – was ist eine transitive Abhängigkeit?" },
+        { "seq": 21, "speaker": "STUDENT",  "text": "Wenn ein Nicht-Schlüssel-Attribut nicht direkt vom Schlüssel abhängt, sondern über ein anderes Nicht-Schlüssel-Attribut." },
+        { "seq": 22, "speaker": "TEACHER",  "text": "Genau. Beispiel: MitarbeiterID bestimmt AbteilungsID, und AbteilungsID bestimmt AbteilungsLeiter. AbteilungsLeiter hängt transitiv vom Schlüssel ab. Was verletzt das?" },
+        { "seq": 23, "speaker": "STUDENT",  "text": "3NF." },
+        { "seq": 24, "speaker": "TEACHER",  "text": "Korrekt. Merke: 2NF löst partielle Abhängigkeiten auf, 3NF löst transitive. Jetzt noch zur funktionalen Abhängigkeit – das ist der theoretische Unterbau. Was bedeutet A → B?" },
+        { "seq": 25, "speaker": "STUDENT",  "text": "Für jeden Wert von A gibt es genau einen Wert von B. A bestimmt B eindeutig." },
+        { "seq": 26, "speaker": "TEACHER",  "text": "Sehr präzise. Das ist die Grundlage aller Normalformen. Und noch eine Sache: Was versteht man unter einem nicht-normalisierten Zeichen in der Praxis?" },
+        { "seq": 27, "speaker": "STUDENT",  "text": "Wenn dieselbe Information – zum Beispiel eine Adresse – in mehreren Zeilen wiederholt gespeichert wird?" },
+        { "seq": 28, "speaker": "TEACHER",  "text": "Genau das. Redundanz ist das Symptom, fehlende Normalisierung die Ursache. Tagestest." },
+        { "seq": 29, "speaker": "STUDENT",  "text": "Ich hab heute wirklich aufgepasst." },
+        { "seq": 30, "speaker": "TEACHER",  "text": "Das werden wir gleich sehen. Zehn Fragen." }
+      ],
+      "dailyTest": {
+        "intro": { "speaker": "SYSTEM", "text": "Tagestest – Tag 2: Normalisierung & Anomalien. 10 Fragen. Jonas schaut von der Seite rüber." },
+        "questionRefs": ["db_q09","db_q10","db_q11","db_q12","db_q13","db_q14","db_q15","db_q16","db_q17","db_q25"],
+        "outro": { "speaker": "TEACHER", "text": "Morgen Schlüssel und referentielle Integrität. Klingt trocken – ist aber das, was Datenbanken tatsächlich zusammenhält." }
+      }
+    },
+
+    {
+      "dayIndex": 3,
+      "title": "Tag 3 – Schlüssel, Integrität & besondere Entitätstypen",
+      "setting": "Mittwoch, 13:15 Uhr. Nach dem Mittagessen. Tim hat Jonas erklärt, er verstehe jetzt Normalisierung. Jonas hat gesagt: 'Warte auf schwache Entitäten.' Tim weiß nicht, was das bedeutet.",
+      "dialogue": [
+        { "seq": 1,  "speaker": "SYSTEM",   "text": "Mittwoch, 13:15 Uhr. Herr Müller hat an der Tafel ein Rechteck mit doppelten Linien gezeichnet. Daneben steht ein Fragezeichen." },
+        { "seq": 2,  "speaker": "TEACHER",  "text": "Tim, was ist das?" },
+        { "seq": 3,  "speaker": "STUDENT",  "text": "Ein Rechteck mit doppelter Linie... keine Ahnung." },
+        { "seq": 4,  "speaker": "TEACHER",  "text": "Das ist eine schwache Entität. Aber fangen wir mit Schlüsseln an, dann kommen wir dahin. Was ist ein Primärschlüssel?" },
+        { "seq": 5,  "speaker": "STUDENT",  "text": "Ein Attribut oder eine Kombination, das jeden Datensatz eindeutig identifiziert. Darf nicht NULL sein." },
+        { "seq": 6,  "speaker": "TEACHER",  "text": "Gut. Warum darf er nicht NULL sein?" },
+        { "seq": 7,  "speaker": "STUDENT",  "text": "Weil NULL keine eindeutige Identifikation erlaubt. NULL bedeutet 'unbekannt' – damit kann man keinen Datensatz identifizieren." },
+        { "seq": 8,  "speaker": "TEACHER",  "text": "Sehr gut. Was ist ein Fremdschlüssel?" },
+        { "seq": 9,  "speaker": "STUDENT",  "text": "Ein Attribut, das auf den Primärschlüssel einer anderen Tabelle verweist." },
+        { "seq": 10, "speaker": "TEACHER",  "text": "Und was stellt er sicher?" },
+        { "seq": 11, "speaker": "STUDENT",  "text": "Referentielle Integrität. Also dass kein Fremdschlüsselwert auf einen nicht existierenden Primärschlüssel zeigt." },
+        { "seq": 12, "speaker": "TEACHER",  "text": "Korrekt. Was passiert, wenn das verletzt wird?" },
+        { "seq": 13, "speaker": "STUDENT",  "text": "Dann gibt es einen Fremdschlüsselwert, dem kein Primärschlüssel in der referenzierten Tabelle gegenübersteht. Ein sogenannter Dangling Reference." },
+        { "seq": 14, "speaker": "TEACHER",  "text": "Gut. Jetzt Kandidatenschlüssel – was ist das?" },
+        { "seq": 15, "speaker": "STUDENT",  "text": "Eine minimale Attributkombination, die alle Zeilen eindeutig identifizieren kann. Aus allen Kandidatenschlüsseln wählt man einen als Primärschlüssel." },
+        { "seq": 16, "speaker": "TEACHER",  "text": "Richtig. Beispiel: In einer Mitarbeitertabelle könnten Personalnummer und E-Mail-Adresse beide Kandidatenschlüssel sein. Was wählt man als Primärschlüssel?" },
+        { "seq": 17, "speaker": "STUDENT",  "text": "Den, der stabiler ist. Personalnummer ändert sich nie, E-Mail könnte sich ändern. Also Personalnummer." },
+        { "seq": 18, "speaker": "TEACHER",  "text": "Gut gedacht. Damit hängt die nächste Frage zusammen: Was ist der Unterschied zwischen einem natürlichen Schlüssel und einem Surrogatschlüssel?" },
+        { "seq": 19, "speaker": "STUDENT",  "text": "Natürlicher Schlüssel hat fachliche Bedeutung – wie eine Steuernummer. Surrogatschlüssel ist künstlich – wie eine auto-increment ID ohne eigene Bedeutung." },
+        { "seq": 20, "speaker": "TEACHER",  "text": "Korrekt. Jetzt zur schwachen Entität – was ist das?" },
+        { "seq": 21, "speaker": "STUDENT",  "text": "Eine Entität ohne eigene Attribute?" },
+        { "seq": 22, "speaker": "TEACHER",  "text": "Nein, Tim. Das hat nichts mit der Anzahl der Attribute zu tun. Eine schwache Entität kann sich selbst nicht eindeutig identifizieren – sie braucht eine andere, starke Entität dafür. Beispiel: Eine Bestellposition hat keine ID, die weltweit einzigartig ist. Erst die Kombination aus BestellungID und PositionsNummer macht sie eindeutig. Ohne die Bestellung existiert die Position nicht." },
+        { "seq": 23, "speaker": "STUDENT",  "text": "Ah – also es geht darum, von wem sie existenziell abhängt, nicht wie viele Attribute sie hat." },
+        { "seq": 24, "speaker": "TEACHER",  "text": "Genau. Im Diagramm als doppeltes Rechteck. Und jetzt noch etwas, das oft überrascht: rekursive Beziehungen. Was ist das?" },
+        { "seq": 25, "speaker": "STUDENT",  "text": "Wenn eine Entität mit sich selbst in Beziehung steht?" },
+        { "seq": 26, "speaker": "TEACHER",  "text": "Ja – und ein konkretes Beispiel?" },
+        { "seq": 27, "speaker": "STUDENT",  "text": "Ein Mitarbeiter kann Vorgesetzter anderer Mitarbeiter sein. Beide sind Instanzen derselben Entität." },
+        { "seq": 28, "speaker": "TEACHER",  "text": "Sehr schön. Das kommt in der Prüfung manchmal als Diagrammaufgabe. Tagestest." },
+        { "seq": 29, "speaker": "STUDENT",  "text": "Ich hab die schwache Entität fast falsch beantwortet." },
+        { "seq": 30, "speaker": "TEACHER",  "text": "Fast ist nicht falsch. Aber beim Test zählt nur korrekt. Los." }
+      ],
+      "dailyTest": {
+        "intro": { "speaker": "SYSTEM", "text": "Tagestest – Tag 3: Schlüssel, Integrität & Entitätstypen. 10 Fragen. Herrn Müllers Kaffeetasse ist leer." },
+        "questionRefs": ["db_q04","db_q05","db_q08","db_q18","db_q19","db_q20","db_q21","db_q22","db_q23","db_q27"],
+        "outro": { "speaker": "TEACHER", "text": "Morgen der letzte Tag – Modellierungsregeln und das große Bild. Dann seid ihr fertig." }
+      }
+    },
+
+    {
+      "dayIndex": 4,
+      "title": "Tag 4 – Modellierungsregeln, Überführung & das große Bild",
+      "setting": "Donnerstag, 08:00 Uhr. Ein Tag vor der IHK. Tim ist früher als sonst da. Herr Müller bemerkt das, sagt aber nichts. Er lächelt kurz in seinen Kaffee.",
+      "dialogue": [
+        { "seq": 1,  "speaker": "SYSTEM",   "text": "Donnerstag, 08:00 Uhr. Tim ist der Erste. Herr Müller steht bereits am Smartboard. Auf der Folie: 'ERM → relationales Schema. Heute alles zusammen.'" },
+        { "seq": 2,  "speaker": "TEACHER",  "text": "Tim. Du bist früh. Das ist ungewohnt." },
+        { "seq": 3,  "speaker": "STUDENT",  "text": "Morgen ist die Prüfung. Ich will heute nichts mehr offen lassen." },
+        { "seq": 4,  "speaker": "TEACHER",  "text": "Gut. Dann fangen wir mit der wichtigsten Frage an: Wie überführt man ein ERM in ein relationales Datenbankschema? Schritt für Schritt." },
+        { "seq": 5,  "speaker": "STUDENT",  "text": "Entitäten werden zu Tabellen. Attribute werden zu Spalten. 1:n-Beziehungen über Fremdschlüssel. m:n-Beziehungen über eine Zwischentabelle." },
+        { "seq": 6,  "speaker": "TEACHER",  "text": "Sehr gut. Was passiert mit den Primärschlüsseln bei der Überführung?" },
+        { "seq": 7,  "speaker": "STUDENT",  "text": "Sie bleiben erhalten – jede Tabelle bekommt ihren Primärschlüssel." },
+        { "seq": 8,  "speaker": "TEACHER",  "text": "Korrekt. Was ist mit mehrwertigen Attributen? Zum Beispiel: Ein Kunde hat mehrere Telefonnummern." },
+        { "seq": 9,  "speaker": "STUDENT",  "text": "Die darf man nicht einfach in mehrere Spalten aufteilen wie Telefon1, Telefon2 – das wäre schlechtes Design. Richtig ist, sie in eine eigene Tabelle auszulagern, mit Fremdschlüssel auf die Kundentabelle." },
+        { "seq": 10, "speaker": "TEACHER",  "text": "Exakt. Das ist eine der häufigsten Prüfungsfallen. Und warum sind Beziehungstabellen bei m:n notwendig – kann man es nicht anders lösen?" },
+        { "seq": 11, "speaker": "STUDENT",  "text": "Nein – das relationale Modell unterstützt m:n nicht direkt. Ohne Zwischentabelle müsste man entweder Daten duplizieren oder Arrays speichern – beides verletzt Normalformen." },
+        { "seq": 12, "speaker": "TEACHER",  "text": "Gut begründet. Jetzt ein konkretes Szenario: ERM mit Entitäten 'Student' und 'Kurs', m:n-Beziehung 'belegt'. Was entsteht beim Überführen?" },
+        { "seq": 13, "speaker": "STUDENT",  "text": "Drei Tabellen: Student, Kurs, und eine Zwischentabelle 'Belegung' mit StudentID und KursID als Fremdschlüssel." },
+        { "seq": 14, "speaker": "TEACHER",  "text": "Und was ist der Primärschlüssel der Belegung-Tabelle?" },
+        { "seq": 15, "speaker": "STUDENT",  "text": "Die Kombination aus StudentID und KursID – zusammengesetzter Primärschlüssel." },
+        { "seq": 16, "speaker": "TEACHER",  "text": "Sehr schön. Was ist der Unterschied zwischen konzeptionellem und logischem Datenmodell?" },
+        { "seq": 17, "speaker": "STUDENT",  "text": "Konzeptionell ist das ERM – beschreibt fachliche Zusammenhänge, unabhängig von Technik. Logisch ist das relationale Schema – konkrete Tabellen, Spalten, Schlüssel." },
+        { "seq": 18, "speaker": "TEACHER",  "text": "Perfekt. Jetzt ein etwas unerwartetes Thema: Denormalisierung. Was ist das?" },
+        { "seq": 19, "speaker": "STUDENT",  "text": "Das ist... das Gegenteil von Normalisierung? Also Redundanz bewusst einführen?" },
+        { "seq": 20, "speaker": "TEACHER",  "text": "Genau. Manchmal führt man gezielt Redundanz ein, um Leseperformance zu steigern. Zum Beispiel: Man speichert den Kundennamen direkt in der Bestellungstabelle, damit man keinen JOIN braucht. Was ist der Nachteil?" },
+        { "seq": 21, "speaker": "STUDENT",  "text": "Datenkonsistenz leidet. Wenn sich der Name ändert, muss man ihn an mehreren Stellen aktualisieren." },
+        { "seq": 22, "speaker": "TEACHER",  "text": "Korrekt. Denormalisierung ist ein bewusster Kompromiss – nicht Fehler, sondern Designentscheidung. Letzte Frage: Was ist ein abgeleitetes Attribut, und wie geht man damit im relationalen Modell um?" },
+        { "seq": 23, "speaker": "STUDENT",  "text": "Ein Attribut, das sich aus anderen Attributen berechnen lässt – Alter aus Geburtsdatum zum Beispiel. Man speichert es normalerweise nicht, sondern berechnet es bei Bedarf." },
+        { "seq": 24, "speaker": "TEACHER",  "text": "Sehr gut. Das war heute wirklich stark, Tim. Wenn du morgen so antwortest, hast du bestanden." },
+        { "seq": 25, "speaker": "STUDENT",  "text": "Was, wenn ich in der Prüfung einen Denkfehler mache?" },
+        { "seq": 26, "speaker": "TEACHER",  "text": "Dann machst du einen Denkfehler. Aber du hast vier Tage lang Konzepte erklärt, hinterfragt und angewendet – nicht auswendig gelernt. Das ist der Unterschied. Los, letzter Test." },
+        { "seq": 27, "speaker": "STUDENT",  "text": "Okay. Ich bin bereit." }
+      ],
+      "dailyTest": {
+        "intro": { "speaker": "SYSTEM", "text": "Tagestest – Tag 4: Modellierungsregeln & Überführung. 10 Fragen. Der letzte Test vor der Prüfung. Jonas schaut von der Seite zu." },
+        "questionRefs": ["db_q26","db_q28","db_q29","db_q32","db_q33","db_q34","db_q35","db_q37","db_q38","db_q39","db_q40"],
+        "outro": { "speaker": "TEACHER", "text": "Das war's. Vier Tage, 40 Fragen, ein Thema – vollständig. Morgen zeigst du, was du kannst. Viel Erfolg, Tim." }
+      }
+    }
+
+  ],
+
+  "completionMessage": {
+    "speaker": "SYSTEM",
+    "text": "Raum abgeschlossen. Du hast alle vier Unterrichtstage und den Stoff zur Datenbankmodellierung vollständig durchgearbeitet. Herr Müller tippt etwas in seinen Laptop – wahrscheinlich Tims Namen auf eine Liste, auf der vorher ein Fragezeichen stand."
+  }
+}
