@@ -35,11 +35,13 @@ public class QuestionController {
 
     @PostMapping("/{questionID}")
     public int validateQuestion(@PathVariable String questionID, @RequestBody QuestionRequest body) {
-        Question question = questionService.getQuestionByCode(Integer.parseInt(questionID));
+        int id = Integer.parseInt(questionID);
+        Question question = questionService.getQuestionByCode(id);
         boolean isCorrect = false;
 
         if (question.getQuestionType().equals("TF") || question.getQuestionType().equals("MC")) {
-           // isCorrect = questionService.validateMC(question, body.get("answer").asString());
+            int test = questionService.validateMC(question, questionID, body.getAnswers());
+            System.out.println(test);
         } else {
             if (body.getAnswers().size() > 1) {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Zu viele Antworten");

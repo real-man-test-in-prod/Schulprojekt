@@ -1,6 +1,7 @@
 package com.rtfm.hammer.service;
 
 import com.rtfm.hammer.model.GapOption;
+import com.rtfm.hammer.model.McAnswer;
 import com.rtfm.hammer.model.Question;
 import com.rtfm.hammer.repository.GapOptionRepository;
 import com.rtfm.hammer.repository.McAnswerRepository;
@@ -31,11 +32,24 @@ public class QuestionService {
 
     public boolean validateGAP(String gapID, String answer) {
         List<GapOption> gapField = gapOptionRepository.findByGapIdAndIsCorrectTrue(Integer.parseInt(gapID));
+
         return gapField.stream()
                 .anyMatch(option -> option.getOptionText().equals(answer));
     }
 
-    public boolean validateMC(Map<String, String> mcAnswer) {
-        return false;
+    public int validateMC(Question question, String questionID, Map<String, String> userAnswers) {
+        List<McAnswer> correctAnswers = mcAnswerRepository
+                .findByQuestionIdAndIsCorrectTrue(Integer.parseInt(questionID));
+        int answerCount = correctAnswers.size();
+        int points = question.getPoints();
+        int score = 0;
+
+        for (McAnswer answer : correctAnswers) {
+            String userValue = userAnswers.get(answer.getAnswerId().toString());
+            if (userValue != null && Integer.parseInt(userValue) == 1) {
+                score++;
+            }
+        }
+        return score * points / answerCount;
     }
 }
