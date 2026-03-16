@@ -6,6 +6,7 @@ target/
 src/main/resources/database/*
 /node_modules/
 storage/
+src/main/resources/static/css/main.css
 
 ### STS ###
 .apt_generated
