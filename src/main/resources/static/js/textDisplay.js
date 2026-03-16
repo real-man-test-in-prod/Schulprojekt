@@ -2,22 +2,34 @@ const wrap = document.getElementById("body");
 const textbox = document.getElementById("textbox");
 const answerOptionsContainer = document.getElementById("answer-options");
 
-// Phases: 'dialogue' | 'test-intro' | 'questions' | 'test-outro' | 'day-transition' | 'complete'
+// Phases: 'dialogue' | 'test-intro' | 'questions' | 'test-outro' | 'complete'
 let phase = 'dialogue';
 let currentDayIndex = 0;
 let currentIndex = 0;
 let currentQuestionIndex = 0;
 let isTyping = false;
-let textIsDisplayed = false;
+let isDisplayingText = false;
+let isDisplayingQuestion = false;
+let currentText = "";
+let displayIndex;
 
 render();
 
-// Button clicks use event.stopPropagation() so they never reach here.
 wrap.addEventListener("click", () => {
-    if (phase === 'questions') return;
+    moveForward()
+});
 
-    if (textIsDisplayed) {
-        textIsDisplayed = false;
+function moveForward() {
+    if(phase === 'questions' && !isDisplayingQuestion){
+        console.log("DOING THIS")
+        showAnswerOptions(allDaysQuestions[currentDayIndex][currentQuestionIndex])
+    }
+    if (isTyping) {
+        finishTextDisplay();
+        return;
+    }
+    if (isDisplayingText) {
+        isDisplayingText = false;
         if (phase === 'dialogue') {
             render();
         } else if (phase === 'test-intro') {
@@ -34,7 +46,7 @@ wrap.addEventListener("click", () => {
     } else {
         render();
     }
-});
+}
 
 function render() {
     if (phase !== 'dialogue') return;
@@ -43,14 +55,12 @@ function render() {
     if (currentIndex >= dayDialogue.length) {
         phase = 'test-intro';
         const intro = roomData.days[currentDayIndex].dailyTest.intro;
-        textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + intro.speaker.toLowerCase();
-        typeText(intro.text);
+        setText(intro.text);
         return;
     }
 
     const entry = dayDialogue[currentIndex++];
-    textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + entry.speaker.toLowerCase();
-    typeText(entry.text);
+    setText(entry.text);
 }
 
 function startQuestionsPhase() {
@@ -63,18 +73,15 @@ function startQuestionsPhase() {
 }
 
 function displayQuestion(question) {
-    textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--teacher";
-    typeText(question.prompt, 40, () => {
+    setText(question.prompt, 40, () => {
         showAnswerOptions(question);
     });
 }
 
-
 function showTestOutro() {
     phase = 'test-outro';
     const outro = roomData.days[currentDayIndex].dailyTest.outro;
-    textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + outro.speaker.toLowerCase();
-    typeText(outro.text);
+    setText(outro.text);
 }
 
 function advanceToNextDay() {
@@ -82,45 +89,47 @@ function advanceToNextDay() {
     if (nextDayIndex >= roomData.days.length) {
         phase = 'complete';
         const msg = roomData.completionMessage;
-        textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + msg.speaker.toLowerCase();
         textbox.innerHTML = msg.text;
-        textIsDisplayed = true;
+        isDisplayingText = true;
         return;
     }
     currentDayIndex = nextDayIndex;
     phase = 'day-transition';
     const intro = roomData.days[currentDayIndex].dailyTest.intro;
-    textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + intro.speaker.toLowerCase();
-    typeText(intro.text);
+    setText(intro.text);
 }
 
-function typeText(text, speed = 40, onComplete = null) {
-    console.log("isTyping:" + isTyping);
+function finishTextDisplay() {
     textbox.innerHTML = "";
 
-    const spanArray = createSpanArray(text);
+    const spanArray = createSpanArray(currentText);
+    spanArray.forEach(span => span.style.opacity = "1");
+    displayIndex = -1
+    isTyping = false;
+    isDisplayingText = true;
+}
 
-    if (isTyping) {
-        spanArray.forEach(span => span.style.opacity = "1");
-        isTyping = false;
-        textIsDisplayed = true;
-        if (onComplete) onComplete();
-    } else {
-        isTyping = true;
-        let i = 0;
-        function type() {
-            if (i < text.length) {
-                spanArray[i].style.opacity = "1";
-                i++;
-                setTimeout(type, speed);
-            } else {
-                isTyping = false;
-                textIsDisplayed = true;
-                if (onComplete) onComplete();
-            }
+function setText(text, speed = 40, onComplete = null) {
+    currentText = text;
+    textbox.innerHTML = "";
+
+    const spanArray = createSpanArray(currentText);
+    isTyping = true;
+    displayIndex = 0;
+
+    function type() {
+        if (displayIndex < currentText.length && displayIndex !== -1) {
+            spanArray[displayIndex].style.opacity = "1";
+            displayIndex++;
+            setTimeout(type, speed);
+        } else {
+            isTyping = false;
+            isDisplayingText = true;
+            if(onComplete) onComplete();
         }
-        type();
     }
+
+    type();
 }
 
 function createSpanArray(text) {
@@ -166,32 +175,27 @@ function showAnswerOptions(question) {
         button.className = "option-button";
         button.textContent = option.text;
         button.addEventListener("click", (event) => {
-            event.stopPropagation(); // Bug 1 fix: prevent click from reaching body listener
+            event.stopPropagation();
             handleAnswer(option, question);
         });
         optionsDiv.appendChild(button);
     });
 
     answerOptionsContainer.appendChild(optionsDiv);
+    isDisplayingQuestion = true;
 }
 
 function handleAnswer(selectedOption, question) {
     answerOptionsContainer.innerHTML = "";
 
-    const feedbackText = selectedOption.correct
+    textbox.innerHTML = selectedOption.correct
         ? "Richtig. +" + question.points + " Punkt"
         : "Leider falsch.";
 
-    const feedbackClass = selectedOption.correct
-        ? "bubble--teacher feedback-correct"
-        : "bubble--teacher feedback-incorrect";
-
-    textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden " + feedbackClass;
-    textbox.innerHTML = feedbackText;
-
     setTimeout(() => {
+        isDisplayingQuestion = false;
         currentQuestionIndex++;
-        textIsDisplayed = false;
+        isDisplayingText = false;
         startQuestionsPhase();
     }, 1000);
 }
