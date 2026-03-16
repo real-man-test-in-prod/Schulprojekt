@@ -13,7 +13,7 @@ body {
 }
 
 .text-outline-blue {
-    -webkit-text-stroke: 1px #000000;
+    -webkit-text-stroke: 0.1cqi #000000;
 }
 
 .answer-options-container {

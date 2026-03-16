@@ -8,42 +8,39 @@
 </head>
 
 <body th:attr="data-step=${step},data-id=${id}" id="body">
-    <div style="margin-bottom: 8%; grid-row: auto">
-        <div th:insert="fragments/backToHomepage.html :: backToHomepage"></div>
-        <a th:href="@{/school}" style="position: fixed; top: 20px; right: 120px"
-            class="rounded bg-purple-300 p-2 shadow-md cursor-pointer"> School Map</a>
-    </div>
-
-    <div id="game" class="game-container">
-        <div class="h-[55%] pt-[5%] flex">
-            <div class="w-[35%]">
-                <img id="teacher-img" src="/assets/characters/teacher/happy.png" class="scale-120 mt-[15%] ml-[30%]">
-            </div>
-            <div class="w-[30%]">
-                <div id="answer-options" class="answer-options-container"></div>
-            </div>
-            <div class="w-[35%]">
-                <img id="student-img" src="/assets/characters/student/happy.png"
-                    class="transform scale-120 mt-[15%] ml-[10%]">
-            </div>
+<div id="game" class="game-container relative @container">
+    <div th:insert="fragments/backToHomepage.html :: backToHomepage"></div>
+    <a th:href="@{/school}" style="position: absolute; top: 1cqi; right: 11cqi"
+       class="rounded-[1cqi] p-[1cqi] shadow-[1cqi] bg-purple-300 cursor-pointer text-[1.5cqi]"> School Map</a>
+    <div class="h-[55%] pt-[5%] flex">
+        <div class="w-[35%]">
+            <img id="teacher-img" src="/assets/characters/teacher/happy.png" class="scale-120 mt-[15%] ml-[30%]">
         </div>
-        <div class="px-[5%] pt-[4%] pb-[1%] h-[40%]">
-            <div class="relative h-full">
-                <img src="/images/dialogue/textbox.svg" alt="textbox" class="absolute h-full" />
-                <div class="absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden"
-                    id="textbox">
-                </div>
+        <div class="w-[30%]">
+            <div id="answer-options" class="answer-options-container"></div>
+        </div>
+        <div class="w-[35%]">
+            <img id="student-img" src="/assets/characters/student/happy.png"
+                 class="transform scale-120 mt-[15%] ml-[10%]">
+        </div>
+    </div>
+    <div class="px-[5%] pt-[4%] pb-[1%] h-[40%]">
+        <div class="relative h-full @container">
+            <img src="/images/dialogue/textbox.svg" alt="textbox" class="absolute h-full"/>
+            <div class="absolute p-[2%] text-[3cqi] text-white font-bold text-outline-blue h-full"
+                 id="textbox">
             </div>
         </div>
     </div>
+</div>
 
-    <script th:inline="javascript">
-        const roomData = /*[[${roomDialogue}]]*/ {};
-        const allDaysQuestions = /*[[${allDaysQuestions}]]*/[];
-    </script>
-    <script src="/js/textDisplay.js"></script>
-    <script src="/js/screenSize.js"></script>
-    <script src="/js/scaleCharacters.js"></script>
+<script th:inline="javascript">
+    const roomData = /*[[${roomDialogue}]]*/ {};
+    const allDaysQuestions = /*[[${allDaysQuestions}]]*/[];
+</script>
+<script src="/js/textDisplay.js"></script>
+<script src="/js/screenSize.js"></script>
+<script src="/js/scaleCharacters.js"></script>
 </body>
 
 </html>
