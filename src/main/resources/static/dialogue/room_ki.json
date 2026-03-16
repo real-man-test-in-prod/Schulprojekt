@@ -1,0 +1,48 @@
+{
+  "roomCode": "room_ki",
+  "title": "Künstliche Intelligenz & Maschinelles Lernen",
+  "npcName": "Herr Weber",
+  "description": "Ein Tag mit Herrn Weber – überwachtes und unüberwachtes Lernen, neuronale Netze, Overfitting, Metriken. Tagestest am Ende.",
+
+  "days": [
+    {
+      "dayIndex": 1,
+      "title": "Tag 1 – Maschinelles Lernen: Grundkonzepte",
+      "setting": "Donnerstag, 10:00 Uhr. Herr Weber arbeitet als KI-Entwickler und gibt gelegentlich Unterricht. Er ist der erste Lehrer, den Tim je erlebt hat, der seinen eigenen Laptop mitgebracht hat.",
+      "dialogue": [
+        { "seq": 1,  "speaker": "SYSTEM",   "text": "Donnerstag, 10:00 Uhr. Herr Weber öffnet ein Jupyter Notebook auf seinem Laptop. Tim hat noch nie eines gesehen. Jonas auch nicht, aber er nickt trotzdem." },
+        { "seq": 2,  "speaker": "TEACHER",  "text": "Guten Morgen. Maschinelles Lernen – was versteht ihr darunter?" },
+        { "seq": 3,  "speaker": "STUDENT",  "text": "Algorithmen, die aus Daten lernen, anstatt explizit programmiert zu werden?" },
+        { "seq": 4,  "speaker": "TEACHER",  "text": "Sehr gut formuliert. Das Modell findet selbst Muster in den Daten. Es gibt drei große Lernparadigmen: überwacht, unüberwacht und bestärkend. Was ist überwachtes Lernen?" },
+        { "seq": 5,  "speaker": "STUDENT",  "text": "Wenn man dem Modell gelabelte Daten gibt – also Beispiele mit richtigen Antworten." },
+        { "seq": 6,  "speaker": "TEACHER",  "text": "Korrekt. Das Modell lernt die Abbildung von Eingabe auf Ausgabe. Klassifikation ist ein typisches Beispiel: Spam oder kein Spam. Was ist unüberwachtes Lernen?" },
+        { "seq": 7,  "speaker": "STUDENT",  "text": "Da... gibt es keine Labels? Das Modell sucht selbst Muster?" },
+        { "seq": 8,  "speaker": "TEACHER",  "text": "Genau. Clustering zum Beispiel: Kunden in Gruppen einteilen, ohne vorher zu wissen, welche Gruppen es gibt. Keine gelabelten Daten. Was ist Overfitting?" },
+        { "seq": 9,  "speaker": "STUDENT",  "text": "Wenn ein Modell zu stark an die Trainingsdaten angepasst ist und bei neuen Daten schlecht abschneidet?" },
+        { "seq": 10, "speaker": "TEACHER",  "text": "Perfekt. Das Modell hat die Trainingsdaten quasi auswendig gelernt, verallgemeinert aber nicht. Gegenteil ist Underfitting – das Modell ist zu simpel und lernt nicht genug. Was ist ein Neuron im neuronalen Netz?" },
+        { "seq": 11, "speaker": "STUDENT",  "text": "Eine mathematische Funktion, die Eingaben gewichtet summiert und eine Ausgabe produziert?" },
+        { "seq": 12, "speaker": "TEACHER",  "text": "Richtig. Kein Hardwarebauteil, kein Datensatz – eine mathematische Funktion. Viele Neuronen in Schichten bilden ein neuronales Netz. Welche Metrik misst die Genauigkeit eines Klassifikationsmodells?" },
+        { "seq": 13, "speaker": "STUDENT",  "text": "Accuracy – die Trefferquote?" },
+        { "seq": 14, "speaker": "TEACHER",  "text": "Korrekt. Accuracy = korrekte Vorhersagen / alle Vorhersagen. Loss misst den Fehler während des Trainings – das ist eine andere Sache. Epoch ist die Anzahl der Trainingsdurchläufe. Was ist Gradient Descent?" },
+        { "seq": 15, "speaker": "STUDENT",  "text": "Ein Optimierungsalgorithmus? Er versucht, den Fehler des Modells schrittweise zu minimieren?" },
+        { "seq": 16, "speaker": "TEACHER",  "text": "Gut. Er berechnet den Gradienten der Verlustfunktion und passt die Gewichte in Richtung des steilsten Abstiegs an. Was ist der Unterschied zwischen Trainings- und Testdaten?" },
+        { "seq": 17, "speaker": "STUDENT",  "text": "Trainingsdaten lernt das Modell. Testdaten sieht es erst nach dem Training – damit überprüft man, ob es verallgemeinert." },
+        { "seq": 18, "speaker": "TEACHER",  "text": "Genau. Wenn man mit Testdaten trainiert, testet man eigentlich gar nichts. Das ist ein Kardinalfehler in ML-Projekten. Was ist Reinforcement Learning grob erklärt?" },
+        { "seq": 19, "speaker": "STUDENT",  "text": "Das Modell lernt durch Ausprobieren – es bekommt Belohnungen für gute Aktionen und Strafen für schlechte?" },
+        { "seq": 20, "speaker": "TEACHER",  "text": "Gut. Agent, Umgebung, Belohnung. Das ist das dritte große Paradigma neben überwachtem und unüberwachtem Lernen. Tagestest." },
+        { "seq": 21, "speaker": "STUDENT",  "text": "Ich finde KI eigentlich interessant. Mehr als ich dachte." },
+        { "seq": 22, "speaker": "TEACHER",  "text": "Das sagen alle nach dem ersten Tag. Zehn Fragen." }
+      ],
+      "dailyTest": {
+        "intro": { "speaker": "SYSTEM", "text": "Tagestest – Tag 1: Maschinelles Lernen Grundkonzepte. 10 Fragen. Herr Webers Notebook läuft noch." },
+        "questionRefs": ["ml_77", "ml_78", "ml_79", "ml_80", "ml_81", ",ml_q01", "ml_q02", "ml_q03", "ml_q04", "ml_q05"],
+        "outro": { "speaker": "TEACHER", "text": "KI-Grundlagen sitzen. Das ist alles was die IHK verlangt." }
+      }
+    }
+  ],
+
+  "completionMessage": {
+    "speaker": "SYSTEM",
+    "text": "Raum abgeschlossen. Herr Weber klappt seinen Laptop zu. Tim überlegt kurz, ob er nach einem KI-Praktikum fragen soll."
+  }
+}

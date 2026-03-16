@@ -1,0 +1,55 @@
+{
+  "roomCode": "room_uml",
+  "title": "UML – Unified Modeling Language",
+  "npcName": "Herr Koch",
+  "description": "Ein Tag mit Herr Koch – Use-Case, Sequenz-, Klassen- und Aktivitätsdiagramm, Vererbung, Aggregation, Komposition. Tagestest am Ende.",
+
+  "characters": {
+    "TEACHER": "Herr Koch – Java-Entwicklerin und Gelegenheitslehrerin. Erklärt alles mit Codebeispielen, auch wenn man sie nicht danach gefragt hat. Hat heute ausnahmsweise kein Notebook dabei.",
+    "STUDENT": "Tim – Azubi im 2. Lehrjahr. Hat Aggregation und Komposition schon einmal verwechselt. Er wird es heute wieder tun."
+  },
+
+  "days": [
+    {
+      "dayIndex": 1,
+      "title": "Tag 1 – UML: Diagramme, Beziehungen & Notation",
+      "setting": "Montag, 09:30 Uhr. Herr Koch hat auf dem Smartboard drei UML-Diagramme nebeneinander geöffnet. Tim zählt sie und wird kurz still.",
+      "dialogue": [
+        { "seq": 1,  "speaker": "SYSTEM",   "text": "Montag, 09:30 Uhr. Auf dem Smartboard: ein Use-Case-Diagramm, ein Klassendiagramm, ein Sequenzdiagramm. Jonas flüstert Tim zu: 'Das sind erst drei von fünf.' Tim schluckt." },
+        { "seq": 2,  "speaker": "TEACHER",  "text": "Guten Morgen. UML – Unified Modeling Language. Bevor wir in die einzelnen Diagrammtypen gehen: Wofür steht UML überhaupt?" },
+        { "seq": 3,  "speaker": "STUDENT",  "text": "Eine standardisierte Sprache, um Software grafisch zu modellieren?" },
+        { "seq": 4,  "speaker": "TEACHER",  "text": "Richtig. UML ist kein Programmiercode – es ist eine visuelle Sprache für Planung, Kommunikation und Dokumentation. Fangen wir mit dem Use-Case-Diagramm an. Was zeigt es?" },
+        { "seq": 5,  "speaker": "STUDENT",  "text": "Wie Nutzer – also Akteure – mit dem System interagieren. Welche Funktionen das System anbietet." },
+        { "seq": 6,  "speaker": "TEACHER",  "text": "Korrekt. Das Use-Case-Diagramm zeigt das 'Was' – nicht das 'Wie'. Was ist dabei ein Akteur?" },
+        { "seq": 7,  "speaker": "STUDENT",  "text": "Eine Person, die das System benutzt?" },
+        { "seq": 8,  "speaker": "TEACHER",  "text": "Fast – ein Akteur ist eine Rolle, nicht unbedingt eine Person. Derselbe Mensch kann mehrere Rollen einnehmen. Ein externer Dienst kann auch ein Akteur sein. Weiter: Welches Diagramm zeigt den zeitlichen Ablauf von Nachrichten zwischen Objekten?" },
+        { "seq": 9,  "speaker": "STUDENT",  "text": "Das Sequenzdiagramm?" },
+        { "seq": 10, "speaker": "TEACHER",  "text": "Korrekt. Sequenzdiagramme zeigen wer wann was an wen schickt – in zeitlicher Reihenfolge von oben nach unten. Das Klassendiagramm zeigt dagegen Struktur – also Klassen, Attribute, Methoden und Beziehungen. Was zeigt ein Klassendiagramm nicht?" },
+        { "seq": 11, "speaker": "STUDENT",  "text": "Zeitlichen Ablauf?" },
+        { "seq": 12, "speaker": "TEACHER",  "text": "Genau. Keine Zeit, keine Reihenfolge, keine Laufzeitdaten – nur statische Struktur. Jetzt Beziehungen. Was ist eine 'ist-ein'-Beziehung?" },
+        { "seq": 13, "speaker": "STUDENT",  "text": "Vererbung. Ein Auto 'ist ein' Fahrzeug." },
+        { "seq": 14, "speaker": "TEACHER",  "text": "Richtig. Im Diagramm als Pfeil mit gefülltem Dreieck zur Elternklasse. Jetzt der knifflige Teil: Was ist der Unterschied zwischen Aggregation und Komposition?" },
+        { "seq": 15, "speaker": "STUDENT",  "text": "Aggregation ist stärker als Komposition?" },
+        { "seq": 16, "speaker": "TEACHER",  "text": "Andersrum, Tim. Komposition ist die stärkere Beziehung. Bei der Komposition kann das Teil ohne das Ganze nicht existieren – existenzielle Abhängigkeit. Wenn das Haus abgerissen wird, gibt es den Raum nicht mehr. Aggregation ist schwächer: Der Motor kann aus dem Auto ausgebaut und woanders verbaut werden – er existiert unabhängig." },
+        { "seq": 17, "speaker": "STUDENT",  "text": "Also Komposition: Teil stirbt mit dem Ganzen. Aggregation: Teil kann weiterexistieren." },
+        { "seq": 18, "speaker": "TEACHER",  "text": "So merkt man es sich. Das wird in der Prüfung gerne verdreht – du hast es eben selbst demonstriert. Was beschreibt ein Aktivitätsdiagramm?" },
+        { "seq": 19, "speaker": "STUDENT",  "text": "Abläufe und Entscheidungen – wie ein Flussdiagramm für Prozesse?" },
+        { "seq": 20, "speaker": "TEACHER",  "text": "Gut. Aktivitätsdiagramme modellieren Prozessabläufe mit Aktivitäten, Entscheidungsknoten, parallelen Pfaden und Start- und Endzuständen. Und was verbindet Klassen im Klassendiagramm miteinander?" },
+        { "seq": 21, "speaker": "STUDENT",  "text": "Beziehungslinien – also Assoziationen, Vererbungen, Aggregationen..." },
+        { "seq": 22, "speaker": "TEACHER",  "text": "Korrekt. Beziehungen. Jede Linie hat eine eigene Notation – Pfeiltyp, Richtung, Multiplizität. Das ist der Teil, den man auswendig kennen muss. Tagestest." },
+        { "seq": 23, "speaker": "STUDENT",  "text": "Ich muss mir Komposition versus Aggregation nochmal aufschreiben." },
+        { "seq": 24, "speaker": "TEACHER",  "text": "Mach das nach dem Test. Zehn Fragen." }
+      ],
+      "dailyTest": {
+        "intro": { "speaker": "SYSTEM", "text": "Tagestest – Tag 1: UML Diagramme & Beziehungen. 10 Fragen. Die drei Diagramme stehen noch auf dem Smartboard." },
+        "questionRefs": ["uml_q01", "uml_q02", "uml_q03", "uml_q04", "uml_q05", "uml_q06", "uml_q07", "uml_q08", "uml_q09", "uml_q10"],
+        "outro": { "speaker": "TEACHER", "text": "UML sitzt. In der Prüfung wird oft nach Diagrammtyp und Beziehungstyp gefragt – beides hast du heute durchgearbeitet." }
+      }
+    }
+  ],
+
+  "completionMessage": {
+    "speaker": "SYSTEM",
+    "text": "Raum abgeschlossen. Herr Koch schließt die drei Diagramme auf dem Smartboard. Tim hat sich 'Komposition > Aggregation' auf seine Hand geschrieben. Herr Koch sieht es, sagt aber nichts."
+  }
+}

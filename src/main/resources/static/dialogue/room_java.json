@@ -1,0 +1,46 @@
+{
+  "roomCode": "room_java",
+  "title": "UML & Programmierung",
+  "npcName": "Herr Koch",
+  "description": "Zwei Tage mit Herr Koch – UML-Diagramme, Beziehungstypen, Pseudocode und Algorithmen. Tagestest am Ende jedes Tages.",
+
+  "days": [
+
+    {
+      "dayIndex": 1,
+      "title": "Tag 1 – Pseudocode, Algorithmen & Kontrollstrukturen",
+      "setting": "Dienstag, 09:30 Uhr. Herr Koch hat Pseudocode an die Tafel geschrieben – eine While-Schleife mit einem Fehler drin. Sie wartet, ob jemand es bemerkt. Jonas bemerkt es. Tim nicht.",
+      "dialogue": [
+        { "seq": 1,  "speaker": "SYSTEM",   "text": "Dienstag, 09:30 Uhr. An der Tafel steht Pseudocode. Jonas nudgt Tim. Tim schaut – er sieht keinen Fehler." },
+        { "seq": 2,  "speaker": "TEACHER",  "text": "Guten Morgen. Schaut euch den Pseudocode an. Was macht diese While-Schleife?" },
+        { "seq": 3,  "speaker": "STUDENT",  "text": "Sie... läuft, solange die Bedingung wahr ist?" },
+        { "seq": 4,  "speaker": "TEACHER",  "text": "Korrekt. Eine While-Schleife wird ausgeführt, solange ihre Bedingung wahr ist. Ist die Bedingung von Anfang an falsch, läuft sie kein einziges Mal. Was ist der Unterschied zu einer For-Schleife?" },
+        { "seq": 5,  "speaker": "STUDENT",  "text": "For läuft eine feste Anzahl von Malen. While läuft, bis eine Bedingung nicht mehr gilt?" },
+        { "seq": 6,  "speaker": "TEACHER",  "text": "Gut. For wenn die Anzahl bekannt ist, While wenn sie von einer Bedingung abhängt. Was ist eine Verzweigung in einem Algorithmus?" },
+        { "seq": 7,  "speaker": "STUDENT",  "text": "Ein if-Statement. Der Code verzweigt sich je nach Bedingung in verschiedene Pfade." },
+        { "seq": 8,  "speaker": "TEACHER",  "text": "Korrekt. Return und For sind keine Verzweigungen – return beendet eine Funktion, for ist eine Schleife. Was ist ein Algorithmus überhaupt?" },
+        { "seq": 9,  "speaker": "STUDENT",  "text": "Eine Schritt-für-Schritt-Anleitung zur Lösung eines Problems? Eindeutig definiert." },
+        { "seq": 10, "speaker": "TEACHER",  "text": "Genau. Eindeutig, endlich, ausführbar. Kein Algorithmus läuft unendlich – er muss terminieren. Welche Suche prüft jedes Element nacheinander?" },
+        { "seq": 11, "speaker": "STUDENT",  "text": "Lineare Suche." },
+        { "seq": 12, "speaker": "TEACHER",  "text": "Richtig. Lineare Suche: Element für Element, O(n). Binäre Suche ist schneller – O(log n) – aber nur auf sortierten Daten. Jetzt zu Parametern: Was ist der Unterschied zwischen Call-by-Value und Call-by-Reference?" },
+        { "seq": 13, "speaker": "STUDENT",  "text": "Call-by-Value gibt eine Kopie des Werts rein. Call-by-Reference gibt die Referenz – also den Zeiger – rein, nicht die Kopie." },
+        { "seq": 14, "speaker": "TEACHER",  "text": "Korrekt. Bei Call-by-Reference werden Änderungen im Original sichtbar, bei Call-by-Value nicht. Das ist ein häufiger Prüfungspunkt. Was wäre noch eine wichtige Kontrollstruktur neben if und Schleifen?" },
+        { "seq": 15, "speaker": "STUDENT",  "text": "Switch-Case?" },
+        { "seq": 16, "speaker": "TEACHER",  "text": "Gut. Switch-Case für diskrete Werte, if-else für Bereiche und komplexe Bedingungen. Tagestest." },
+        { "seq": 17, "speaker": "STUDENT",  "text": "Den Fehler im Pseudocode hab ich übrigens noch nicht gefunden." },
+        { "seq": 18, "speaker": "TEACHER",  "text": "Die Abbruchbedingung war nie erreichbar. Endlosschleife. Beim Test bitte kein endloses Grübeln." }
+      ],
+      "dailyTest": {
+        "intro": { "speaker": "SYSTEM", "text": "Tagestest – Tag 1: Pseudocode & Algorithmen. 10 Fragen. Der Pseudocode mit dem Fehler steht noch an der Tafel." },
+        "questionRefs": ["java_q82", "java_q83", "java_q84", "java_q85", "java_q86", "java_q01", "java_q02", "java_q03", "java_q04", "java_q05"],
+        "outro": { "speaker": "TEACHER", "text": "Gut gemacht. UML und Algorithmen – das sitzt jetzt." }
+      }
+    }
+
+  ],
+
+  "completionMessage": {
+    "speaker": "SYSTEM",
+    "text": "Raum abgeschlossen. Herr Koch löscht den Pseudocode mit dem Fehler von der Tafel. Tim hat den Fehler jetzt verstanden."
+  }
+}
