@@ -1,5 +1,7 @@
 package com.rtfm.hammer.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,9 +31,7 @@ public class QuestionSet {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id", insertable = false, updatable = false)
     @ToString.Exclude
+    @JsonBackReference
     private Team team;
 
-    @OneToMany(mappedBy = "questionSet", cascade = CascadeType.ALL, orphanRemoval = true)
-    @ToString.Exclude
-    private List<Question> questions;
 }
