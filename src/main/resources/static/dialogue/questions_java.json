@@ -1,0 +1,160 @@
+{
+  "subject": "Programmierung & Pseudocode",
+  "description": "Kontrollstrukturen (Schleifen, Verzweigungen), Algorithmen, lineare/binäre Suche, Call-by-Value/Reference, Arrays, Rekursion, Stack/Heap.",
+  "questions": [
+
+    {
+      "id": "java_q01",
+      "dbId": 82,
+      "topic": "Schleifen",
+      "prompt": "Eine While-Schleife wird ausgeführt, solange die Bedingung wahr ist.",
+      "explanation": "Eine While-Schleife prüft die Bedingung vor jedem Durchlauf. Ist sie von Anfang an falsch, wird der Schleifenkörper kein einziges Mal ausgeführt.",
+      "points": 1,
+      "type": "TF",
+      "options": [
+        { "text": "True", "correct": true },
+        { "text": "False", "correct": false }
+      ]
+    },
+
+    {
+      "id": "java_q02",
+      "dbId": 83,
+      "topic": "Parameter",
+      "prompt": "Call-by-Reference übergibt eine Kopie des Werts.",
+      "explanation": "Falsch – Call-by-Reference übergibt eine Referenz auf die ursprüngliche Variable. Änderungen wirken sich auf das Original aus. Call-by-Value übergibt eine Kopie.",
+      "points": 1,
+      "type": "TF",
+      "options": [
+        { "text": "True", "correct": false },
+        { "text": "False", "correct": true }
+      ]
+    },
+
+    {
+      "id": "java_q03",
+      "dbId": 84,
+      "topic": "Kontrollstrukturen",
+      "prompt": "Welche Struktur beschreibt eine Verzweigung?",
+      "explanation": "Eine Verzweigung teilt den Programmfluss anhand einer Bedingung in verschiedene Pfade auf. Das Schlüsselwort dafür ist 'if'. 'for' ist eine Zählschleife, 'return' beendet eine Funktion.",
+      "points": 1,
+      "type": "MC",
+      "options": [
+        { "text": "for", "correct": false },
+        { "text": "if", "correct": true },
+        { "text": "return", "correct": false }
+      ]
+    },
+
+    {
+      "id": "java_q04",
+      "dbId": 85,
+      "topic": "Suchalgorithmen",
+      "prompt": "Welche Suche prüft jedes Element nacheinander?",
+      "explanation": "Die lineare Suche geht Element für Element durch die Liste, O(n). Die binäre Suche halbiert den Suchbereich bei jedem Schritt, O(log n), setzt aber eine sortierte Liste voraus.",
+      "points": 1,
+      "type": "MC",
+      "options": [
+        { "text": "Binäre Suche", "correct": false },
+        { "text": "Lineare Suche", "correct": true },
+        { "text": "Hash-Suche", "correct": false }
+      ]
+    },
+
+    {
+      "id": "java_q05",
+      "dbId": 86,
+      "topic": "Algorithmen",
+      "prompt": "Was ist ein Algorithmus?",
+      "explanation": "Ein Algorithmus ist eine eindeutige, endliche Schrittfolge zur Lösung eines Problems. Er muss terminieren und für jede gültige Eingabe ein korrektes Ergebnis liefern.",
+      "points": 1,
+      "type": "MC",
+      "options": [
+        { "text": "Eine zufällige Abfolge von Befehlen", "correct": false },
+        { "text": "Eine eindeutige Schrittfolge zur Problemlösung", "correct": true },
+        { "text": "Ein Hardwarebauteil", "correct": false }
+      ]
+    },
+
+    {
+      "id": "java_q06",
+      "dbId": null,
+      "topic": "Schleifen",
+      "prompt": "Was ist der Unterschied zwischen einer for-Schleife und einer while-Schleife?",
+      "explanation": "Eine for-Schleife wird eingesetzt, wenn die Anzahl der Durchläufe vorab bekannt ist. Eine while-Schleife läuft, solange eine Bedingung gilt – die Anzahl der Durchläufe ist nicht zwingend bekannt.",
+      "points": 1,
+      "type": "MC",
+      "options": [
+        { "text": "for wird verwendet, wenn die Anzahl der Durchläufe bekannt ist; while wenn eine Bedingung geprüft wird", "correct": true },
+        { "text": "for läuft unendlich, while hat eine feste Anzahl", "correct": false },
+        { "text": "Beide Schleifentypen sind vollständig identisch", "correct": false },
+        { "text": "while kann nicht mit Ganzzahlen verwendet werden", "correct": false }
+      ]
+    },
+
+    {
+      "id": "java_q07",
+      "dbId": null,
+      "topic": "Datentypen",
+      "prompt": "Welcher Datentyp speichert in den meisten Sprachen eine einzelne Ganzzahl ohne Dezimalstellen?",
+      "explanation": "Integer (int) speichert ganzzahlige Werte ohne Nachkommastellen. Float speichert Dezimalzahlen, String Zeichenketten, Boolean true/false-Werte.",
+      "points": 1,
+      "type": "MC",
+      "options": [
+        { "text": "Integer (int)", "correct": true },
+        { "text": "Float", "correct": false },
+        { "text": "String", "correct": false },
+        { "text": "Boolean", "correct": false }
+      ]
+    },
+
+    {
+      "id": "java_q08",
+      "dbId": null,
+      "topic": "Datenstrukturen",
+      "prompt": "Was ist ein Array in der Programmierung?",
+      "explanation": "Ein Array speichert mehrere Werte desselben Typs unter einem gemeinsamen Namen. Der Zugriff erfolgt über einen numerischen Index, beginnend bei 0.",
+      "points": 1,
+      "type": "MC",
+      "options": [
+        { "text": "Eine Datenstruktur, die mehrere Werte desselben Typs unter einem Namen speichert, zugreifbar über einen Index", "correct": true },
+        { "text": "Eine Funktion, die Werte sortiert", "correct": false },
+        { "text": "Ein Datentyp für Zeichenketten", "correct": false },
+        { "text": "Eine spezielle Schleife für Listen", "correct": false }
+      ]
+    },
+
+    {
+      "id": "java_q09",
+      "dbId": null,
+      "topic": "Rekursion",
+      "prompt": "Was ist Rekursion in der Programmierung?",
+      "explanation": "Eine rekursive Funktion ruft sich selbst auf. Sie benötigt zwingend einen Basisfall als Abbruchbedingung, damit die Rekursion terminiert und kein Stack Overflow entsteht.",
+      "points": 1,
+      "type": "MC",
+      "options": [
+        { "text": "Eine Funktion, die sich selbst aufruft, mit einem Basisfall als Abbruchbedingung", "correct": true },
+        { "text": "Eine Schleife, die rückwärts läuft", "correct": false },
+        { "text": "Ein Algorithmus, der nur auf sortierten Daten funktioniert", "correct": false },
+        { "text": "Eine Methode zur Datenbankabfrage", "correct": false }
+      ]
+    },
+
+    {
+      "id": "java_q10",
+      "dbId": null,
+      "topic": "Speichermanagement",
+      "prompt": "Was ist der Unterschied zwischen Stack und Heap beim Speichermanagement?",
+      "explanation": "Der Stack speichert lokale Variablen und Funktionsaufrufe nach LIFO-Prinzip – schnell, aber begrenzt. Der Heap speichert dynamisch allokierte Objekte – flexibel, aber langsamer und manuell zu verwalten.",
+      "points": 1,
+      "type": "MC",
+      "options": [
+        { "text": "Der Stack speichert lokale Variablen und Funktionsaufrufe (LIFO); der Heap speichert dynamisch allokierte Objekte", "correct": true },
+        { "text": "Stack ist für große Daten, Heap für kleine Werte", "correct": false },
+        { "text": "Heap ist schneller als Stack", "correct": false },
+        { "text": "Stack und Heap bezeichnen dasselbe Speicherkonzept", "correct": false }
+      ]
+    }
+
+  ]
+}

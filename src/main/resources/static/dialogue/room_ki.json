@@ -35,7 +35,7 @@
       ],
       "dailyTest": {
         "intro": { "speaker": "SYSTEM", "text": "Tagestest – Tag 1: Maschinelles Lernen Grundkonzepte. 10 Fragen. Herr Webers Notebook läuft noch." },
-        "questionRefs": ["ml_77", "ml_78", "ml_79", "ml_80", "ml_81", ",ml_q01", "ml_q02", "ml_q03", "ml_q04", "ml_q05"],
+        "questionRefs": ["ki_q10", "ki_q09", "ki_q08", "ki_q07", "ki_q06", "ki_q01", "ki_q02", "ki_q03", "ki_q04", "ki_q05"],
         "outro": { "speaker": "TEACHER", "text": "KI-Grundlagen sitzen. Das ist alles was die IHK verlangt." }
       }
     }

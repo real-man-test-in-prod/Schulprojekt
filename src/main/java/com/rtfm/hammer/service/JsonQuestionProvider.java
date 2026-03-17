@@ -19,7 +19,17 @@ public class JsonQuestionProvider implements QuestionProvider {
     @Override
     public List<QuestionItem> getQuestionsForRoom(String roomCode, List<String> questionRefs) {
         try {
-            var resource = new ClassPathResource("static/dialogue/Questions_DB.json");
+            // roomCode arrives as e.g. "room_db" or "room_ki" — strip the "room_" prefix
+            // to get the bare code ("db", "ki", etc.) used in the filenames.
+            String code = roomCode.startsWith("room_") ? roomCode.substring(5) : roomCode;
+
+            // The "db" room uses a legacy filename with uppercase letters (Questions_DB.json).
+            // All other rooms follow the lowercase convention: questions_<code>.json.
+            String filename = code.equals("db")
+                    ? "Questions_DB.json"
+                    : "questions_" + code + ".json";
+
+            var resource = new ClassPathResource("static/dialogue/" + filename);
             var mapper = new ObjectMapper();
             QuestionBank bank = mapper.readValue(resource.getInputStream(), QuestionBank.class);
 
@@ -34,7 +44,7 @@ public class JsonQuestionProvider implements QuestionProvider {
                     .collect(Collectors.toList());
 
         } catch (IOException e) {
-            throw new RuntimeException("Could not load questions from Questions_DB.json", e);
+            throw new RuntimeException("Could not load questions for room: " + roomCode, e);
         }
     }
 }
