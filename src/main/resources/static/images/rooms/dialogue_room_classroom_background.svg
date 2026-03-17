@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <title>School Map</title>
-    <link rel="stylesheet" th:href="@{/css/main.css}">
-    <link rel="stylesheet" th:href="@{/css/dialog.css}">
-</head>
-
-<body th:attr="data-step=${step},data-id=${id}" id="body">
-    <div style="margin-bottom: 8%; grid-row: auto">
-        <div th:insert="fragments/backToHomepage.html :: backToHomepage"></div>
-    </div>
-
-    <div id="game" class="game-container relative">
-        <div class="absolute inset-0 z-0">
-            <svg class="w-full h-full" preserveAspectRatio="xMidYMid slice" viewBox="0 0 680 470" xmlns="http://www.w3.org/2000/svg">
+<svg width="100%" viewBox="0 0 680 470" xmlns="http://www.w3.org/2000/svg">
 <defs>
   <linearGradient id="skyDay" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0%" stop-color="#87ceeb"/>
@@ -94,10 +78,15 @@
 <rect x="222" y="218" width="14" height="5" rx="2" fill="#d8c8a0" opacity="0.7" style="fill:rgb(216, 200, 160);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
 <!-- Chalk writing on board -->
-<text x="235" y="75" font-family="serif" font-size="18" fill="#d0e8d0" opacity="0.85" font-style="italic" style="fill:rgb(208, 232, 208);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.85;font-family:serif;font-size:18px;font-weight:400;font-style:italic;text-anchor:start;dominant-baseline:auto" th:text="${id}">Raum ID</text>
+<text x="235" y="75" font-family="serif" font-size="18" fill="#d0e8d0" opacity="0.85" font-style="italic" style="fill:rgb(208, 232, 208);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.85;font-family:serif;font-size:18px;font-weight:400;font-style:italic;text-anchor:start;dominant-baseline:auto">Datenbankmodellierung</text>
 <line x1="220" y1="82" x2="460" y2="82" stroke="#c0d8c0" stroke-width="0.8" opacity="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(192, 216, 192);color:rgb(255, 255, 255);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 <!-- small formula sketch -->
-
+<text x="225" y="108" font-family="monospace" font-size="11" fill="#c0d8c0" opacity="0.6" style="fill:rgb(192, 216, 192);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:monospace;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto">ERM → Rel. Schema</text>
+<rect x="225" y="118" width="55" height="20" rx="2" fill="none" stroke="#c0d8c0" stroke-width="0.8" opacity="0.5" style="fill:none;stroke:rgb(192, 216, 192);color:rgb(255, 255, 255);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="252" y="131" font-family="sans-serif" font-size="9" fill="#c0d8c0" opacity="0.6" text-anchor="middle" style="fill:rgb(192, 216, 192);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:sans-serif;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Entität</text>
+<line x1="280" y1="128" x2="310" y2="128" stroke="#c0d8c0" stroke-width="0.8" opacity="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(192, 216, 192);color:rgb(255, 255, 255);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="310" y="118" width="50" height="20" rx="2" fill="none" stroke="#c0d8c0" stroke-width="0.8" opacity="0.5" style="fill:none;stroke:rgb(192, 216, 192);color:rgb(255, 255, 255);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="335" y="131" font-family="sans-serif" font-size="9" fill="#c0d8c0" opacity="0.6" text-anchor="middle" style="fill:rgb(192, 216, 192);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:sans-serif;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Relation</text>
 <!-- partial erase marks -->
 <rect x="390" y="115" width="55" height="35" rx="2" fill="#0e3018" opacity="0.4" style="fill:rgb(14, 48, 24);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
@@ -162,39 +151,3 @@
 <rect x="640" y="0" width="40" height="460" fill="#000" opacity="0.08" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.08;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 <rect x="0" y="420" width="680" height="40" fill="#000" opacity="0.1" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 </svg>
-        </div>
-        <div class="relative z-10 h-full">
-            <a th:href="@{/school}" class="absolute top-2 right-2 z-20 rounded bg-purple-300 p-2 shadow-md cursor-pointer">School Map</a>
-            <div class="h-[55%] pt-[5%] flex">
-                <div class="w-[35%]">
-                    <img id="teacher-img" src="/assets/characters/teacher/happy.png" class="scale-120 mt-[15%] ml-[30%]">
-                </div>
-                <div class="w-[30%] relative z-30">
-                    <div id="answer-options" class="answer-options-container"></div>
-                </div>
-                <div class="w-[35%]">
-                    <img id="student-img" src="/assets/characters/student/happy.png"
-                        class="transform scale-120 mt-[15%] ml-[10%]">
-                </div>
-            </div>
-            <div class="px-[5%] pt-[4%] pb-[1%] h-[40%]">
-                <div class="relative h-full">
-                    <img src="/images/dialogue/textbox.svg" alt="textbox" class="absolute h-full" />
-                    <div class="absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden"
-                        id="textbox">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script th:inline="javascript">
-        const roomData = /*[[${roomDialogue}]]*/ {};
-        const allDaysQuestions = /*[[${allDaysQuestions}]]*/[];
-    </script>
-    <script src="/js/textDisplay.js"></script>
-    <script src="/js/screenSize.js"></script>
-    <script src="/js/scaleCharacters.js"></script>
-</body>
-
-</html>
