@@ -5,6 +5,7 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: black;
@@ -42,4 +43,15 @@ body {
 .option-button:hover {
     background-color: #2a5a8c;
     border-color: #2a5a8c;
+}
+
+.room-footer {
+    background-color: #3a2010;
+    border-top: 2px solid #5a3a20;
+}
+
+.room-footer-btn {
+    background-color: #5a3a20;
+    color: #e8dfc8;
+    border: 1px solid #6a4a20;
 }

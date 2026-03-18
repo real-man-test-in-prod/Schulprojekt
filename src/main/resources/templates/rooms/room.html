@@ -8,9 +8,7 @@
 </head>
 
 <body th:attr="data-step=${step},data-id=${id}" id="body">
-    <div style="margin-bottom: 8%; grid-row: auto">
-        <div th:insert="fragments/backToHomepage.html :: backToHomepage"></div>
-    </div>
+    
 
     <div id="game" class="game-container relative">
         <div class="absolute inset-0 z-0">
@@ -164,7 +162,7 @@
 </svg>
         </div>
         <div class="relative z-10 h-full">
-            <a th:href="@{/school}" class="absolute top-2 right-2 z-20 rounded bg-purple-300 p-2 shadow-md cursor-pointer">School Map</a>
+            
             <div class="h-[55%] pt-[5%] flex">
                 <div class="w-[35%]">
                     <img id="teacher-img" src="/assets/characters/teacher/happy.png" class="scale-120 mt-[15%] ml-[30%]">
@@ -187,6 +185,17 @@
             </div>
         </div>
     </div>
+
+    <footer class="room-footer w-full flex items-center justify-between px-4 py-2">
+        <div class="flex gap-2">
+            <a th:href="@{/school}" class="room-footer-btn px-4 py-1 rounded font-bold text-sm cursor-pointer">Schulkarte</a>
+            <a th:href="@{/}" class="room-footer-btn px-4 py-1 rounded font-bold text-sm cursor-pointer">Startseite</a>
+        </div>
+        <div class="flex gap-2">
+            <button id="zum-tagestest-btn" type="button" class="room-footer-btn px-4 py-1 rounded font-bold text-sm cursor-pointer">Zum Tagestest</button>
+            <button id="weiter-btn" type="button" class="room-footer-btn px-4 py-1 rounded font-bold text-sm cursor-pointer">Weiter &#9654;</button>
+        </div>
+    </footer>
 
     <script th:inline="javascript">
         const roomData = /*[[${roomDialogue}]]*/ {};

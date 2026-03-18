@@ -1,6 +1,19 @@
 const wrap = document.getElementById("body");
 const textbox = document.getElementById("textbox");
 const answerOptionsContainer = document.getElementById("answer-options");
+const weiterBtn = document.getElementById("weiter-btn");
+const zumTagestestBtn = document.getElementById("zum-tagestest-btn");
+
+zumTagestestBtn.addEventListener("click", (event) => {
+    event.stopPropagation();
+    if (phase !== 'dialogue') return;
+    clearTimeout(typewriterTimeout);
+    typewriterTimeout = null;
+    isTyping = false;
+    textIsDisplayed = false;
+    currentIndex = roomData.days[currentDayIndex].dialogue.length;
+    render();
+});
 
 // Phases: 'dialogue' | 'test-intro' | 'questions' | 'test-outro' | 'day-transition' | 'complete'
 let phase = 'dialogue';
@@ -35,12 +48,14 @@ function handleWrapClick() {
             render();
         } else if (phase === 'test-intro') {
             phase = 'questions';
+            weiterBtn.style.display = 'none';
             currentQuestionIndex = 0;
             startQuestionsPhase();
         } else if (phase === 'test-outro') {
             advanceToNextDay();
         } else if (phase === 'day-transition') {
             phase = 'dialogue';
+            zumTagestestBtn.style.display = '';
             currentIndex = 0;
             render();
         }
@@ -55,6 +70,7 @@ function render() {
     const dayDialogue = roomData.days[currentDayIndex].dialogue;
     if (currentIndex >= dayDialogue.length) {
         phase = 'test-intro';
+        zumTagestestBtn.style.display = 'none';
         const intro = roomData.days[currentDayIndex].dailyTest.intro;
         textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + intro.speaker.toLowerCase();
         typeText(intro.text);
@@ -90,6 +106,7 @@ function displayQuestion(question) {
 
 function showTestOutro() {
     phase = 'test-outro';
+    weiterBtn.style.display = '';
     const outro = roomData.days[currentDayIndex].dailyTest.outro;
     textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + outro.speaker.toLowerCase();
     typeText(outro.text);
