@@ -9,12 +9,25 @@ let currentIndex = 0;
 let currentQuestionIndex = 0;
 let isTyping = false;
 let textIsDisplayed = false;
+let typewriterTimeout = null;
 
 render();
 
 // Button clicks use event.stopPropagation() so they never reach here.
-wrap.addEventListener("click", () => {
+// Remove any previously registered handler before adding, so the listener
+// is never stacked if this script is evaluated more than once.
+function handleWrapClick() {
     if (phase === 'questions') return;
+
+    if (isTyping) {
+        // Complete the current text immediately — do not advance.
+        clearTimeout(typewriterTimeout);
+        typewriterTimeout = null;
+        textbox.querySelectorAll("span").forEach(span => span.style.opacity = "1");
+        isTyping = false;
+        textIsDisplayed = true;
+        return;
+    }
 
     if (textIsDisplayed) {
         textIsDisplayed = false;
@@ -31,10 +44,10 @@ wrap.addEventListener("click", () => {
             currentIndex = 0;
             render();
         }
-    } else {
-        render();
     }
-});
+}
+wrap.removeEventListener("click", handleWrapClick);
+wrap.addEventListener("click", handleWrapClick);
 
 function render() {
     if (phase !== 'dialogue') return;
@@ -101,6 +114,10 @@ function advanceToNextDay() {
 
 function typeText(text, speed = 40, onComplete = null) {
     console.log("isTyping:" + isTyping);
+    if (typewriterTimeout) {
+        clearTimeout(typewriterTimeout);
+        typewriterTimeout = null;
+    }
     textbox.innerHTML = "";
 
     const spanArray = createSpanArray(text);
@@ -117,7 +134,7 @@ function typeText(text, speed = 40, onComplete = null) {
             if (i < text.length) {
                 spanArray[i].style.opacity = "1";
                 i++;
-                setTimeout(type, speed);
+                typewriterTimeout = setTimeout(type, speed);
             } else {
                 isTyping = false;
                 textIsDisplayed = true;
