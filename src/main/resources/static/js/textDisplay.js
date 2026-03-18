@@ -16,7 +16,7 @@ zumTagestestBtn.addEventListener("click", (event) => {
 });
 
 // Phases: 'dialogue' | 'test-intro' | 'questions' | 'test-outro' | 'day-transition' | 'complete'
-const savedProgress = JSON.parse(localStorage.getItem('hammerProgress') || 'null');
+const savedProgress = JSON.parse(localStorage.getItem('hammerProgress_' + roomData.roomCode) || 'null');
 const isSameRoom = savedProgress && savedProgress.roomId === roomData.roomCode;
 
 let currentDayIndex = isSameRoom ? (savedProgress.currentDayIndex ?? 0) : 0;
@@ -113,7 +113,7 @@ function displayQuestion(question) {
 
 
 function saveToLocalStorage() {
-    localStorage.setItem("hammerProgress", JSON.stringify({
+    localStorage.setItem("hammerProgress_" + roomData.roomCode, JSON.stringify({
         roomId: roomData.roomCode,
         currentDayIndex,
         currentDialogueSeq: currentIndex,

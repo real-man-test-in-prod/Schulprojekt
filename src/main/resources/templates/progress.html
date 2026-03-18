@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fortschritt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background-color: #1a0e04;
+            background-image:
+                radial-gradient(ellipse at 20% 20%, rgba(90,58,32,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(60,40,10,0.15) 0%, transparent 60%);
+            color: #e8dfc8;
+            font-family: 'Crimson Pro', Georgia, serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-header {
+            padding: 32px 40px 16px;
+            border-bottom: 1px solid #3a2a10;
+        }
+
+        .page-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #d4bc50;
+            letter-spacing: 3px;
+            margin: 0 0 4px 0;
+            text-shadow: 0 0 20px rgba(212,188,80,0.3);
+        }
+
+        .page-subtitle {
+            font-size: 1rem;
+            color: #a09070;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .content {
+            flex: 1;
+            padding: 32px 40px;
+            overflow-y: auto;
+        }
+
+        .empty-message {
+            text-align: center;
+            padding: 60px 20px;
+            color: #a09070;
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #a09070;
+            text-transform: uppercase;
+            margin: 0 0 16px 0;
+        }
+
+        /* Summary card */
+        .summary-card {
+            background: linear-gradient(135deg, #2a1a0a, #221408);
+            border: 1px solid #5a3a20;
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin-bottom: 36px;
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #a09070;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .stat-value {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .stat-value.gold   { color: #d4bc50; }
+        .stat-value.green  { color: #70c070; }
+        .stat-value.red    { color: #e06060; }
+
+        /* Room cards grid */
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .room-card {
+            background: #221408;
+            border: 1px solid #4a3010;
+            border-radius: 8px;
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .room-card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #d4bc50;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #3a2a10;
+            padding-bottom: 10px;
+            margin: 0;
+        }
+
+        .room-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .room-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .room-stat-label {
+            font-size: 0.75rem;
+            color: #806850;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .room-stat-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .completed-days {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .day-badge {
+            background: #3a2a10;
+            border: 1px solid #5a3a20;
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+            color: #c8a840;
+        }
+
+        .phase-badge {
+            display: inline-block;
+            background: #2a1a08;
+            border: 1px solid #4a3010;
+            border-radius: 4px;
+            padding: 3px 10px;
+            font-size: 0.8rem;
+            color: #a09070;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .page-footer {
+            background-color: #3a2010;
+            border-top: 2px solid #5a3a20;
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            gap: 8px;
+        }
+
+        .footer-btn {
+            background-color: #5a3a20;
+            color: #e8dfc8;
+            border: 1px solid #6a4a20;
+            padding: 4px 16px;
+            border-radius: 4px;
+            font-family: 'Crimson Pro', serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .footer-btn:hover {
+            background-color: #6a4a28;
+        }
+    </style>
+</head>
+<body th:attr="data-save-code=${saveCode}">
+
+    <header class="page-header">
+        <h1 class="page-title">Fortschritt</h1>
+        <p class="page-subtitle">Dein bisheriger Lernfortschritt</p>
+    </header>
+
+    <main class="content" id="content">
+        <p class="empty-message" id="loading-msg">Lade Fortschritt...</p>
+    </main>
+
+    <footer class="page-footer">
+        <a href="/school" class="footer-btn">Schulkarte</a>
+        <a href="/" class="footer-btn">Startseite</a>
+    </footer>
+
+    <script>
+        const PHASE_LABELS = {
+            'dialogue':       'Dialog',
+            'test-intro':     'Test-Einführung',
+            'questions':      'Fragen',
+            'test-outro':     'Test-Abschluss',
+            'day-transition': 'Tageswechsel',
+            'complete':       'Abgeschlossen'
+        };
+
+        function collectFromLocalStorage() {
+            const rooms = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key && key.startsWith('hammerProgress_')) {
+                    try {
+                        const data = JSON.parse(localStorage.getItem(key));
+                        if (data) rooms.push(data);
+                    } catch (e) { /* skip malformed entries */ }
+                }
+            }
+            return rooms;
+        }
+
+        function renderRoomCard(room) {
+            const completedBadges = (room.completedDays || [])
+                .map(d => `<span class="day-badge">Tag ${d + 1}</span>`)
+                .join('');
+
+            const phaseLabel = PHASE_LABELS[room.phase] || room.phase || '–';
+
+            return `
+                <div class="room-card">
+                    <p class="room-card-title">${escapeHtml(room.roomId || 'Unbekannter Raum')}</p>
+                    <div class="room-stats">
+                        <div class="room-stat">
+                            <span class="room-stat-label">Aktueller Tag</span>
+                            <span class="room-stat-value" style="color:#d4bc50">${(room.currentDayIndex ?? 0) + 1}</span>
+                        </div>
+                        <div class="room-stat">
+                            <span class="room-stat-label">Punkte</span>
+                            <span class="room-stat-value" style="color:#d4bc50">${room.roomPoints ?? room.totalPoints ?? 0}</span>
+                        </div>
+                        <div class="room-stat">
+                            <span class="room-stat-label">Richtig</span>
+                            <span class="room-stat-value" style="color:#70c070">${room.correctAnswers ?? 0}</span>
+                        </div>
+                        <div class="room-stat">
+                            <span class="room-stat-label">Falsch</span>
+                            <span class="room-stat-value" style="color:#e06060">${room.wrongAnswers ?? 0}</span>
+                        </div>
+                    </div>
+                    ${completedBadges ? `
+                    <div>
+                        <div class="room-stat-label" style="margin-bottom:6px">Abgeschlossene Tage</div>
+                        <div class="completed-days">${completedBadges}</div>
+                    </div>` : ''}
+                    <div>
+                        <span class="room-stat-label">Phase: </span>
+                        <span class="phase-badge">${escapeHtml(phaseLabel)}</span>
+                    </div>
+                </div>`;
+        }
+
+        function renderPage(rooms) {
+            const content = document.getElementById('content');
+
+            if (!rooms || rooms.length === 0) {
+                content.innerHTML = '<p class="empty-message">Noch kein Fortschritt gespeichert.</p>';
+                return;
+            }
+
+            const totalCorrect = rooms.reduce((s, r) => s + (r.correctAnswers ?? 0), 0);
+            const totalWrong   = rooms.reduce((s, r) => s + (r.wrongAnswers ?? 0), 0);
+            const totalPoints  = rooms.reduce((s, r) => s + (r.roomPoints ?? r.totalPoints ?? 0), 0);
+
+            const roomCards = rooms.map(renderRoomCard).join('');
+
+            content.innerHTML = `
+                <p class="section-title">Gesamtübersicht</p>
+                <div class="summary-card">
+                    <div class="stat-item">
+                        <span class="stat-label">Gesamtpunkte</span>
+                        <span class="stat-value gold">${totalPoints}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Richtige Antworten</span>
+                        <span class="stat-value green">${totalCorrect}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Falsche Antworten</span>
+                        <span class="stat-value red">${totalWrong}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Räume</span>
+                        <span class="stat-value" style="color:#e8dfc8">${rooms.length}</span>
+                    </div>
+                </div>
+                <p class="section-title">Pro Raum</p>
+                <div class="rooms-grid">${roomCards}</div>`;
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        (function init() {
+            const rooms = collectFromLocalStorage();
+
+            if (rooms.length > 0) {
+                renderPage(rooms);
+                return;
+            }
+
+            const saveCode = document.body.dataset.saveCode;
+            if (!saveCode) {
+                renderPage([]);
+                return;
+            }
+
+            fetch('/saves/' + encodeURIComponent(saveCode))
+                .then(res => {
+                    if (!res.ok) throw new Error('not_found');
+                    return res.json();
+                })
+                .then(data => {
+                    if (!data.saveGameState) { renderPage([]); return; }
+                    try {
+                        const state = JSON.parse(data.saveGameState);
+                        renderPage(Array.isArray(state) ? state : [state]);
+                    } catch (e) {
+                        renderPage([]);
+                    }
+                })
+                .catch(() => renderPage([]));
+        })();
+    </script>
+</body>
+</html>
