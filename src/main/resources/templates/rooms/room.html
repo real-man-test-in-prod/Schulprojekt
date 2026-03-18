@@ -191,6 +191,7 @@
             <a th:href="@{/school}" class="room-footer-btn px-4 py-1 rounded font-bold text-sm cursor-pointer">Schulkarte</a>
             <a th:href="@{/}" class="room-footer-btn px-4 py-1 rounded font-bold text-sm cursor-pointer">Startseite</a>
             <a th:href="@{/progress}" class="room-footer-btn px-4 py-1 rounded font-bold text-sm cursor-pointer">Fortschritt</a>
+            <button type="button" onclick="restartRoom()" class="room-footer-btn px-4 py-1 rounded font-bold text-sm cursor-pointer">Raum neu starten</button>
         </div>
         <div class="flex gap-2">
             <button id="zum-tagestest-btn" type="button" class="room-footer-btn px-4 py-1 rounded font-bold text-sm cursor-pointer">Zum Tagestest</button>
@@ -201,6 +202,14 @@
     <script th:inline="javascript">
         const roomData = /*[[${roomDialogue}]]*/ {};
         const allDaysQuestions = /*[[${allDaysQuestions}]]*/[];
+    </script>
+    <script>
+        function restartRoom() {
+            if (confirm('Möchtest du diesen Raum wirklich neu starten? Dein Fortschritt in diesem Raum wird gelöscht.')) {
+                localStorage.removeItem('hammerProgress_' + roomData.roomCode);
+                location.reload();
+            }
+        }
     </script>
     <script src="/js/textDisplay.js"></script>
     <script src="/js/screenSize.js"></script>

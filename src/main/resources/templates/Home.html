@@ -292,7 +292,16 @@
                 errorEl.style.display = 'block';
                 return;
             }
-            const progress = localStorage.getItem('hammerProgress');
+            const allProgress = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key && key.startsWith('hammerProgress_')) {
+                    try {
+                        allProgress.push(JSON.parse(localStorage.getItem(key)));
+                    } catch(e) {}
+                }
+            }
+            const progress = JSON.stringify(allProgress);
             fetch('/saves', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -338,7 +347,13 @@
                 return res.json();
             })
             .then(data => {
-                localStorage.setItem('hammerProgress', data.saveGameState);
+                const rooms = JSON.parse(data.saveGameState);
+                const arr = Array.isArray(rooms) ? rooms : [rooms];
+                arr.forEach(room => {
+                    if (room && room.roomId) {
+                        localStorage.setItem('hammerProgress_' + room.roomId, JSON.stringify(room));
+                    }
+                });
                 window.location.href = '/school';
             })
             .catch(err => {

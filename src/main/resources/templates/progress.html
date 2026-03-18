@@ -289,6 +289,9 @@
                         <span class="room-stat-label">Phase: </span>
                         <span class="phase-badge">${escapeHtml(phaseLabel)}</span>
                     </div>
+                    <button class="footer-btn" style="align-self:flex-start; font-size:0.8rem; padding:4px 12px;"
+                            data-room-id="${escapeHtml(room.roomId)}"
+                            onclick="resetRoom(this.dataset.roomId)">Neu starten</button>
                 </div>`;
         }
 
@@ -328,6 +331,13 @@
                 </div>
                 <p class="section-title">Pro Raum</p>
                 <div class="rooms-grid">${roomCards}</div>`;
+        }
+
+        function resetRoom(roomId) {
+            if (confirm('Möchtest du diesen Raum wirklich neu starten? Dein Fortschritt in diesem Raum wird gelöscht.')) {
+                localStorage.removeItem('hammerProgress_' + roomId);
+                location.reload();
+            }
         }
 
         function escapeHtml(str) {
