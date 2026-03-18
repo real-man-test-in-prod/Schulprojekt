@@ -3,6 +3,10 @@ const textbox = document.getElementById("textbox");
 const answerOptionsContainer = document.getElementById("answer-options");
 const weiterBtn = document.getElementById("weiter-btn");
 const zumTagestestBtn = document.getElementById("zum-tagestest-btn");
+const teacherImg = document.getElementById('teacher-img');
+const studentImg = document.getElementById('student-img');
+const labelLeft = document.getElementById('speaker-label-left');
+const labelRight = document.getElementById('speaker-label-right');
 
 zumTagestestBtn.addEventListener("click", (event) => {
     event.stopPropagation();
@@ -31,6 +35,41 @@ let wrongAnswers = isSameRoom ? (savedProgress.wrongAnswers ?? 0) : 0;
 let isTyping = false;
 let textIsDisplayed = false;
 let typewriterTimeout = null;
+
+// Returns the display name for a speaker role (part before " – " in characters map)
+function getCharacterName(role) {
+    const val = roomData.characters && roomData.characters[role.toUpperCase()];
+    if (!val) return '';
+    return val.split(/\s[–\-]\s/)[0] || val;
+}
+
+// Updates character image highlight and name labels based on current speaker
+function updateSpeaker(speaker) {
+    const s = speaker.toUpperCase();
+
+    teacherImg.classList.remove('char-active', 'char-inactive');
+    studentImg.classList.remove('char-active', 'char-inactive');
+    labelLeft.classList.add('speaker-label--hidden');
+    labelRight.classList.add('speaker-label--hidden');
+
+    if (s === 'TEACHER') {
+        teacherImg.classList.add('char-active');
+        studentImg.classList.add('char-inactive');
+        labelLeft.textContent = getCharacterName('TEACHER');
+        labelLeft.classList.remove('speaker-label--hidden');
+    } else if (s === 'STUDENT') {
+        teacherImg.classList.add('char-inactive');
+        studentImg.classList.add('char-active');
+        labelRight.textContent = getCharacterName('STUDENT');
+        labelRight.classList.remove('speaker-label--hidden');
+    }
+}
+
+// Sets textbox bubble class and updates speaker highlighting in one call
+function setTextboxSpeaker(speaker) {
+    textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + speaker.toLowerCase();
+    updateSpeaker(speaker);
+}
 
 restorePhase();
 
@@ -80,13 +119,13 @@ function render() {
         phase = 'test-intro';
         zumTagestestBtn.style.display = 'none';
         const intro = roomData.days[currentDayIndex].dailyTest.intro;
-        textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + intro.speaker.toLowerCase();
+        setTextboxSpeaker(intro.speaker);
         typeText(intro.text);
         return;
     }
 
     const entry = dayDialogue[currentIndex++];
-    textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + entry.speaker.toLowerCase();
+    setTextboxSpeaker(entry.speaker);
     typeText(entry.text);
 }
 
@@ -100,7 +139,7 @@ function startQuestionsPhase() {
 }
 
 function displayQuestion(question) {
-    textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--teacher";
+    setTextboxSpeaker('teacher');
     if (question.type === 'GAP') {
         showGapQuestion(question);
         return;
@@ -135,7 +174,7 @@ function restorePhase() {
         case 'test-intro': {
             zumTagestestBtn.style.display = 'none';
             const intro = roomData.days[currentDayIndex].dailyTest.intro;
-            textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + intro.speaker.toLowerCase();
+            setTextboxSpeaker(intro.speaker);
             typeText(intro.text);
             break;
         }
@@ -148,20 +187,20 @@ function restorePhase() {
             weiterBtn.style.display = '';
             zumTagestestBtn.style.display = 'none';
             const outro = roomData.days[currentDayIndex].dailyTest.outro;
-            textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + outro.speaker.toLowerCase();
+            setTextboxSpeaker(outro.speaker);
             typeText(outro.text);
             break;
         }
         case 'day-transition': {
             zumTagestestBtn.style.display = 'none';
             const intro = roomData.days[currentDayIndex].dailyTest.intro;
-            textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + intro.speaker.toLowerCase();
+            setTextboxSpeaker(intro.speaker);
             typeText(intro.text);
             break;
         }
         case 'complete': {
             const msg = roomData.completionMessage;
-            textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + msg.speaker.toLowerCase();
+            setTextboxSpeaker(msg.speaker);
             textbox.innerHTML = msg.text;
             textIsDisplayed = true;
             break;
@@ -179,7 +218,7 @@ function showTestOutro() {
     phase = 'test-outro';
     weiterBtn.style.display = '';
     const outro = roomData.days[currentDayIndex].dailyTest.outro;
-    textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + outro.speaker.toLowerCase();
+    setTextboxSpeaker(outro.speaker);
     typeText(outro.text);
 }
 
@@ -188,7 +227,7 @@ function advanceToNextDay() {
     if (nextDayIndex >= roomData.days.length) {
         phase = 'complete';
         const msg = roomData.completionMessage;
-        textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + msg.speaker.toLowerCase();
+        setTextboxSpeaker(msg.speaker);
         textbox.innerHTML = msg.text;
         textIsDisplayed = true;
         return;
@@ -196,7 +235,7 @@ function advanceToNextDay() {
     currentDayIndex = nextDayIndex;
     phase = 'day-transition';
     const intro = roomData.days[currentDayIndex].dailyTest.intro;
-    textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + intro.speaker.toLowerCase();
+    setTextboxSpeaker(intro.speaker);
     typeText(intro.text);
 }
 
@@ -335,7 +374,7 @@ function showGapQuestion(question) {
         const gapText = (gap.textBefore || "") + " ___ " + (gap.textAfter || "");
 
         answerOptionsContainer.innerHTML = "";
-        textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--teacher";
+        setTextboxSpeaker('teacher');
         typeText(gapText, 40, () => {
             const optionsDiv = document.createElement("div");
             optionsDiv.className = "options-list";
