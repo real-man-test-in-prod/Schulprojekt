@@ -43,11 +43,14 @@ public class QuestionController {
             int test = questionService.validateMC(question, questionID, body.getAnswers());
             System.out.println(test);
         } else {
-            if (body.getAnswers().size() > 1) {
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Zu viele Antworten");
+            boolean allCorrect = true;
+            for (Map.Entry<String, String> entry : body.getAnswers().entrySet()) {
+                if (!questionService.validateGAP(entry.getKey(), entry.getValue())) {
+                    allCorrect = false;
+                    break;
+                }
             }
-            Map.Entry<String, String> field = body.getAnswers().entrySet().iterator().next();
-            isCorrect = questionService.validateGAP(field.getKey(), field.getValue());
+            isCorrect = allCorrect;
         }
         return isCorrect ? question.getPoints() : 0;
     }

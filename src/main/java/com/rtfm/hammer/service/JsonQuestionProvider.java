@@ -2,7 +2,6 @@ package com.rtfm.hammer.service;
 
 import com.rtfm.hammer.model.dialogue.QuestionBank;
 import com.rtfm.hammer.model.dialogue.QuestionItem;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import tools.jackson.databind.ObjectMapper;
@@ -13,7 +12,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
-@Primary
 public class JsonQuestionProvider implements QuestionProvider {
 
     @Override

@@ -32,7 +32,7 @@
       ],
       "dailyTest": {
         "intro": { "speaker": "SYSTEM", "text": "Tagestest – Tag 1: Pseudocode & Algorithmen. 10 Fragen. Der Pseudocode mit dem Fehler steht noch an der Tafel." },
-        "questionRefs": ["java_q01", "java_q02", "java_q03", "java_q04", "java_q05", "java_q06", "java_q07", "java_q08", "java_q09", "java_q10"],
+        "questionRefs": [82, 83, 84, 85, 86, 92, 93, 94, 95, 96],
         "outro": { "speaker": "TEACHER", "text": "Gut gemacht. UML und Algorithmen – das sitzt jetzt." }
       }
     }

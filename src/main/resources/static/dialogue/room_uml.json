@@ -42,7 +42,7 @@
       ],
       "dailyTest": {
         "intro": { "speaker": "SYSTEM", "text": "Tagestest – Tag 1: UML Diagramme & Beziehungen. 10 Fragen. Die drei Diagramme stehen noch auf dem Smartboard." },
-        "questionRefs": ["uml_q01", "uml_q02", "uml_q03", "uml_q04", "uml_q05", "uml_q06", "uml_q07", "uml_q08", "uml_q09", "uml_q10"],
+        "questionRefs": [67, 68, 69, 70, 71, 72, 73, 74, 75, 76],
         "outro": { "speaker": "TEACHER", "text": "UML sitzt. In der Prüfung wird oft nach Diagrammtyp und Beziehungstyp gefragt – beides hast du heute durchgearbeitet." }
       }
     }

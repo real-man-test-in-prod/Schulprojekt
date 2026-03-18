@@ -33,7 +33,7 @@
       ],
       "dailyTest": {
         "intro": { "speaker": "SYSTEM", "text": "Tagestest – Tag 1: Kosten, Kalkulation & Projektmanagement. 10 Fragen. Herr Becker lehnt sich entspannt zurück." },
-        "questionRefs": ["wirtschaft_q01", "wirtschaft_q02", "wirtschaft_q03", "wirtschaft_q04", "wirtschaft_q05", "wirtschaft_q06", "wirtschaft_q07", "wirtschaft_q08", "wirtschaft_q09", "wirtschaft_q10"],
+        "questionRefs": [57, 58, 59, 60, 61, 62, 63, 64, 65, 66],
         "outro": { "speaker": "TEACHER", "text": "Sauber. Wirtschaftsgrundlagen sitzen. Das reicht für die Prüfung." }
       }
     }

@@ -40,7 +40,7 @@
       ],
       "dailyTest": {
         "intro": { "speaker": "SYSTEM", "text": "Tagestest – Tag 1: Recht, Vertragstypen & DSGVO. 10 Fragen. Herr Meier schlägt die Gesetzessammlung auf einer zufälligen Seite auf." },
-        "questionRefs": ["recht_q01", "recht_q02", "recht_q03", "recht_q04", "recht_q05", "recht_q06", "recht_q07", "recht_q08", "recht_q09", "recht_q10"],
+        "questionRefs": [47, 48, 49, 50, 51, 52, 53, 54, 55, 56],
         "outro": { "speaker": "TEACHER", "text": "Gut. Rechtliches Grundwissen sitzt jetzt. Das zahlt sich in der Prüfung aus – und später im Arbeitsalltag." }
       }
     }

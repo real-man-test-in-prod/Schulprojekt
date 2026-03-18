@@ -34,7 +34,7 @@ public class QuestionService {
         List<GapOption> gapField = gapOptionRepository.findByGapIdAndIsCorrectTrue(Integer.parseInt(gapID));
 
         return gapField.stream()
-                .anyMatch(option -> option.getOptionText().equals(answer));
+                .anyMatch(option -> option.getOptionText().equalsIgnoreCase(answer));
     }
 
     public int validateMC(Question question, String questionID, Map<String, String> userAnswers) {

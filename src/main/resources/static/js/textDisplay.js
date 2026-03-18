@@ -64,7 +64,12 @@ function startQuestionsPhase() {
 
 function displayQuestion(question) {
     textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--teacher";
-    typeText(question.prompt, 40, () => {
+    if (question.type === 'GAP') {
+        showGapQuestion(question);
+        return;
+    }
+    const promptText = question.prompt != null ? question.prompt : "";
+    typeText(promptText, 40, () => {
         showAnswerOptions(question);
     });
 }
@@ -158,6 +163,12 @@ function createSpanArray(text) {
 
 function showAnswerOptions(question) {
     answerOptionsContainer.innerHTML = "";
+
+    if (question.type === 'GAP') {
+        showGapQuestion(question);
+        return;
+    }
+
     const optionsDiv = document.createElement("div");
     optionsDiv.className = "options-list";
 
@@ -194,4 +205,74 @@ function handleAnswer(selectedOption, question) {
         textIsDisplayed = false;
         startQuestionsPhase();
     }, 1000);
+}
+
+function showGapQuestion(question) {
+    const collectedAnswers = {};
+    let gapIndex = 0;
+
+    function showNextGap() {
+        if (gapIndex >= question.options.length) {
+            submitGapAnswers(question, collectedAnswers);
+            return;
+        }
+
+        const gap = question.options[gapIndex];
+        const gapText = (gap.textBefore || "") + " ___ " + (gap.textAfter || "");
+
+        answerOptionsContainer.innerHTML = "";
+        textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--teacher";
+        typeText(gapText, 40, () => {
+            const optionsDiv = document.createElement("div");
+            optionsDiv.className = "options-list";
+
+            gap.choices.forEach(choice => {
+                const button = document.createElement("button");
+                button.className = "option-button";
+                button.textContent = choice;
+                button.addEventListener("click", (event) => {
+                    event.stopPropagation();
+                    collectedAnswers[gap.gapId] = choice;
+                    gapIndex++;
+                    answerOptionsContainer.innerHTML = "";
+                    showNextGap();
+                });
+                optionsDiv.appendChild(button);
+            });
+
+            answerOptionsContainer.appendChild(optionsDiv);
+        });
+    }
+
+    showNextGap();
+}
+
+function submitGapAnswers(question, answers) {
+    fetch('/question/' + question.id, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ answers: answers })
+    })
+    .then(res => res.json())
+    .then(points => {
+        answerOptionsContainer.innerHTML = "";
+        const isCorrect = points > 0;
+
+        const feedbackText = isCorrect
+            ? "Richtig. +" + question.points + " Punkt"
+            : "Leider falsch.";
+
+        const feedbackClass = isCorrect
+            ? "bubble--teacher feedback-correct"
+            : "bubble--teacher feedback-incorrect";
+
+        textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden " + feedbackClass;
+        textbox.innerHTML = feedbackText;
+
+        setTimeout(() => {
+            currentQuestionIndex++;
+            textIsDisplayed = false;
+            startQuestionsPhase();
+        }, 1000);
+    });
 }
