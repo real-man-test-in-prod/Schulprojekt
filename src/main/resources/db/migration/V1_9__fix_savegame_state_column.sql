@@ -1,0 +1,1 @@
+ALTER TABLE save_game ALTER COLUMN save_game_state VARCHAR(1048576);

@@ -14,9 +14,11 @@ public class FlywayConfig {
                 .dataSource(dataSource)
                 .locations("classpath:db/migration")
                 .baselineOnMigrate(true)
+                .outOfOrder(false)
                 .load();
 
         System.out.println("--- MANUAL FLYWAY RUN STARTING ---");
+        flyway.repair();
         flyway.migrate();
         System.out.println("--- MANUAL FLYWAY RUN FINISHED ---");
 

@@ -222,11 +222,129 @@
       </svg>
     </div>
     <div class="flex flex-col min-h-screen gap-4 justify-center items-center relative z-10">
-        
         <div class="flex flex-col gap-4 justify-center items-center">
             <a th:href="school" class="rounded bg-pink-200 p-2 shadow-md cursor-pointer">Start Game</a>
-            <a th:href="saves" class="rounded bg-pink-200 p-2 shadow-md cursor-pointer">Save Game</a>
+            <button onclick="openSaveModal()" class="rounded bg-pink-200 p-2 shadow-md cursor-pointer">Speichern</button>
+            <button onclick="openLoadModal()" class="rounded bg-pink-200 p-2 shadow-md cursor-pointer">Laden</button>
         </div>
     </div>
+
+    <!-- Save Modal -->
+    <div id="save-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.65); z-index:100; display:none; align-items:center; justify-content:center;">
+        <div style="background:#2a1a0a; border:2px solid #5a3a20; border-radius:8px; padding:28px 32px; min-width:320px; color:#e8dfc8; font-family:serif; display:flex; flex-direction:column; gap:14px;">
+            <h2 style="margin:0; font-size:1.2rem; font-weight:bold; color:#e8dfc8;">Spielstand speichern</h2>
+            <div id="save-form">
+                <label style="display:block; margin-bottom:6px; font-size:0.9rem;">Spielername</label>
+                <input id="save-name-input" type="text" placeholder="Dein Name" style="width:100%; box-sizing:border-box; padding:8px 10px; border-radius:4px; border:1px solid #6a4a20; background:#1a0e04; color:#e8dfc8; font-size:1rem;"/>
+                <div id="save-error" style="display:none; color:#e05050; font-size:0.85rem; margin-top:6px;"></div>
+                <div style="display:flex; gap:10px; margin-top:14px;">
+                    <button onclick="doSave()" style="flex:1; padding:8px; background:#5a3a20; color:#e8dfc8; border:1px solid #6a4a20; border-radius:4px; cursor:pointer; font-weight:bold;">Speichern</button>
+                    <button onclick="closeSaveModal()" style="padding:8px 14px; background:#3a2010; color:#e8dfc8; border:1px solid #5a3a20; border-radius:4px; cursor:pointer;">Schließen</button>
+                </div>
+            </div>
+            <div id="save-result" style="display:none; flex-direction:column; gap:10px;">
+                <p style="margin:0; font-size:0.9rem;">Dein Speichercode — notiere ihn!</p>
+                <div id="save-code-display" style="font-size:1.4rem; font-weight:bold; letter-spacing:3px; color:#d4bc50; text-align:center; padding:10px; background:#1a0e04; border-radius:4px; border:1px solid #6a4a20;"></div>
+                <button onclick="closeSaveModal()" style="padding:8px 14px; background:#3a2010; color:#e8dfc8; border:1px solid #5a3a20; border-radius:4px; cursor:pointer; align-self:flex-end;">Schließen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load Modal -->
+    <div id="load-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.65); z-index:100; align-items:center; justify-content:center;">
+        <div style="background:#2a1a0a; border:2px solid #5a3a20; border-radius:8px; padding:28px 32px; min-width:320px; color:#e8dfc8; font-family:serif; display:flex; flex-direction:column; gap:14px;">
+            <h2 style="margin:0; font-size:1.2rem; font-weight:bold; color:#e8dfc8;">Spielstand laden</h2>
+            <label style="display:block; margin-bottom:6px; font-size:0.9rem;">Speichercode</label>
+            <input id="load-code-input" type="text" placeholder="XXXX-XXXX-XXXX" style="width:100%; box-sizing:border-box; padding:8px 10px; border-radius:4px; border:1px solid #6a4a20; background:#1a0e04; color:#e8dfc8; font-size:1rem; letter-spacing:2px;"/>
+            <div id="load-error" style="display:none; color:#e05050; font-size:0.85rem;"></div>
+            <div style="display:flex; gap:10px; margin-top:4px;">
+                <button onclick="doLoad()" style="flex:1; padding:8px; background:#5a3a20; color:#e8dfc8; border:1px solid #6a4a20; border-radius:4px; cursor:pointer; font-weight:bold;">Laden</button>
+                <button onclick="closeLoadModal()" style="padding:8px 14px; background:#3a2010; color:#e8dfc8; border:1px solid #5a3a20; border-radius:4px; cursor:pointer;">Schließen</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function todayFormatted() {
+            const d = new Date();
+            const dd = String(d.getDate()).padStart(2, '0');
+            const mm = String(d.getMonth() + 1).padStart(2, '0');
+            return dd + '.' + mm + '.' + d.getFullYear();
+        }
+
+        function openSaveModal() {
+            document.getElementById('save-name-input').value = '';
+            document.getElementById('save-error').style.display = 'none';
+            document.getElementById('save-form').style.display = 'block';
+            document.getElementById('save-result').style.display = 'none';
+            document.getElementById('save-modal').style.display = 'flex';
+        }
+        function closeSaveModal() {
+            document.getElementById('save-modal').style.display = 'none';
+        }
+
+        function doSave() {
+            const name = document.getElementById('save-name-input').value.trim();
+            const errorEl = document.getElementById('save-error');
+            if (!name) {
+                errorEl.textContent = 'Bitte einen Namen eingeben.';
+                errorEl.style.display = 'block';
+                return;
+            }
+            const progress = localStorage.getItem('hammerProgress');
+            fetch('/saves', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    saveGameName: name,
+                    saveGameState: progress,
+                    date: todayFormatted()
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('save-form').style.display = 'none';
+                document.getElementById('save-code-display').textContent = data.saveCode;
+                document.getElementById('save-result').style.display = 'flex';
+            })
+            .catch(() => {
+                errorEl.textContent = 'Fehler beim Speichern. Bitte erneut versuchen.';
+                errorEl.style.display = 'block';
+            });
+        }
+
+        function openLoadModal() {
+            document.getElementById('load-code-input').value = '';
+            document.getElementById('load-error').style.display = 'none';
+            document.getElementById('load-modal').style.display = 'flex';
+        }
+        function closeLoadModal() {
+            document.getElementById('load-modal').style.display = 'none';
+        }
+
+        function doLoad() {
+            const code = document.getElementById('load-code-input').value.trim();
+            const errorEl = document.getElementById('load-error');
+            if (!code) {
+                errorEl.textContent = 'Bitte einen Code eingeben.';
+                errorEl.style.display = 'block';
+                return;
+            }
+            fetch('/saves/' + encodeURIComponent(code))
+            .then(res => {
+                if (res.status === 404) throw new Error('not_found');
+                if (!res.ok) throw new Error('error');
+                return res.json();
+            })
+            .then(data => {
+                localStorage.setItem('hammerProgress', data.saveGameState);
+                window.location.href = '/school';
+            })
+            .catch(err => {
+                errorEl.textContent = err.message === 'not_found' ? 'Code nicht gefunden.' : 'Fehler beim Laden.';
+                errorEl.style.display = 'block';
+            });
+        }
+    </script>
 </body>
 </html>

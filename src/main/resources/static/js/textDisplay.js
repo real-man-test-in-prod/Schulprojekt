@@ -16,15 +16,23 @@ zumTagestestBtn.addEventListener("click", (event) => {
 });
 
 // Phases: 'dialogue' | 'test-intro' | 'questions' | 'test-outro' | 'day-transition' | 'complete'
-let phase = 'dialogue';
-let currentDayIndex = 0;
-let currentIndex = 0;
-let currentQuestionIndex = 0;
+const savedProgress = JSON.parse(localStorage.getItem('hammerProgress') || 'null');
+const isSameRoom = savedProgress && savedProgress.roomId === roomData.roomCode;
+
+let currentDayIndex = isSameRoom ? (savedProgress.currentDayIndex ?? 0) : 0;
+let currentIndex = isSameRoom ? (savedProgress.currentDialogueSeq ?? 0) : 0;
+let currentQuestionIndex = isSameRoom ? (savedProgress.currentQuestionIndex ?? 0) : 0;
+let phase = isSameRoom ? (savedProgress.phase ?? 'dialogue') : 'dialogue';
+let totalPoints = isSameRoom ? (savedProgress.totalPoints ?? 0) : 0;
+let roomPoints = isSameRoom ? (savedProgress.roomPoints ?? 0) : 0;
+let completedDays = isSameRoom ? (savedProgress.completedDays ?? []) : [];
+let correctAnswers = isSameRoom ? (savedProgress.correctAnswers ?? 0) : 0;
+let wrongAnswers = isSameRoom ? (savedProgress.wrongAnswers ?? 0) : 0;
 let isTyping = false;
 let textIsDisplayed = false;
 let typewriterTimeout = null;
 
-render();
+restorePhase();
 
 // Button clicks use event.stopPropagation() so they never reach here.
 // Remove any previously registered handler before adding, so the listener
@@ -104,7 +112,70 @@ function displayQuestion(question) {
 }
 
 
+function saveToLocalStorage() {
+    localStorage.setItem("hammerProgress", JSON.stringify({
+        roomId: roomData.roomCode,
+        currentDayIndex,
+        currentDialogueSeq: currentIndex,
+        currentQuestionIndex,
+        phase,
+        totalPoints,
+        roomPoints,
+        completedDays,
+        correctAnswers,
+        wrongAnswers
+    }));
+}
+
+function restorePhase() {
+    switch (phase) {
+        case 'dialogue':
+            render();
+            break;
+        case 'test-intro': {
+            zumTagestestBtn.style.display = 'none';
+            const intro = roomData.days[currentDayIndex].dailyTest.intro;
+            textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + intro.speaker.toLowerCase();
+            typeText(intro.text);
+            break;
+        }
+        case 'questions':
+            weiterBtn.style.display = 'none';
+            zumTagestestBtn.style.display = 'none';
+            startQuestionsPhase();
+            break;
+        case 'test-outro': {
+            weiterBtn.style.display = '';
+            zumTagestestBtn.style.display = 'none';
+            const outro = roomData.days[currentDayIndex].dailyTest.outro;
+            textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + outro.speaker.toLowerCase();
+            typeText(outro.text);
+            break;
+        }
+        case 'day-transition': {
+            zumTagestestBtn.style.display = 'none';
+            const intro = roomData.days[currentDayIndex].dailyTest.intro;
+            textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + intro.speaker.toLowerCase();
+            typeText(intro.text);
+            break;
+        }
+        case 'complete': {
+            const msg = roomData.completionMessage;
+            textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + msg.speaker.toLowerCase();
+            textbox.innerHTML = msg.text;
+            textIsDisplayed = true;
+            break;
+        }
+        default:
+            render();
+    }
+}
+
 function showTestOutro() {
+    if (!completedDays.includes(currentDayIndex)) {
+        completedDays.push(currentDayIndex);
+    }
+    saveToLocalStorage();
     phase = 'test-outro';
     weiterBtn.style.display = '';
     const outro = roomData.days[currentDayIndex].dailyTest.outro;
@@ -234,6 +305,15 @@ function handleAnswer(selectedOption, question) {
     textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden " + feedbackClass;
     textbox.innerHTML = feedbackText;
 
+    if (selectedOption.correct) {
+        totalPoints += question.points;
+        roomPoints += question.points;
+        correctAnswers++;
+    } else {
+        wrongAnswers++;
+    }
+    saveToLocalStorage();
+
     setTimeout(() => {
         currentQuestionIndex++;
         textIsDisplayed = false;
@@ -302,6 +382,15 @@ function submitGapAnswers(question, answers) {
 
         textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden " + feedbackClass;
         textbox.innerHTML = feedbackText;
+
+        if (isCorrect) {
+            totalPoints += question.points;
+            roomPoints += question.points;
+            correctAnswers++;
+        } else {
+            wrongAnswers++;
+        }
+        saveToLocalStorage();
 
         setTimeout(() => {
             currentQuestionIndex++;
