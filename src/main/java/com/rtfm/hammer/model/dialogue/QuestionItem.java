@@ -4,9 +4,10 @@ import java.util.List;
 
 public record QuestionItem(
         String id,
+        String type,
         String topic,
         String prompt,
         String explanation,
         int points,
-        List<AnswerOption> options
+        List<Object> options
 ) {}

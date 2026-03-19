@@ -5,6 +5,7 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: black;
@@ -42,4 +43,54 @@ body {
 .option-button:hover {
     background-color: #2a5a8c;
     border-color: #2a5a8c;
+}
+
+.room-footer {
+    background-color: #3a2010;
+    border-top: 2px solid #5a3a20;
+}
+
+.room-footer-btn {
+    background-color: #5a3a20;
+    color: #e8dfc8;
+    border: 1px solid #6a4a20;
+}
+
+/* Character highlighting */
+.char-active {
+    filter: brightness(1.1) drop-shadow(0 0 14px rgba(255, 220, 80, 0.85));
+    transition: filter 0.3s ease;
+}
+
+.char-inactive {
+    filter: brightness(0.45) saturate(0.5);
+    transition: filter 0.3s ease;
+}
+
+/* Speaker name labels */
+.speaker-label {
+    position: absolute;
+    top: 0;
+    transform: translateY(-100%);
+    background: rgba(20, 50, 90, 0.92);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 3px 12px;
+    border-radius: 6px 6px 0 0;
+    z-index: 10;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.speaker-label--left {
+    left: 0;
+}
+
+.speaker-label--right {
+    right: 0;
+}
+
+.speaker-label--hidden {
+    display: none;
 }

@@ -1,0 +1,53 @@
+{
+  "roomCode": "room_recht",
+  "title": "Recht & Datenschutz",
+  "npcName": "Herr Meier",
+  "description": "Ein Tag mit Herr Meier – Urheberrecht, Vertragstypen, AGB, Lizenzen und DSGVO. Am Ende wartet der Tagestest.",
+
+  "characters": {
+    "TEACHER": "Herr Meier – Rechts- und Datenschutzbeauftragte des Betriebs, gibt gelegentlich Gastunterricht. Hat eine Gesetzessammlung dabei, die so dick ist, dass Tim sie zuerst für ein Lehrbuch gehalten hat.",
+    "STUDENT": "Tim – Azubi im 2. Lehrjahr, eine Woche vor der IHK. Findet Recht trocken, bis er merkt, dass er fast alles falsch verstanden hat."
+  },
+
+  "days": [
+    {
+      "dayIndex": 1,
+      "title": "Tag 1 – Urheberrecht, Verträge & DSGVO",
+      "setting": "Dienstag, 11:00 Uhr. Herr Meier legt die Gesetzessammlung auf Herrn Müllers Tisch. Tim und Jonas tauschen einen Blick aus.",
+      "dialogue": [
+        { "seq": 1,  "speaker": "SYSTEM",   "text": "Dienstag, 11:00 Uhr. Herr Meier stellt sich kurz vor. Ihre Gesetzessammlung landet mit einem satten Geräusch auf dem Tisch. Tim flüstert Jonas zu: 'Das liest doch niemand wirklich.' Jonas flüstert zurück: 'Sie schon.'" },
+        { "seq": 2,  "speaker": "TEACHER",  "text": "Guten Morgen. Ich weiß, Recht klingt trocken – aber in der Prüfung kostet eine falsch beantwortete Rechtsfrage genauso Punkte wie eine Datenbankfrage. Fangen wir an. Tim: Du schreibst Code für ein Open-Source-Projekt. Ist der Code automatisch geschützt, oder musst du dich irgendwo registrieren?" },
+        { "seq": 3,  "speaker": "STUDENT",  "text": "Ich glaube... man muss das irgendwo anmelden? Beim Patentamt oder so?" },
+        { "seq": 4,  "speaker": "TEACHER",  "text": "Falsch – und das ist einer der häufigsten Irrtümer in der Prüfung. Quellcode ist automatisch urheberrechtlich geschützt, ab dem Moment seiner Entstehung. Kein Amt, keine Registrierung, keine Gebühr. Das Urheberrecht entsteht mit der Schöpfung." },
+        { "seq": 5,  "speaker": "STUDENT",  "text": "Also der Code gehört mir, sobald ich ihn schreibe?" },
+        { "seq": 6,  "speaker": "TEACHER",  "text": "Im privaten Kontext – ja. Im Arbeitsverhältnis gehen die Nutzungsrechte in der Regel an den Arbeitgeber. Aber der Schutz selbst entsteht automatisch. Nächstes Thema: Du entwickelst Software für einen Kunden. Es gibt zwei klassische Vertragstypen. Was ist der Unterschied zwischen Werkvertrag und Dienstvertrag?" },
+        { "seq": 7,  "speaker": "STUDENT",  "text": "Beim Werkvertrag schuldet man ein Ergebnis – also eine funktionierende Software. Beim Dienstvertrag nur die Tätigkeit?" },
+        { "seq": 8,  "speaker": "TEACHER",  "text": "Genau. Werkvertrag schuldet Erfolg. Dienstvertrag schuldet Tätigkeit – kein Erfolg garantiert. Wenn der Kunde ein funktionierendes System bestellt und keines bekommt, haftest du beim Werkvertrag. Beim Dienstvertrag nicht, solange du gearbeitet hast. Was sind AGB?" },
+        { "seq": 9,  "speaker": "STUDENT",  "text": "Allgemeine Geschäftsbedingungen. Vorformulierte Vertragsbedingungen, die für viele Verträge gelten – nicht individuell ausgehandelt." },
+        { "seq": 10, "speaker": "TEACHER",  "text": "Sehr gut. AGB sind vorformuliert, einseitig gestellt – und in Deutschland gesetzlich reguliert. Unwirksame Klauseln können vom Gericht gestrichen werden. Weiter: Lizenzen. Welche Open-Source-Lizenz erlaubt kommerzielle Nutzung ohne Einschränkungen?" },
+        { "seq": 11, "speaker": "STUDENT",  "text": "GPL?" },
+        { "seq": 12, "speaker": "TEACHER",  "text": "Nein. GPL ist Copyleft – wer GPL-Code einbaut, muss seinen eigenen Code ebenfalls unter GPL veröffentlichen. Das ist für kommerzielle Produkte oft ein Problem. Die permissivste gängige Lizenz ist MIT: Du kannst damit fast alles machen, auch proprietäre Produkte bauen. CC BY-NC verbietet kommerzielle Nutzung sogar explizit." },
+        { "seq": 13, "speaker": "STUDENT",  "text": "Also MIT für Kommerz, GPL wenn man will, dass alles offen bleibt." },
+        { "seq": 14, "speaker": "TEACHER",  "text": "Gut zusammengefasst. Jetzt zur DSGVO. Welche Pflicht haben Unternehmen bei personenbezogenen Daten?" },
+        { "seq": 15, "speaker": "STUDENT",  "text": "Alles verschlüsseln?" },
+        { "seq": 16, "speaker": "TEACHER",  "text": "Verschlüsselung ist eine mögliche technische Maßnahme – aber nicht die zentrale Pflicht. Die DSGVO schreibt vor allem Datenminimierung vor: nur so viele Daten erheben, wie wirklich notwendig. Und jede Verarbeitung braucht eine Rechtsgrundlage – Einwilligung, Vertrag, gesetzliche Verpflichtung oder berechtigtes Interesse. Ohne Rechtsgrundlage ist die Verarbeitung illegal." },
+        { "seq": 17, "speaker": "STUDENT",  "text": "Und die DSGVO gilt nur für EU-Unternehmen?" },
+        { "seq": 18, "speaker": "TEACHER",  "text": "Nein – das ist ein weiterer häufiger Irrtum. Die DSGVO gilt für alle Unternehmen, die Daten von natürlichen Personen in der EU verarbeiten – unabhängig davon, wo das Unternehmen sitzt. Ein US-Konzern, der Daten von EU-Bürgern verarbeitet, fällt unter die DSGVO. Letzte Frage: Ein Kunde kauft Software, die fehlerhaft ausgeliefert wird. Was kann er als erstes verlangen?" },
+        { "seq": 19, "speaker": "STUDENT",  "text": "Geld zurück?" },
+        { "seq": 20, "speaker": "TEACHER",  "text": "Erst mal Nacherfüllung – also Reparatur oder Neulieferung. Geld zurück kommt erst, wenn die Nacherfüllung zweimal gescheitert ist. Das steht im BGB. Der Verkäufer hat das Recht, den Mangel selbst zu beheben, bevor weitere Ansprüche entstehen. Tagestest." },
+        { "seq": 21, "speaker": "STUDENT",  "text": "Ich hab heute echt viel falsch beantwortet in der Unterhaltung." },
+        { "seq": 22, "speaker": "TEACHER",  "text": "Deshalb machen wir das hier. Zehn Fragen." }
+      ],
+      "dailyTest": {
+        "intro": { "speaker": "SYSTEM", "text": "Tagestest – Tag 1: Recht, Vertragstypen & DSGVO. 10 Fragen. Herr Meier schlägt die Gesetzessammlung auf einer zufälligen Seite auf." },
+        "questionRefs": [47, 48, 49, 50, 51, 52, 53, 54, 55, 56],
+        "outro": { "speaker": "TEACHER", "text": "Gut. Rechtliches Grundwissen sitzt jetzt. Das zahlt sich in der Prüfung aus – und später im Arbeitsalltag." }
+      }
+    }
+  ],
+
+  "completionMessage": {
+    "speaker": "SYSTEM",
+    "text": "Raum abgeschlossen. Herr Meier nickt kurz, packt die Gesetzessammlung ein und verlässt den Raum. Tim schaut ihr nach. Er überlegt, ob er sie mal lesen sollte."
+  }
+}

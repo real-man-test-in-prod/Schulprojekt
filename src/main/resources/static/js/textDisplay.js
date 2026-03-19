@@ -1,52 +1,115 @@
 const wrap = document.getElementById("body");
 const textbox = document.getElementById("textbox");
 const answerOptionsContainer = document.getElementById("answer-options");
+const weiterBtn = document.getElementById("weiter-btn");
+const zumTagestestBtn = document.getElementById("zum-tagestest-btn");
+const teacherImg = document.getElementById('teacher-img');
+const studentImg = document.getElementById('student-img');
+const labelLeft = document.getElementById('speaker-label-left');
+const labelRight = document.getElementById('speaker-label-right');
 
-// Phases: 'dialogue' | 'test-intro' | 'questions' | 'test-outro' | 'complete'
-let phase = 'dialogue';
-let currentDayIndex = 0;
-let currentIndex = 0;
-let currentQuestionIndex = 0;
-let isTyping = false;
-let isDisplayingText = false;
-let isDisplayingQuestion = false;
-let currentText = "";
-let displayIndex;
-
-render();
-
-wrap.addEventListener("click", () => {
-    moveForward()
+zumTagestestBtn.addEventListener("click", (event) => {
+    event.stopPropagation();
+    if (phase !== 'dialogue') return;
+    clearTimeout(typewriterTimeout);
+    typewriterTimeout = null;
+    isTyping = false;
+    textIsDisplayed = false;
+    currentIndex = roomData.days[currentDayIndex].dialogue.length;
+    render();
 });
 
-function moveForward() {
-    if(phase === 'questions' && !isDisplayingQuestion){
-        console.log("DOING THIS")
-        showAnswerOptions(allDaysQuestions[currentDayIndex][currentQuestionIndex])
+// Phases: 'dialogue' | 'test-intro' | 'questions' | 'test-outro' | 'day-transition' | 'complete'
+const savedProgress = JSON.parse(localStorage.getItem('hammerProgress_' + roomData.roomCode) || 'null');
+const isSameRoom = savedProgress && savedProgress.roomId === roomData.roomCode;
+
+let currentDayIndex = isSameRoom ? (savedProgress.currentDayIndex ?? 0) : 0;
+let currentIndex = isSameRoom ? (savedProgress.currentDialogueSeq ?? 0) : 0;
+let currentQuestionIndex = isSameRoom ? (savedProgress.currentQuestionIndex ?? 0) : 0;
+let phase = isSameRoom ? (savedProgress.phase ?? 'dialogue') : 'dialogue';
+let totalPoints = isSameRoom ? (savedProgress.totalPoints ?? 0) : 0;
+let roomPoints = isSameRoom ? (savedProgress.roomPoints ?? 0) : 0;
+let completedDays = isSameRoom ? (savedProgress.completedDays ?? []) : [];
+let correctAnswers = isSameRoom ? (savedProgress.correctAnswers ?? 0) : 0;
+let wrongAnswers = isSameRoom ? (savedProgress.wrongAnswers ?? 0) : 0;
+let isTyping = false;
+let textIsDisplayed = false;
+let typewriterTimeout = null;
+
+// Returns the display name for a speaker role (part before " – " in characters map)
+function getCharacterName(role) {
+    const val = roomData.characters && roomData.characters[role.toUpperCase()];
+    if (!val) return '';
+    return val.split(/\s[–\-]\s/)[0] || val;
+}
+
+// Updates character image highlight and name labels based on current speaker
+function updateSpeaker(speaker) {
+    const s = speaker.toUpperCase();
+
+    teacherImg.classList.remove('char-active', 'char-inactive');
+    studentImg.classList.remove('char-active', 'char-inactive');
+    labelLeft.classList.add('speaker-label--hidden');
+    labelRight.classList.add('speaker-label--hidden');
+
+    if (s === 'TEACHER') {
+        teacherImg.classList.add('char-active');
+        studentImg.classList.add('char-inactive');
+        labelLeft.textContent = getCharacterName('TEACHER');
+        labelLeft.classList.remove('speaker-label--hidden');
+    } else if (s === 'STUDENT') {
+        teacherImg.classList.add('char-inactive');
+        studentImg.classList.add('char-active');
+        labelRight.textContent = getCharacterName('STUDENT');
+        labelRight.classList.remove('speaker-label--hidden');
     }
+}
+
+// Sets textbox bubble class and updates speaker highlighting in one call
+function setTextboxSpeaker(speaker) {
+    textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + speaker.toLowerCase();
+    updateSpeaker(speaker);
+}
+
+restorePhase();
+
+// Button clicks use event.stopPropagation() so they never reach here.
+// Remove any previously registered handler before adding, so the listener
+// is never stacked if this script is evaluated more than once.
+function handleWrapClick() {
+    if (phase === 'questions') return;
+
     if (isTyping) {
-        finishTextDisplay();
+        // Complete the current text immediately — do not advance.
+        clearTimeout(typewriterTimeout);
+        typewriterTimeout = null;
+        textbox.querySelectorAll("span").forEach(span => span.style.opacity = "1");
+        isTyping = false;
+        textIsDisplayed = true;
         return;
     }
-    if (isDisplayingText) {
-        isDisplayingText = false;
+
+    if (textIsDisplayed) {
+        textIsDisplayed = false;
         if (phase === 'dialogue') {
             render();
         } else if (phase === 'test-intro') {
             phase = 'questions';
+            weiterBtn.style.display = 'none';
             currentQuestionIndex = 0;
             startQuestionsPhase();
         } else if (phase === 'test-outro') {
             advanceToNextDay();
         } else if (phase === 'day-transition') {
             phase = 'dialogue';
+            zumTagestestBtn.style.display = '';
             currentIndex = 0;
             render();
         }
-    } else {
-        render();
     }
 }
+wrap.removeEventListener("click", handleWrapClick);
+wrap.addEventListener("click", handleWrapClick);
 
 function render() {
     if (phase !== 'dialogue') return;
@@ -54,13 +117,16 @@ function render() {
     const dayDialogue = roomData.days[currentDayIndex].dialogue;
     if (currentIndex >= dayDialogue.length) {
         phase = 'test-intro';
+        zumTagestestBtn.style.display = 'none';
         const intro = roomData.days[currentDayIndex].dailyTest.intro;
-        setText(intro.text);
+        setTextboxSpeaker(intro.speaker);
+        typeText(intro.text);
         return;
     }
 
     const entry = dayDialogue[currentIndex++];
-    setText(entry.text);
+    setTextboxSpeaker(entry.speaker);
+    typeText(entry.text);
 }
 
 function startQuestionsPhase() {
@@ -73,15 +139,87 @@ function startQuestionsPhase() {
 }
 
 function displayQuestion(question) {
-    setText(question.prompt, 40, () => {
+    setTextboxSpeaker('teacher');
+    if (question.type === 'GAP') {
+        showGapQuestion(question);
+        return;
+    }
+    const promptText = question.prompt != null ? question.prompt : "";
+    typeText(promptText, 40, () => {
         showAnswerOptions(question);
     });
 }
 
+
+function saveToLocalStorage() {
+    localStorage.setItem("hammerProgress_" + roomData.roomCode, JSON.stringify({
+        roomId: roomData.roomCode,
+        currentDayIndex,
+        currentDialogueSeq: currentIndex,
+        currentQuestionIndex,
+        phase,
+        totalPoints,
+        roomPoints,
+        completedDays,
+        correctAnswers,
+        wrongAnswers
+    }));
+}
+
+function restorePhase() {
+    switch (phase) {
+        case 'dialogue':
+            render();
+            break;
+        case 'test-intro': {
+            zumTagestestBtn.style.display = 'none';
+            const intro = roomData.days[currentDayIndex].dailyTest.intro;
+            setTextboxSpeaker(intro.speaker);
+            typeText(intro.text);
+            break;
+        }
+        case 'questions':
+            weiterBtn.style.display = 'none';
+            zumTagestestBtn.style.display = 'none';
+            startQuestionsPhase();
+            break;
+        case 'test-outro': {
+            weiterBtn.style.display = '';
+            zumTagestestBtn.style.display = 'none';
+            const outro = roomData.days[currentDayIndex].dailyTest.outro;
+            setTextboxSpeaker(outro.speaker);
+            typeText(outro.text);
+            break;
+        }
+        case 'day-transition': {
+            zumTagestestBtn.style.display = 'none';
+            const intro = roomData.days[currentDayIndex].dailyTest.intro;
+            setTextboxSpeaker(intro.speaker);
+            typeText(intro.text);
+            break;
+        }
+        case 'complete': {
+            const msg = roomData.completionMessage;
+            setTextboxSpeaker(msg.speaker);
+            textbox.innerHTML = msg.text;
+            textIsDisplayed = true;
+            break;
+        }
+        default:
+            render();
+    }
+}
+
 function showTestOutro() {
+    if (!completedDays.includes(currentDayIndex)) {
+        completedDays.push(currentDayIndex);
+    }
+    saveToLocalStorage();
     phase = 'test-outro';
+    weiterBtn.style.display = '';
     const outro = roomData.days[currentDayIndex].dailyTest.outro;
-    setText(outro.text);
+    setTextboxSpeaker(outro.speaker);
+    typeText(outro.text);
 }
 
 function advanceToNextDay() {
@@ -89,47 +227,49 @@ function advanceToNextDay() {
     if (nextDayIndex >= roomData.days.length) {
         phase = 'complete';
         const msg = roomData.completionMessage;
+        setTextboxSpeaker(msg.speaker);
         textbox.innerHTML = msg.text;
-        isDisplayingText = true;
+        textIsDisplayed = true;
         return;
     }
     currentDayIndex = nextDayIndex;
     phase = 'day-transition';
     const intro = roomData.days[currentDayIndex].dailyTest.intro;
-    setText(intro.text);
+    setTextboxSpeaker(intro.speaker);
+    typeText(intro.text);
 }
 
-function finishTextDisplay() {
-    textbox.innerHTML = "";
-
-    const spanArray = createSpanArray(currentText);
-    spanArray.forEach(span => span.style.opacity = "1");
-    displayIndex = -1
-    isTyping = false;
-    isDisplayingText = true;
-}
-
-function setText(text, speed = 40, onComplete = null) {
-    currentText = text;
-    textbox.innerHTML = "";
-
-    const spanArray = createSpanArray(currentText);
-    isTyping = true;
-    displayIndex = 0;
-
-    function type() {
-        if (displayIndex < currentText.length && displayIndex !== -1) {
-            spanArray[displayIndex].style.opacity = "1";
-            displayIndex++;
-            setTimeout(type, speed);
-        } else {
-            isTyping = false;
-            isDisplayingText = true;
-            if(onComplete) onComplete();
-        }
+function typeText(text, speed = 40, onComplete = null) {
+    console.log("isTyping:" + isTyping);
+    if (typewriterTimeout) {
+        clearTimeout(typewriterTimeout);
+        typewriterTimeout = null;
     }
+    textbox.innerHTML = "";
 
-    type();
+    const spanArray = createSpanArray(text);
+
+    if (isTyping) {
+        spanArray.forEach(span => span.style.opacity = "1");
+        isTyping = false;
+        textIsDisplayed = true;
+        if (onComplete) onComplete();
+    } else {
+        isTyping = true;
+        let i = 0;
+        function type() {
+            if (i < text.length) {
+                spanArray[i].style.opacity = "1";
+                i++;
+                typewriterTimeout = setTimeout(type, speed);
+            } else {
+                isTyping = false;
+                textIsDisplayed = true;
+                if (onComplete) onComplete();
+            }
+        }
+        type();
+    }
 }
 
 function createSpanArray(text) {
@@ -167,6 +307,12 @@ function createSpanArray(text) {
 
 function showAnswerOptions(question) {
     answerOptionsContainer.innerHTML = "";
+
+    if (question.type === 'GAP') {
+        showGapQuestion(question);
+        return;
+    }
+
     const optionsDiv = document.createElement("div");
     optionsDiv.className = "options-list";
 
@@ -175,27 +321,120 @@ function showAnswerOptions(question) {
         button.className = "option-button";
         button.textContent = option.text;
         button.addEventListener("click", (event) => {
-            event.stopPropagation();
+            event.stopPropagation(); // Bug 1 fix: prevent click from reaching body listener
             handleAnswer(option, question);
         });
         optionsDiv.appendChild(button);
     });
 
     answerOptionsContainer.appendChild(optionsDiv);
-    isDisplayingQuestion = true;
 }
 
 function handleAnswer(selectedOption, question) {
     answerOptionsContainer.innerHTML = "";
 
-    textbox.innerHTML = selectedOption.correct
+    const feedbackText = selectedOption.correct
         ? "Richtig. +" + question.points + " Punkt"
         : "Leider falsch.";
 
+    const feedbackClass = selectedOption.correct
+        ? "bubble--teacher feedback-correct"
+        : "bubble--teacher feedback-incorrect";
+
+    textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden " + feedbackClass;
+    textbox.innerHTML = feedbackText;
+
+    if (selectedOption.correct) {
+        totalPoints += question.points;
+        roomPoints += question.points;
+        correctAnswers++;
+    } else {
+        wrongAnswers++;
+    }
+    saveToLocalStorage();
+
     setTimeout(() => {
-        isDisplayingQuestion = false;
         currentQuestionIndex++;
-        isDisplayingText = false;
+        textIsDisplayed = false;
         startQuestionsPhase();
     }, 1000);
+}
+
+function showGapQuestion(question) {
+    const collectedAnswers = {};
+    let gapIndex = 0;
+
+    function showNextGap() {
+        if (gapIndex >= question.options.length) {
+            submitGapAnswers(question, collectedAnswers);
+            return;
+        }
+
+        const gap = question.options[gapIndex];
+        const gapText = (gap.textBefore || "") + " ___ " + (gap.textAfter || "");
+
+        answerOptionsContainer.innerHTML = "";
+        setTextboxSpeaker('teacher');
+        typeText(gapText, 40, () => {
+            const optionsDiv = document.createElement("div");
+            optionsDiv.className = "options-list";
+
+            gap.choices.forEach(choice => {
+                const button = document.createElement("button");
+                button.className = "option-button";
+                button.textContent = choice;
+                button.addEventListener("click", (event) => {
+                    event.stopPropagation();
+                    collectedAnswers[gap.gapId] = choice;
+                    gapIndex++;
+                    answerOptionsContainer.innerHTML = "";
+                    showNextGap();
+                });
+                optionsDiv.appendChild(button);
+            });
+
+            answerOptionsContainer.appendChild(optionsDiv);
+        });
+    }
+
+    showNextGap();
+}
+
+function submitGapAnswers(question, answers) {
+    fetch('/question/' + question.id, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ answers: answers })
+    })
+    .then(res => res.json())
+    .then(points => {
+        answerOptionsContainer.innerHTML = "";
+        const isCorrect = points > 0;
+
+        const feedbackText = isCorrect
+            ? "Richtig. +" + question.points + " Punkt"
+            : "Leider falsch.";
+
+        const feedbackClass = isCorrect
+            ? "bubble--teacher feedback-correct"
+            : "bubble--teacher feedback-incorrect";
+
+        textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden " + feedbackClass;
+        textbox.innerHTML = feedbackText;
+
+        if (isCorrect) {
+            totalPoints += question.points;
+            roomPoints += question.points;
+            correctAnswers++;
+        } else {
+            wrongAnswers++;
+        }
+        saveToLocalStorage();
+
+        setTimeout(() => {
+            currentQuestionIndex++;
+            textIsDisplayed = false;
+            startQuestionsPhase();
+        }, 1000);
+    });
 }

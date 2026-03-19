@@ -59,4 +59,13 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
             "LEFT JOIN FETCH q.questionThemes " +
             "WHERE q.questionSetId = :questionSetId")
     List<Question> findByQuestionSetIdWithDetails(@Param("questionSetId") Integer questionSetId);
+
+    /**
+     * Fetch questions by a list of IDs with their MC answers eagerly loaded.
+     *
+     * @param ids the question IDs to fetch
+     * @return list of questions with mcAnswers populated
+     */
+    @Query("SELECT DISTINCT q FROM Question q LEFT JOIN FETCH q.mcAnswers WHERE q.questionId IN :ids")
+    List<Question> findByIdsWithAnswers(@Param("ids") List<Integer> ids);
 }
