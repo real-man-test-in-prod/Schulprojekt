@@ -67,7 +67,6 @@ function updateSpeaker(speaker) {
 
 // Sets textbox bubble class and updates speaker highlighting in one call
 function setTextboxSpeaker(speaker) {
-    textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden bubble--" + speaker.toLowerCase();
     updateSpeaker(speaker);
 }
 
@@ -341,7 +340,6 @@ function handleAnswer(selectedOption, question) {
         ? "bubble--teacher feedback-correct"
         : "bubble--teacher feedback-incorrect";
 
-    textbox.className = "absolute p-[2%] text-2xl text-white font-bold text-outline-blue h-full overflow-hidden " + feedbackClass;
     textbox.innerHTML = feedbackText;
 
     if (selectedOption.correct) {

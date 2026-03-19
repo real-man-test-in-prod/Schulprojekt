@@ -45,17 +45,6 @@ body {
     border-color: #2a5a8c;
 }
 
-.room-footer {
-    background-color: #3a2010;
-    border-top: 2px solid #5a3a20;
-}
-
-.room-footer-btn {
-    background-color: #5a3a20;
-    color: #e8dfc8;
-    border: 1px solid #6a4a20;
-}
-
 /* Character highlighting */
 .char-active {
     filter: brightness(1.1) drop-shadow(0 0 14px rgba(255, 220, 80, 0.85));
@@ -93,4 +82,36 @@ body {
 
 .speaker-label--hidden {
     display: none;
+}
+
+.footer-btn {
+    border-radius: 0.5cqi;
+    background-color: rgb(90,58,32);
+    padding-left: 1cqi;
+    padding-right: 1cqi;
+    padding-top: 0.4cqi;
+    padding-bottom: 0.4cqi;
+    font-size: 1.5cqi;
+    color: rgb(255,255,255);
+}
+
+.footer-btn:hover {
+    background-color: rgb(110,58,42);
+}
+
+.footer-section{
+    display: flex;
+    align-items: center;
+    gap: 1cqi;
+}
+
+.footer {
+    background-color: rgb(58,32,16);
+    border-top-width: 0.5cqi;
+    border-color: rgb(90,58,32);
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1% 2%;
 }
