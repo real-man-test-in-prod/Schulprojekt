@@ -40,7 +40,7 @@ INSERT INTO question_set (question_set_id, team_id, title) VALUES (1, 1, 'Hammer
 
 -- q1
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (1, 1, 'MC', 'Was bewirkt die SQL-Anweisung SELECT?', NULL, NULL, FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (1, 5);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (1, 5);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (1, 1, 'SELECT liest Daten aus einer oder mehreren Tabellen aus', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (2, 1, 'SELECT fuegt Daten in eine Tabelle ein', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (3, 1, 'Keine der angebotenen Antworten', FALSE, 3);
@@ -48,7 +48,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q2 GAP gap_id=1,2
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (2, 1, 'GAP', NULL, NULL, 'Ein JOIN verbindet Datensaetze aus mehreren Tabellen ueber gemeinsame Schluessel.', FALSE, 2);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (2, 5);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (2, 5);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (1, 2, 1, 'Ein JOIN', 'Datensaetze aus mehreren Tabellen ueber gemeinsame');
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (1, 1, 'verbindet', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (32, 1, 'trennt', FALSE, 2);
@@ -59,7 +59,7 @@ INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_o
 
 -- q3
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (3, 1, 'MC', 'Wofuer wird GROUP BY verwendet?', NULL, NULL, FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (3, 5);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (3, 5);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (4, 3, 'GROUP BY fasst Datensaetze nach bestimmten Spalten zusammen, oft in Kombination mit Aggregatfunktionen.', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (5, 3, 'GROUP BY fasst Datensaetze nach bestimmten Gruppennamen zusammen.', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (6, 3, 'GROUP BY fuegt Datensaetze in eine neue Spalte zusammen.', FALSE, 3);
@@ -71,7 +71,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q5
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (5, 1, 'MC', 'Was bedeutet 3. Normalform?', NULL, NULL, FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (5, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (5, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (8, 5, 'Die 2. Normalform gilt.', FALSE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (9, 5, 'Es gibt keine transitiven Abhaengigkeiten zwischen Nicht-Schluesselattributen.', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (10, 5, 'Alles von oben.', TRUE, 3);
@@ -79,13 +79,13 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q6 TF
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (6, 1, 'TF', 'Bei der 1. Normalform enthalten alle Attribute atomare Werte und keine Wiederholungsgruppen.', NULL, NULL, FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (6, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (6, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (11, 6, 'True', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (12, 6, 'False', FALSE, 2);
 
 -- q7
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (7, 1, 'MC', 'Was beschreibt ein Entity-Relationship-Modell (ERM)?', NULL, 'Das ERM ist ein konzeptionelles Modell, das Objekte der realen Welt und ihre Beziehungen grafisch darstellt.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (7, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (7, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (13, 7, 'Ein konzeptionelles Datenmodell, das Objekte der realen Welt und ihre Beziehungen darstellt', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (14, 7, 'Eine Abfragesprache fuer relationale Datenbanken', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (15, 7, 'Ein Verfahren zur Datenkomprimierung', FALSE, 3);
@@ -93,7 +93,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q8
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (8, 1, 'MC', 'Was ist eine Entitaet im ERM?', NULL, 'Eine Entitaet ist ein eindeutig identifizierbares Objekt der realen Welt. Im ER-Diagramm als Rechteck dargestellt.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (8, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (8, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (17, 8, 'Ein eindeutig identifizierbares Objekt der realen Welt, z.B. ein Kunde oder ein Produkt', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (18, 8, 'Eine Beziehung zwischen zwei Tabellen', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (19, 8, 'Ein Attribut mit mehreren Werten', FALSE, 3);
@@ -101,7 +101,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q9
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (9, 1, 'MC', 'Was versteht man unter einem Attribut im ERM?', NULL, 'Attribute beschreiben Eigenschaften einer Entitaet oder Beziehung. Im ER-Diagramm als Ellipse dargestellt.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (9, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (9, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (21, 9, 'Eine Eigenschaft einer Entitaet oder Beziehung, z.B. Name oder Geburtsdatum', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (22, 9, 'Eine Verknuepfung zwischen zwei Entitaeten', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (23, 9, 'Eine eigene Tabelle mit Fremdschluessel', FALSE, 3);
@@ -109,7 +109,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q10
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (10, 1, 'MC', 'Was ist ein Primaerschluessel?', NULL, 'Ein Primaerschluessel identifiziert jeden Datensatz eindeutig. Er darf nicht NULL sein und muss einmalig sein.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (10, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (10, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (25, 10, 'Ein Attribut (oder eine Kombination), das eine Entitaet innerhalb einer Tabelle eindeutig identifiziert', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (26, 10, 'Ein Attribut, das auf eine andere Tabelle verweist', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (27, 10, 'Ein Pflichtfeld ohne Eindeutigkeitsbedingung', FALSE, 3);
@@ -117,7 +117,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q11
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (11, 1, 'MC', 'Was ist ein Fremdschluessel?', NULL, 'Ein Fremdschluessel verweist auf den Primaerschluessel einer anderen Tabelle und stellt referentielle Integritaet sicher.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (11, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (11, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (29, 11, 'Ein Attribut in einer Tabelle, das auf den Primaerschluessel einer anderen Tabelle verweist', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (30, 11, 'Ein zweiter Primaerschluessel in derselben Tabelle', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (31, 11, 'Ein Attribut ohne Wertebereich', FALSE, 3);
@@ -125,7 +125,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q12
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (12, 1, 'MC', 'Was bedeutet die Kardinalitaet 1:n in einer Beziehung?', NULL, 'Bei 1:n koennen einem Datensatz auf der 1-Seite mehrere Datensaetze auf der n-Seite zugeordnet sein.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (12, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (12, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (33, 12, 'Einem Datensatz auf der 1-Seite koennen mehrere Datensaetze auf der n-Seite zugeordnet sein', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (34, 12, 'Genau ein Datensatz steht immer genau einem anderen gegenueber', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (35, 12, 'Beliebig viele Datensaetze stehen beliebig vielen gegenueber', FALSE, 3);
@@ -133,7 +133,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q13
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (13, 1, 'MC', 'Wie wird eine m:n-Beziehung im relationalen Modell umgesetzt?', NULL, 'Eine m:n-Beziehung wird durch eine Zwischentabelle aufgeloest, die die Primaerschluessel beider Tabellen als Fremdschluessel enthaelt.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (13, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (13, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (37, 13, 'Durch eine Zwischentabelle, die die Primaerschluessel beider Entitaeten als Fremdschluessel enthaelt', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (38, 13, 'Durch einen zusaetzlichen Primaerschluessel in einer der beiden Tabellen', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (39, 13, 'Durch ein Array-Attribut in einer der Tabellen', FALSE, 3);
@@ -141,7 +141,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q14
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (14, 1, 'MC', 'Was ist ein zusammengesetzter Primaerschluessel?', NULL, 'Ein zusammengesetzter Primaerschluessel besteht aus mehreren Attributen, die gemeinsam eindeutig identifizieren.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (14, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (14, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (41, 14, 'Ein Primaerschluessel, der aus mehreren Attributen besteht, die gemeinsam einen Datensatz eindeutig identifizieren', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (42, 14, 'Ein Primaerschluessel, der automatisch hochgezaehlt wird', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (43, 14, 'Ein Primaerschluessel, der aus einer anderen Tabelle stammt', FALSE, 3);
@@ -149,7 +149,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q15
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (15, 1, 'MC', 'Was besagt die Erste Normalform (1NF)?', NULL, '1NF fordert atomare Attributwerte - keine Mengen, Listen oder Wiederholungsgruppen in einer Zelle.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (15, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (15, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (45, 15, 'Alle Attributwerte muessen atomar sein - keine Mengen oder Wiederholungsgruppen in einer Zelle', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (46, 15, 'Alle Attribute muessen vom Primaerschluessel funktional abhaengig sein', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (47, 15, 'Es duerfen keine transitiven Abhaengigkeiten existieren', FALSE, 3);
@@ -157,7 +157,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q16
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (16, 1, 'MC', 'Ein Datenbankfeld enthaelt Muelle, Schmidt, Wagner als eine Zeichenkette. Welche Normalform ist verletzt?', NULL, 'Der Wert ist nicht atomar - mehrere Namen in einem Feld. Das verletzt die 1NF.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (16, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (16, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (49, 16, 'Die Erste Normalform (1NF), da der Wert nicht atomar ist', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (50, 16, 'Die Zweite Normalform (2NF)', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (51, 16, 'Die Dritte Normalform (3NF)', FALSE, 3);
@@ -165,7 +165,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q17
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (17, 1, 'MC', 'Was ist Voraussetzung fuer die Zweite Normalform (2NF)?', NULL, '2NF: Tabelle in 1NF, jedes Nicht-Schluessel-Attribut haengt vom gesamten Primaerschluessel ab (keine partiellen Abhaengigkeiten).', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (17, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (17, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (53, 17, 'Die Tabelle muss in 1NF sein, und jedes Nicht-Schluessel-Attribut muss vom gesamten Primaerschluessel abhaengig sein, nicht nur von einem Teil', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (54, 17, 'Alle Attribute muessen denselben Datentyp haben', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (55, 17, 'Es darf nur einen einzigen Primaerschluessel geben', FALSE, 3);
@@ -173,7 +173,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q18
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (18, 1, 'MC', 'Eine Tabelle mit Schluessel (BestellungID, ArtikelID) enthaelt KundenName, der nur von BestellungID abhaengt. Welche Normalform ist verletzt?', NULL, 'Partielle Abhaengigkeit: KundenName haengt nur von einem Teil des zusammengesetzten Primaerschluessels ab. Verletzt 2NF.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (18, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (18, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (57, 18, 'Die Zweite Normalform (2NF), da eine partielle Abhaengigkeit vorliegt', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (58, 18, 'Die Erste Normalform (1NF)', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (59, 18, 'Die Dritte Normalform (3NF)', FALSE, 3);
@@ -181,7 +181,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q19
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (19, 1, 'MC', 'Was beschreibt die Dritte Normalform (3NF)?', NULL, '3NF: Tabelle in 2NF, keine transitiven Abhaengigkeiten zwischen Nicht-Schluessel-Attributen.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (19, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (19, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (61, 19, 'Die Tabelle ist in 2NF, und es existieren keine transitiven Abhaengigkeiten zwischen Nicht-Schluessel-Attributen', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (62, 19, 'Alle Attribute muessen atomar sein', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (63, 19, 'Jede Tabelle muss einen natuerlichen Schluessel haben', FALSE, 3);
@@ -189,7 +189,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q20
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (20, 1, 'MC', 'Eine Tabelle enthaelt: MitarbeiterID -> AbteilungsID -> AbteilungsLeiter. Welche Normalform ist verletzt?', NULL, 'AbteilungsLeiter haengt transitiv ueber AbteilungsID vom Schluessel ab. Verletzt 3NF.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (20, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (20, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (65, 20, 'Die Dritte Normalform (3NF) wegen der transitiven Abhaengigkeit ueber AbteilungsID', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (66, 20, 'Die Erste Normalform (1NF)', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (67, 20, 'Die Zweite Normalform (2NF)', FALSE, 3);
@@ -197,7 +197,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q21 GAP gap_id=3,4,5
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (21, 1, 'GAP', NULL, NULL, 'Eine Einfuegeanomalie liegt vor, wenn ein neuer Datensatz nicht eingefuegt werden kann, ohne gleichzeitig andere nicht relevante Daten einzutragen.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (21, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (21, 4);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (3, 21, 1, 'Ein Problem, bei dem ein neuer', NULL);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (4, 3, 'Datensatz', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (34, 3, 'Index', FALSE, 2);
@@ -213,7 +213,7 @@ INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_o
 
 -- q22
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (22, 1, 'MC', 'Was ist eine Loeschanomalie?', NULL, 'Eine Loeschanomalie: beim Loeschen eines Datensatzes gehen unbeabsichtigt andere relevante Informationen verloren.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (22, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (22, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (69, 22, 'Das unbeabsichtigte Verlieren von Informationen, weil beim Loeschen eines Datensatzes andere relevante Daten mitgeloescht werden', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (70, 22, 'Ein Fehler beim Ausfuehren eines DELETE-Befehls', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (71, 22, 'Das Loeschen eines Indexes durch das DBMS', FALSE, 3);
@@ -221,7 +221,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q23
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (23, 1, 'MC', 'Was ist eine Aenderungsanomalie?', NULL, 'Bei einer Aenderungsanomalie muss dieselbe Information an mehreren Stellen manuell geaendert werden, sonst entstehen Inkonsistenzen.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (23, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (23, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (73, 23, 'Das Problem, dass bei einer Datenaenderung dieselbe Information an mehreren Stellen manuell geaendert werden muss und Inkonsistenzen entstehen koennen', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (74, 23, 'Ein Fehler im UPDATE-Befehl', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (75, 23, 'Das automatische Aktualisieren von Indizes', FALSE, 3);
@@ -229,7 +229,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q24 GAP gap_id=6,7
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (24, 1, 'GAP', NULL, NULL, 'Referentielle Integritaet: ein Fremdschluessenwert ist entweder NULL oder zeigt auf einen existierenden Primaerschluessel.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (24, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (24, 4);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (6, 24, 1, 'Referentielle Integritaet bedeutet, dass ein', 'entweder NULL ist');
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (7, 6, 'Fremdschluessenwert', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (8, 6, 'Fremdschluessel', TRUE, 2);
@@ -240,7 +240,7 @@ INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_o
 
 -- q25
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (25, 1, 'MC', 'Was passiert, wenn referentielle Integritaet verletzt wird?', NULL, 'Bei Verletzung existiert ein Fremdschluessenwert, dem kein Primaerschluessel in der referenzierten Tabelle gegenueber steht (Dangling Reference).', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (25, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (25, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (77, 25, 'Es existiert ein Fremdschluessenwert, dem kein entsprechender Primaerschluessel in der referenzierten Tabelle gegenueber steht', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (78, 25, 'Die Datenbank wird automatisch geloescht', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (79, 25, 'Ein neuer Primaerschluessel wird automatisch erzeugt', FALSE, 3);
@@ -248,13 +248,13 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q26 TF (Aussage FALSCH)
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (26, 1, 'TF', 'Eine schwache Entitaet kann durch eigene Attribute alleine eindeutig identifiziert werden.', NULL, 'FALSCH: Eine schwache Entitaet kann NICHT durch eigene Attribute alleine eindeutig identifiziert werden. Sie benoetigt eine starke Entitaet. Im ER-Diagramm als doppeltes Rechteck dargestellt.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (26, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (26, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (81, 26, 'True', FALSE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (82, 26, 'False', TRUE, 2);
 
 -- q27
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (27, 1, 'MC', 'Was ist eine rekursive Beziehung im ERM?', NULL, 'Eine rekursive Beziehung verbindet eine Entitaet mit sich selbst. Beispiel: Mitarbeiter fuehrt Mitarbeiter.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (27, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (27, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (83, 27, 'Eine Beziehung, bei der eine Entitaet mit sich selbst in Beziehung steht, z.B. Mitarbeiter fuehrt Mitarbeiter', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (84, 27, 'Eine Beziehung, die mehrfach zwischen denselben zwei Entitaeten vorkommt', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (85, 27, 'Eine Beziehung mit mehr als zwei beteiligten Entitaeten', FALSE, 3);
@@ -262,7 +262,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q28
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (28, 1, 'MC', 'Was ist ein Schluessellkandidat (Candidate Key)?', NULL, 'Ein Kandidatenschluessel ist jede minimale Attributkombination, die alle Zeilen eindeutig identifiziert. Einer davon wird Primaerschluessel.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (28, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (28, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (87, 28, 'Ein Attribut oder eine minimale Attributkombination, die Datensaetze eindeutig identifizieren kann und als Primaerschluessel gewaehlt werden koennte', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (88, 28, 'Ein Attribut, das aus einem anderen Attribut berechnet wird', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (89, 28, 'Ein Fremdschluessel, der auch Primaerschluessel ist', FALSE, 3);
@@ -270,7 +270,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q29
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (29, 1, 'MC', 'Was unterscheidet einen natuerlichen Schluessel von einem Surrogatschluessel?', NULL, 'Natuerlicher Schluessel: fachliches Attribut (z.B. Steuernummer). Surrogatschluessel: kuenstlich erzeugter Wert ohne fachliche Bedeutung (z.B. auto-increment ID).', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (29, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (29, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (91, 29, 'Ein natuerlicher Schluessel ist ein fachliches Attribut (z.B. Steuernummer), ein Surrogatschluessel ist ein kuenstlich erzeugter Wert (z.B. auto-increment ID)', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (92, 29, 'Natuerliche Schluessel sind immer numerisch, Surrogatschluessel textuell', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (93, 29, 'Surrogatschluessel sind immer Fremdschluessel', FALSE, 3);
@@ -278,7 +278,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q30
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (30, 1, 'MC', 'Wie wird eine 1:1-Beziehung im relationalen Modell typischerweise umgesetzt?', NULL, 'Bei 1:1: Primaerschluessel einer Tabelle als Fremdschluessel in die andere eintragen, oder beide in eine Tabelle zusammenfuehren.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (30, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (30, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (95, 30, 'Der Primaerschluessel einer Tabelle wird als Fremdschluessel in der anderen Tabelle eingetragen, oder beide werden in eine Tabelle zusammengefuehrt', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (96, 30, 'Immer durch eine Zwischentabelle', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (97, 30, 'Durch ein Array-Attribut', FALSE, 3);
@@ -286,7 +286,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q31
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (31, 1, 'MC', 'Was beschreibt Funktionale Abhaengigkeit im Kontext der Normalisierung?', NULL, 'A->B: jeder Wert von A bestimmt genau einen Wert von B. Grundlage aller Normalformen.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (31, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (31, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (99, 31, 'Attribut B ist funktional abhaengig von Attribut A, wenn jeder Wert von A genau einen Wert von B bestimmt (A -> B)', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (100, 31, 'Zwei Attribute haben immer denselben Wert', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (101, 31, 'Ein Attribut haengt von keinem anderen ab', FALSE, 3);
@@ -294,7 +294,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q32
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (32, 1, 'MC', 'Welche Modellierungsregel gilt beim Ueberfuehren eines ERM ins relationale Modell fuer m:n-Beziehungen?', NULL, 'Fuer m:n: eigene Zwischentabelle mit Primaerschluesseln beider Entitaeten als Fremdschluessel.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (32, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (32, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (103, 32, 'Es wird eine eigene Tabelle erstellt, die die Primaerschluessel beider Entitaeten als Fremdschluessel und ggf. Beziehungsattribute enthaelt', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (104, 32, 'Die Attribute der einen Entitaet werden in die andere Tabelle kopiert', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (105, 32, 'Es wird ein neuer Primaerschluessel fuer eine der Entitaeten erstellt', FALSE, 3);
@@ -302,7 +302,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q33
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (33, 1, 'MC', 'Warum sollte man NULL-Werte bei Primaerschluesseln verbieten?', NULL, 'NULL bedeutet unbekannt - keine eindeutige Identifikation moeglich. Daher verboten in Primaerschluesseln.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (33, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (33, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (107, 33, 'Weil ein Primaerschluessel jeden Datensatz eindeutig identifizieren muss und NULL keine eindeutige Identifikation erlaubt', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (108, 33, 'Weil NULL-Werte Speicherplatz verschwenden', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (109, 33, 'Weil Fremdschluessel sonst nicht funktionieren', FALSE, 3);
@@ -310,7 +310,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q34
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (34, 1, 'MC', 'Was ist der Unterschied zwischen konzeptionellem und logischem Datenmodell?', NULL, 'Konzeptionell (ERM): fachliche Zusammenhaenge unabhaengig von Technik. Logisch (relationales Schema): konkrete Tabellenstrukturen.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (34, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (34, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (111, 34, 'Das konzeptionelle Modell (ERM) beschreibt fachliche Zusammenhaenge unabhaengig von Technik; das logische Modell ueberfuehrt das ERM in Tabellenstrukturen', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (112, 34, 'Das konzeptionelle Modell ist immer korrekt, das logische enthaelt Fehler', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (113, 34, 'Das logische Modell enthaelt SQL-Abfragen, das konzeptionelle nicht', FALSE, 3);
@@ -318,7 +318,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q35
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (35, 1, 'MC', 'Was versteht man unter Denormalisierung?', NULL, 'Denormalisierung: bewusstes Einfuehren von Redundanz um Leseperformance zu steigern - auf Kosten der Datenkonsistenz.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (35, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (35, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (115, 35, 'Das bewusste Zusammenfuehren von Tabellen oder das Einfuehren von Redundanz, um Leseperformance zu steigern - auf Kosten von Datenkonsistenz', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (116, 35, 'Das Aufteilen einer Tabelle in mehrere, um Anomalien zu vermeiden', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (117, 35, 'Das Entfernen aller Fremdschluessel', FALSE, 3);
@@ -326,7 +326,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q36
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (36, 1, 'MC', 'Welche Kardinalitaetsnotation drueckt aus, dass ein Kunde mindestens eine, aber beliebig viele Bestellungen haben kann?', NULL, '1:n (Min-Max: (1,1) zu (1,n)): Kunde hat mind. eine Bestellung, beliebig viele moeglich.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (36, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (36, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (119, 36, '1:n (oder in Min-Max-Notation: (1,1) zu (1,n))', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (120, 36, '0:1', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (121, 36, 'n:m', FALSE, 3);
@@ -334,7 +334,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q37
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (37, 1, 'MC', 'Was bedeutet die Min-Max-Notation (0,1) bei einer Beziehung?', NULL, '(0,1): Entitaet kann mit keinem oder genau einem Partner beteiligt sein - optional, hoechstens einmal.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (37, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (37, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (123, 37, 'Die Entitaet kann an der Beziehung mit keinem oder genau einem Partner beteiligt sein (optional, aber hoechstens einmal)', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (124, 37, 'Die Entitaet muss immer genau einmal beteiligt sein', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (125, 37, 'Die Entitaet kann an beliebig vielen Beziehungen teilnehmen', FALSE, 3);
@@ -342,7 +342,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q38
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (38, 1, 'MC', 'Ein Attribut enthaelt Strasse und Hausnummer als einen String. Welche Loesung entspricht der 1NF?', NULL, '1NF fordert atomare Werte. Strasse und Hausnummer muessen in separate Attribute aufgeteilt werden.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (38, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (38, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (127, 38, 'Das Attribut in zwei separate Attribute (Strasse und Hausnummer) aufteilen', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (128, 38, 'Das Attribut in eine eigene Tabelle auslagern', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (129, 38, 'Den String mit einem Trennzeichen versehen', FALSE, 3);
@@ -350,7 +350,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q39
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (39, 1, 'MC', 'Was ist ein zusammengesetztes Attribut im ERM?', NULL, 'Zusammengesetztes Attribut: besteht aus Teilattributen, z.B. Adresse aus Strasse, PLZ, Ort.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (39, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (39, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (131, 39, 'Ein Attribut, das aus mehreren Teilattributen besteht, z.B. Adresse bestehend aus Strasse, PLZ und Ort', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (132, 39, 'Ein Attribut, das denselben Wert in mehreren Tabellen hat', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (133, 39, 'Ein Attribut, das gleichzeitig Primaer- und Fremdschluessel ist', FALSE, 3);
@@ -358,7 +358,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q40
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (40, 1, 'MC', 'Was ist ein mehrwertiges Attribut im ERM?', NULL, 'Mehrwertiges Attribut: kann fuer eine Entitaet mehrere Werte annehmen, z.B. mehrere Telefonnummern.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (40, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (40, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (135, 40, 'Ein Attribut, das fuer eine Entitaet mehrere Werte annehmen kann, z.B. mehrere Telefonnummern eines Kunden', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (136, 40, 'Ein Attribut mit einem berechneten Wert', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (137, 40, 'Ein Attribut, das in zwei Tabellen gleichzeitig vorkommt', FALSE, 3);
@@ -366,7 +366,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q41
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (41, 1, 'MC', 'Wie wird ein mehrwertiges Attribut im relationalen Modell korrekt abgebildet?', NULL, 'Mehrwertige Attribute in eigene Tabelle auslagern mit Fremdschluessel auf die Ursprungsentitaet.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (41, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (41, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (139, 41, 'In eine eigene Tabelle ausgelagert, mit Fremdschluessel auf die Ursprungsentitaet', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (140, 41, 'Als kommaseparierte Liste in einer Spalte gespeichert', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (141, 41, 'Durch Hinzufuegen mehrerer gleichnamiger Spalten (Telefon1, Telefon2, ...)', FALSE, 3);
@@ -374,7 +374,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q42
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (42, 1, 'MC', 'Was ist der Unterschied zwischen einer Entitaet und einem Entitaetstyp?', NULL, 'Entitaetstyp: Klasse aller gleichartigen Objekte (Kunde). Entitaet: konkrete Instanz (Kunde Mueller, ID 42).', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (42, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (42, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (143, 42, 'Eine Entitaet ist ein einzelnes konkretes Objekt, der Entitaetstyp beschreibt die Klasse aller gleichartigen Objekte', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (144, 42, 'Entitaetsmengen haben keine Attribute', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (145, 42, 'Eine Entitaet ist eine Tabelle, eine Entitaetsmenge ist eine Datenbank', FALSE, 3);
@@ -382,7 +382,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q43
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (43, 1, 'MC', 'Warum werden Beziehungen im ERM in eigene Tabellen ueberfuehrt?', NULL, 'Fuer m:n ist eine Zwischentabelle technisch notwendig. Das relationale Modell unterstuetzt keine direkten m:n-Beziehungen.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (43, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (43, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (147, 43, 'Um m:n-Beziehungen korrekt zu modellieren und die Verknuepfung ohne Redundanz abzubilden', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (148, 43, 'Weil das DBMS keine Fremdschluessel in bestehenden Tabellen erlaubt', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (149, 43, 'Um die Abfragegeschwindigkeit zu erhoehen', FALSE, 3);
@@ -390,7 +390,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q44
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (44, 1, 'MC', 'Was ist ein abgeleitetes Attribut im ERM?', NULL, 'Abgeleitetes Attribut: Wert berechnet sich aus anderen Attributen, z.B. Alter aus Geburtsdatum. Im Diagramm gestrichelte Ellipse.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (44, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (44, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (151, 44, 'Ein Attribut, dessen Wert sich aus anderen Attributen berechnen laesst, z.B. Alter aus Geburtsdatum', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (152, 44, 'Ein Attribut, das aus einer anderen Tabelle kopiert wurde', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (153, 44, 'Ein Attribut ohne Wertebereich', FALSE, 3);
@@ -398,7 +398,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q45
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (45, 1, 'MC', 'Welche Situation ist ein typisches Zeichen fuer fehlende Normalisierung?', NULL, 'Dieselbe Information wiederholt gespeichert ist ein klares Zeichen fuer fehlende Normalisierung.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (45, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (45, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (155, 45, 'Dieselbe Information (z.B. Kundenadresse) wird in mehreren Zeilen der Tabelle wiederholt gespeichert', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (156, 45, 'Eine Tabelle hat keinen Index', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (157, 45, 'Es gibt keine Fremdschluessel', FALSE, 3);
@@ -406,7 +406,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q46
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (46, 1, 'MC', 'ERM mit Student und Kurs in m:n-Beziehung belegt. Welche Tabellen entstehen beim Ueberfuehren?', NULL, 'Student, Kurs, plus Zwischentabelle Belegung mit StudentID und KursID als Fremdschluessel.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (46, 4);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (46, 4);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (159, 46, 'Drei Tabellen: Student, Kurs, und eine Zwischentabelle (z.B. Belegung) mit den Fremdschluesseln StudentID und KursID', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (160, 46, 'Zwei Tabellen: Student (mit allen Kursen als Liste) und Kurs', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (161, 46, 'Eine Tabelle, die alle Attribute von Student und Kurs zusammenfasst', FALSE, 3);
@@ -418,19 +418,19 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q47 TF
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (47, 1, 'TF', 'Quellcode ist automatisch durch das Urheberrecht geschuetzt, auch ohne Registrierung.', NULL, 'Quellcode ist automatisch urheberrechtlich geschuetzt - ab dem Moment der Entstehung, ohne Anmeldung oder Registrierung.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (47, 2);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (47, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (163, 47, 'True', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (164, 47, 'False', FALSE, 2);
 
 -- q48 TF
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (48, 1, 'TF', 'Ein Werkvertrag verpflichtet den Auftragnehmer zur Erbringung eines bestimmten Erfolgs.', NULL, 'Werkvertrag schuldet Erfolg. Dienstvertrag schuldet nur die Taetigkeit, keinen Erfolg.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (48, 2);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (48, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (165, 48, 'True', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (166, 48, 'False', FALSE, 2);
 
 -- q49
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (49, 1, 'MC', 'Welche Aussage beschreibt eine AGB am besten?', NULL, 'AGB sind vorformulierte Vertragsbedingungen fuer viele Vertraege - nicht individuell ausgehandelt.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (49, 2);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (49, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (167, 49, 'Gesetzlich vorgeschriebene Vertragsform', FALSE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (168, 49, 'Vorformulierte Vertragsbedingungen fuer viele Vertraege', TRUE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (169, 49, 'Individuell ausgehandelter Vertrag', FALSE, 3);
@@ -438,7 +438,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q50
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (50, 1, 'MC', 'Welche Lizenz erlaubt die kommerzielle Nutzung ohne Einschraenkungen?', NULL, 'MIT-Lizenz: sehr permissiv, kommerzielle Nutzung erlaubt. GPL: Copyleft. CC BY-NC: kommerzielle Nutzung verboten.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (50, 2);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (50, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (170, 50, 'GPL', FALSE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (171, 50, 'MIT', TRUE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (172, 50, 'CC BY-NC', FALSE, 3);
@@ -446,7 +446,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q51
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (51, 1, 'MC', 'Welche Pflicht ergibt sich aus der DSGVO fuer Unternehmen?', NULL, 'DSGVO schreibt Datenminimierung vor: nur so viele Daten wie noetig.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (51, 2);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (51, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (173, 51, 'Daten nur verschluesselt speichern', FALSE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (174, 51, 'Datenminimierung beachten', TRUE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (175, 51, 'Daten ausschliesslich in der EU speichern', FALSE, 3);
@@ -454,7 +454,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q52 GAP gap_id=8
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (52, 1, 'GAP', NULL, NULL, 'Beim Dienstvertrag schuldet der Auftragnehmer keine Erfolg, sondern nur eine Taetigkeit.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (52, 2);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (52, 2);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (8, 52, 1, 'Bei einem', 'vertrag schuldet der Auftragnehmer keinen Erfolg, sondern nur eine Taetigkeit.');
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (10, 8, 'Dienst', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (11, 8, 'Dienstvertrag', TRUE, 2);
@@ -463,7 +463,7 @@ INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_o
 
 -- q53 GAP gap_id=9
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (53, 1, 'GAP', NULL, NULL, 'Das Urheberrecht schuetzt Softwareentwickler automatisch vor unerlaubter Nutzung ihres Codes.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (53, 2);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (53, 2);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (9, 53, 1, 'Das', 'recht schuetzt Softwareentwickler vor unerlaubter Nutzung ihres Codes.');
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (12, 9, 'Urheber', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (44, 9, 'Marken', FALSE, 2);
@@ -471,7 +471,7 @@ INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_o
 
 -- q54 GAP gap_id=10
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (54, 1, 'GAP', NULL, NULL, 'Jede Verarbeitung personenbezogener Daten benoetigt eine Rechtsgrundlage nach DSGVO.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (54, 2);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (54, 2);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (10, 54, 1, 'Personenbezogene Daten duerfen nur verarbeitet werden, wenn eine', 'vorliegt.');
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (13, 10, 'Rechtsgrundlage', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (46, 10, 'Datenschutzerklaerung', FALSE, 2);
@@ -479,7 +479,7 @@ INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_o
 
 -- q55 GAP gap_id=11
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (55, 1, 'GAP', NULL, NULL, 'Bei mangelhafter Software steht dem Kunden zunaechst Nacherfuellung zu. Erst wenn diese zweimal scheitert greifen weitere Rechte wie Ruecktritt.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (55, 2);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (55, 2);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (11, 55, 1, 'Ein Kunde kann bei mangelhafter Software', 'verlangen.');
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (14, 11, 'Nacherfuellung', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (48, 11, 'sofortige Rueckerstattung', FALSE, 2);
@@ -487,7 +487,7 @@ INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_o
 
 -- q56 GAP gap_id=12
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (56, 1, 'GAP', NULL, NULL, 'Die DSGVO gilt fuer alle Unternehmen, die Daten von natuerlichen Personen verarbeiten - unabhaengig vom Sitz des Unternehmens.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (56, 2);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (56, 2);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (12, 56, 1, 'Die DSGVO gilt fuer alle Unternehmen, die Daten von', 'verarbeiten.');
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (15, 12, 'natuerlichen Personen', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (50, 12, 'juristischen Personen', FALSE, 2);
@@ -499,19 +499,19 @@ INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_o
 
 -- q57 TF
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (57, 1, 'TF', 'Variable Kosten steigen mit der Produktionsmenge.', NULL, 'Variable Kosten steigen proportional zur Produktionsmenge. Fixkosten bleiben konstant.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (57, 3);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (57, 3);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (176, 57, 'True', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (177, 57, 'False', FALSE, 2);
 
 -- q58 TF
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (58, 1, 'TF', 'Der Break-even-Point ist erreicht, wenn Gewinn = 0 ist.', NULL, 'Am Break-even-Point decken Erloese genau die Gesamtkosten. Gewinn = 0. Erst danach echter Gewinn.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (58, 3);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (58, 3);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (178, 58, 'True', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (179, 58, 'False', FALSE, 2);
 
 -- q59
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (59, 1, 'MC', 'Was gehoert NICHT zu den drei Zielen des magischen Dreiecks?', NULL, 'Magisches Dreieck: Qualitaet, Zeit, Kosten. Kundenzufriedenheit ist Ergebnis, keine Zielgroesse.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (59, 3);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (59, 3);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (180, 59, 'Qualitaet', FALSE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (181, 59, 'Zeit', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (182, 59, 'Kundenzufriedenheit', TRUE, 3);
@@ -519,7 +519,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q60
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (60, 1, 'MC', 'Welche Kostenart zaehlt zu den fixen Kosten?', NULL, 'Miete ist fix: faellt unabhaengig von der Menge an. Lizenzkosten pro Nutzer und Versandkosten sind variabel.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (60, 3);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (60, 3);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (183, 60, 'Lizenzkosten pro Nutzer', FALSE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (184, 60, 'Miete fuer Bueroraeme', TRUE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (185, 60, 'Versandkosten', FALSE, 3);
@@ -527,7 +527,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q61
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (61, 1, 'MC', 'Was beschreibt eine Make-or-Buy-Entscheidung?', NULL, 'Make-or-Buy: selbst entwickeln (Make) oder extern einkaufen (Buy).', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (61, 3);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (61, 3);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (186, 61, 'Ob ein Produkt verkauft werden soll', FALSE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (187, 61, 'Ob ein Produkt selbst entwickelt oder eingekauft wird', TRUE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (188, 61, 'Ob ein Projekt profitabel ist', FALSE, 3);
@@ -535,7 +535,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q62 GAP gap_id=13
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (62, 1, 'GAP', NULL, NULL, 'Der Break-even-Point zeigt, ab welcher Absatzmenge ein Unternehmen kostendeckend arbeitet.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (62, 3);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (62, 3);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (13, 62, 1, 'Der', 'zeigt, ab welcher Absatzmenge ein Unternehmen kostendeckend arbeitet.');
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (16, 13, 'Break-even-Point', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (52, 13, 'Gewinnpunkt', FALSE, 2);
@@ -543,7 +543,7 @@ INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_o
 
 -- q63 GAP gap_id=14 (Textduplikat geloest: start_text=NULL, text_before enthaelt vollen Satzanfang)
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (63, 1, 'GAP', NULL, NULL, 'Liquiditaet: Faehigkeit eines Unternehmens, faellige Verbindlichkeiten termingerecht zu bezahlen.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (63, 3);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (63, 3);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (14, 63, 1, 'Die Liquiditaet beschreibt die Faehigkeit,', 'zu bezahlen.');
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (17, 14, 'Verbindlichkeiten', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (54, 14, 'Gewinne', FALSE, 2);
@@ -551,7 +551,7 @@ INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_o
 
 -- q64 GAP gap_id=15
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (64, 1, 'GAP', NULL, NULL, 'Die Kosten-Nutzen-Analyse stellt Aufwand und Nutzen gegenueber und dient als Entscheidungsgrundlage.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (64, 3);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (64, 3);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (15, 64, 1, 'Eine', '-Analyse vergleicht Aufwand und Nutzen eines Projekts.');
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (18, 15, 'Kosten-Nutzen', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (19, 15, 'Kosten-Nutzen-Analyse', TRUE, 2);
@@ -559,7 +559,7 @@ INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_o
 
 -- q65 GAP gap_id=16 (Textduplikat geloest: start_text=NULL)
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (65, 1, 'GAP', NULL, NULL, 'Fixkosten aendern sich nicht mit der Produktionsmenge.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (65, 3);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (65, 3);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (16, 65, 1, 'Fixe Kosten bleiben unabhaengig von der', 'konstant.');
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (21, 16, 'Menge', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (56, 16, 'Qualitaet', FALSE, 2);
@@ -567,7 +567,7 @@ INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_o
 
 -- q66 GAP gap_id=17
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (66, 1, 'GAP', NULL, NULL, 'Budget: Planung der erwarteten Einnahmen und Ausgaben. Soll-Wert, kein Ist-Wert.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (66, 3);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (66, 3);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (17, 66, 1, 'Ein Budget ist eine', 'fuer zukuenftige Ausgaben.');
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (22, 17, 'Planung', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (58, 17, 'Abrechnung', FALSE, 2);
@@ -579,19 +579,19 @@ INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_o
 
 -- q67 TF
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (67, 1, 'TF', 'Ein Use-Case-Diagramm zeigt die Interaktionen zwischen Akteuren und System.', NULL, 'Use-Case-Diagramme zeigen welche Akteure mit welchen Systemfunktionen interagieren. Das Was, nicht das Wie.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (67, 6);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (67, 6);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (189, 67, 'True', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (190, 67, 'False', FALSE, 2);
 
 -- q68 TF
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (68, 1, 'TF', 'Eine Aggregation ist staerker als eine Komposition.', NULL, 'FALSCH: Komposition ist staerker. Bei Komposition kann Teil ohne Ganzes nicht existieren. Aggregation ist schwaecher.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (68, 6);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (68, 6);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (191, 68, 'True', FALSE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (192, 68, 'False', TRUE, 2);
 
 -- q69
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (69, 1, 'MC', 'Welches Diagramm zeigt den Ablauf von Nachrichten zwischen Objekten?', NULL, 'Sequenzdiagramm: zeitlicher Ablauf von Nachrichten zwischen Objekten oder Systemkomponenten.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (69, 6);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (69, 6);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (193, 69, 'Sequenzdiagramm', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (194, 69, 'Klassendiagramm', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (195, 69, 'Aktivitaetsdiagramm', FALSE, 3);
@@ -599,7 +599,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q70
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (70, 1, 'MC', 'Welche Beziehung zeigt eine ist-ein-Beziehung?', NULL, 'Vererbung zeigt ist-ein: Auto ist ein Fahrzeug. Pfeil mit gefuelltem Dreieck zur Elternklasse.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (70, 6);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (70, 6);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (196, 70, 'Assoziation', FALSE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (197, 70, 'Vererbung', TRUE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (198, 70, 'Abhaengigkeit', FALSE, 3);
@@ -607,7 +607,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q71
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (71, 1, 'MC', 'Was zeigt ein Klassendiagramm NICHT?', NULL, 'Klassendiagramm: Klassen, Attribute, Methoden, statische Beziehungen. Kein zeitlicher Ablauf (das zeigt das Sequenzdiagramm).', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (71, 6);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (71, 6);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (199, 71, 'Attribute', FALSE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (200, 71, 'Methoden', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (201, 71, 'Zeitlicher Ablauf', TRUE, 3);
@@ -615,14 +615,14 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q72 GAP gap_id=18
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (72, 1, 'GAP', NULL, NULL, 'Aktivitaetsdiagramm: modelliert Prozessablaeufe mit Aktivitaeten, Entscheidungsknoten und parallelen Pfaden.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (72, 6);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (72, 6);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (18, 72, 1, 'Ein', 'diagramm beschreibt Ablaeufe und Entscheidungen.');
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (23, 18, 'Aktivitaets', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (24, 18, 'Aktivitaetsdiagramm', TRUE, 2);
 
 -- q73 GAP gap_id=19
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (73, 1, 'GAP', NULL, NULL, 'Klassen werden im Klassendiagramm durch Beziehungslinien verbunden (Assoziationen, Vererbungen, Aggregationen, Kompositionen).', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (73, 6);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (73, 6);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (19, 73, 1, 'In einem Klassendiagramm verbinden', 'die Klassen miteinander.');
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (25, 19, 'Beziehungen', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (60, 19, 'Methoden', FALSE, 2);
@@ -630,7 +630,7 @@ INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_o
 
 -- q74 GAP gap_id=20 (end_text gesetzt)
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (74, 1, 'GAP', NULL, NULL, 'Komposition: starke existenzielle Abhaengigkeit. Teil kann ohne Ganzes nicht existieren. Beispiel: Raum ohne Haus.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (74, 6);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (74, 6);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (20, 74, 1, 'Eine Komposition bedeutet, dass das Teil ohne das Ganze', 'kann.');
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (26, 20, 'nicht existieren', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (62, 20, 'existieren', FALSE, 2);
@@ -638,14 +638,14 @@ INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_o
 
 -- q75 GAP gap_id=21 (end_text gesetzt)
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (75, 1, 'GAP', NULL, NULL, 'Ein Akteur im Use-Case-Diagramm ist eine Rolle, nicht zwingend eine Person. Derselbe Mensch kann mehrere Rollen einnehmen.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (75, 6);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (75, 6);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (21, 75, 1, 'Ein Akteur repraesentiert eine', 'die mit dem System interagiert.');
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (27, 21, 'Rolle', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (28, 21, 'Person', TRUE, 2);
 
 -- q76 GAP gap_id=22 (end_text gesetzt)
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (76, 1, 'GAP', NULL, NULL, 'Sequenzdiagramme zeigen den zeitlichen Ablauf von Nachrichten (Methodenaufrufen) zwischen Objekten oder Systemkomponenten.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (76, 6);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (76, 6);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (22, 76, 1, 'Sequenzdiagramme zeigen den', 'von Nachrichten.');
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (29, 22, 'Ablauf', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (64, 22, 'Inhalt', FALSE, 2);
@@ -657,19 +657,19 @@ INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_o
 
 -- q77 TF
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (77, 1, 'TF', 'Overfitting bedeutet, dass ein Modell zu stark an die Trainingsdaten angepasst ist.', NULL, 'Overfitting: Modell hat Trainingsdaten auswendig gelernt, verallgemeinert nicht auf neue Daten. Gegenteil: Underfitting.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (77, 7);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (77, 7);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (202, 77, 'True', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (203, 77, 'False', FALSE, 2);
 
 -- q78 TF
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (78, 1, 'TF', 'Ueberwachtes Lernen benoetigt gelabelte Daten.', NULL, 'FALSCH: Ueber wachtes Lernen benoetigt keine gelabelten Daten. Das Modell sucht selbst Muster, z.B. beim Clustering.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (78, 7);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (78, 7);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (204, 78, 'True', FALSE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (205, 78, 'False', TRUE, 2);
 
 -- q79
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (79, 1, 'MC', 'Was ist ein Beispiel fuer ueberwachtes Lernen?', NULL, 'Klassifikation ist ueberwachtes Lernen. Clustering und Dimensionsreduktion sind unueberwacht.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (79, 7);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (79, 7);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (206, 79, 'Clustering', FALSE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (207, 79, 'Klassifikation', TRUE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (208, 79, 'Dimensionsreduktion', FALSE, 3);
@@ -677,7 +677,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q80
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (80, 1, 'MC', 'Was ist ein Neuron im neuronalen Netz?', NULL, 'Ein Neuron ist eine mathematische Funktion, die gewichtete Eingaben summiert und eine Aktivierungsfunktion anwendet.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (80, 7);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (80, 7);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (209, 80, 'Eine mathematische Funktion', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (210, 80, 'Ein Datensatz', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (211, 80, 'Ein Hardwarechip', FALSE, 3);
@@ -685,7 +685,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q81
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (81, 1, 'MC', 'Welche Metrik misst die Genauigkeit eines Klassifikationsmodells?', NULL, 'Accuracy = korrekte Vorhersagen / alle Vorhersagen. Loss misst Fehler im Training. Epoch ist Anzahl Trainingsdurchlaeufe.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (81, 7);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (81, 7);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (212, 81, 'Accuracy', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (213, 81, 'Loss', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (214, 81, 'Epoch', FALSE, 3);
@@ -693,7 +693,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q87
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (87, 1, 'MC', 'Was ist Gradient Descent in Machine Learning?', NULL, 'Gradient Descent: Optimierungsalgorithmus der Gewichte iterativ in Richtung des steilsten Abstiegs der Verlustfunktion anpasst.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (87, 7);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (87, 7);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (228, 87, 'Ein Optimierungsalgorithmus, der Modellgewichte iterativ anpasst, um die Verlustfunktion zu minimieren', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (229, 87, 'Eine Methode zur Datennormalisierung vor dem Training', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (230, 87, 'Ein Algorithmus zur Clusterbildung bei unueberwachtem Lernen', FALSE, 3);
@@ -701,7 +701,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q88
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (88, 1, 'MC', 'Warum werden Trainings- und Testdaten strikt getrennt gehalten?', NULL, 'Trennung: Modell auf unbekannten Daten testen, um Generalisierbarkeit zu messen.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (88, 7);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (88, 7);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (231, 88, 'Um zu pruefen, ob das Modell auf unbekannten Daten verallgemeinert, nicht nur auf gelernten Daten', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (232, 88, 'Weil Testdaten zu gross fuer das Training sind', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (233, 88, 'Damit das Modell schneller trainiert', FALSE, 3);
@@ -709,7 +709,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q89
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (89, 1, 'MC', 'Was beschreibt Reinforcement Learning?', NULL, 'Reinforcement Learning: Agent lernt durch Belohnungen und Strafen aus Interaktionen mit einer Umgebung.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (89, 7);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (89, 7);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (234, 89, 'Ein Lernansatz, bei dem ein Agent durch Belohnungen und Strafen aus Interaktionen mit einer Umgebung lernt', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (235, 89, 'Ein Verfahren, das ausschliesslich gelabelte Daten benoetigt', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (236, 89, 'Ein Clustering-Verfahren ohne Belohnungssignale', FALSE, 3);
@@ -717,7 +717,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q90
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (90, 1, 'MC', 'Wie ist ein tiefes neuronales Netz (Deep Neural Network) aufgebaut?', NULL, 'Deep Neural Network: Eingabeschicht, mehrere verdeckte Schichten, Ausgabeschicht.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (90, 7);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (90, 7);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (237, 90, 'Aus einer Eingabeschicht, mehreren verdeckten Schichten und einer Ausgabeschicht', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (238, 90, 'Aus einer einzigen Schicht mit vielen Neuronen', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (239, 90, 'Aus unverbundenen Neuronen ohne Schichtstruktur', FALSE, 3);
@@ -725,7 +725,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q91
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (91, 1, 'MC', 'Was beschreibt der Bias-Variance-Tradeoff?', NULL, 'Hoher Bias = Underfitting (zu simpel). Hohe Varianz = Overfitting (zu komplex). Optimum liegt dazwischen.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (91, 7);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (91, 7);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (240, 91, 'Das Gleichgewicht zwischen einem zu simplen Modell (hoher Bias / Underfitting) und einem zu komplexen Modell (hohe Varianz / Overfitting)', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (241, 91, 'Den Unterschied zwischen Trainings- und Testgenauigkeit', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (242, 91, 'Den Tradeoff zwischen Lernrate und Batch-Groesse', FALSE, 3);
@@ -737,19 +737,19 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q82 TF
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (82, 1, 'TF', 'Eine While-Schleife wird ausgefuehrt, solange die Bedingung wahr ist.', NULL, 'While-Schleife prueft Bedingung vor jedem Durchlauf. Ist sie von Anfang an falsch, laeuft der Koerper kein einziges Mal.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (82, 8);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (82, 8);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (215, 82, 'True', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (216, 82, 'False', FALSE, 2);
 
 -- q83 TF
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (83, 1, 'TF', 'Call-by-Reference uebergibt eine Kopie des Werts.', NULL, 'FALSCH: Call-by-Reference uebergibt Referenz (Zeiger) auf das Original, keine Kopie. Call-by-Value uebergibt Kopie.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (83, 8);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (83, 8);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (217, 83, 'True', FALSE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (218, 83, 'False', TRUE, 2);
 
 -- q84
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (84, 1, 'MC', 'Welche Struktur beschreibt eine Verzweigung?', NULL, 'if-Statement: Verzweigung. For: Schleife. Return: beendet Funktion. While: Schleife.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (84, 8);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (84, 8);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (219, 84, 'for', FALSE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (220, 84, 'if', TRUE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (221, 84, 'return', FALSE, 3);
@@ -757,7 +757,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q85
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (85, 1, 'MC', 'Welche Suche prueft jedes Element nacheinander?', NULL, 'Lineare Suche: O(n). Binaere Suche: O(log n) aber nur auf sortierten Daten. Hash-Suche: direkter Zugriff via Hashfunktion.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (85, 8);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (85, 8);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (222, 85, 'Binaere Suche', FALSE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (223, 85, 'Lineare Suche', TRUE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (224, 85, 'Hash-Suche', FALSE, 3);
@@ -765,7 +765,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q86
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (86, 1, 'MC', 'Was ist ein Algorithmus?', NULL, 'Algorithmus: eindeutig definierte, endliche Schrittfolge zur Loesung eines Problems. Muss terminieren.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (86, 8);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (86, 8);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (225, 86, 'Eine zufaellige Abfolge von Befehlen', FALSE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (226, 86, 'Eine eindeutige Schrittfolge zur Problemloesung', TRUE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (227, 86, 'Ein Hardwarebauteil', FALSE, 3);
@@ -773,7 +773,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q92
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (92, 1, 'MC', 'Was ist der Unterschied zwischen einer for-Schleife und einer while-Schleife?', NULL, 'for: Anzahl bekannt. while: Bedingung geprueft, Anzahl unbekannt.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (92, 8);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (92, 8);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (243, 92, 'for wird verwendet wenn die Anzahl der Durchlaeufe bekannt ist; while wenn eine Bedingung geprueft wird', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (244, 92, 'for laeuft unendlich, while hat eine feste Anzahl', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (245, 92, 'Beide Schleifentypen sind vollstaendig identisch', FALSE, 3);
@@ -781,7 +781,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q93
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (93, 1, 'MC', 'Welcher Datentyp speichert eine Ganzzahl ohne Dezimalstellen?', NULL, 'Integer (int): Ganzzahl ohne Nachkommastellen. Float: Dezimalzahl. String: Text. Boolean: Wahrheitswert.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (93, 8);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (93, 8);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (246, 93, 'Integer (int)', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (247, 93, 'Float', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (248, 93, 'String', FALSE, 3);
@@ -789,7 +789,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q94
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (94, 1, 'MC', 'Was ist ein Array in der Programmierung?', NULL, 'Array: Datenstruktur fuer mehrere Werte desselben Typs, zugreifbar ueber Index.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (94, 8);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (94, 8);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (249, 94, 'Eine Datenstruktur, die mehrere Werte desselben Typs unter einem Namen speichert, zugreifbar ueber einen Index', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (250, 94, 'Eine Funktion, die Werte sortiert', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (251, 94, 'Ein Datentyp fuer Zeichenketten', FALSE, 3);
@@ -797,7 +797,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q95
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (95, 1, 'MC', 'Was ist Rekursion in der Programmierung?', NULL, 'Rekursion: Funktion ruft sich selbst auf. Braucht Basisfall als Abbruchbedingung, sonst Endlosrekursion.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (95, 8);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (95, 8);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (252, 95, 'Eine Funktion, die sich selbst aufruft, mit einem Basisfall als Abbruchbedingung', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (253, 95, 'Eine Schleife, die rueckwaerts laeuft', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (254, 95, 'Ein Algorithmus, der nur auf sortierten Daten funktioniert', FALSE, 3);
@@ -805,7 +805,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q96
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (96, 1, 'MC', 'Was ist der Unterschied zwischen Stack und Heap beim Speichermanagement?', NULL, 'Stack: lokale Variablen und Funktionsaufrufe (LIFO). Heap: dynamisch allokierte Objekte zur Laufzeit.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (96, 8);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (96, 8);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (255, 96, 'Der Stack speichert lokale Variablen und Funktionsaufrufe (LIFO); der Heap speichert dynamisch allokierte Objekte', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (256, 96, 'Stack ist fuer grosse Daten, Heap fuer kleine Werte', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (257, 96, 'Stack und Heap bezeichnen dasselbe Speicherkonzept', FALSE, 3);
@@ -817,7 +817,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q97
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (97, 1, 'MC', 'Welche Aussage zum OSI-Referenzmodell ist korrekt?', NULL, 'OSI-Modell: 7 Schichten, von physischer Uebertragung (Schicht 1) bis zur Anwendung (Schicht 7).', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (97, 9);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (97, 9);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (258, 97, 'Das OSI-Modell beschreibt Netzwerkkommunikation in 7 Schichten, von der physischen Uebertragung bis zur Anwendung', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (259, 97, 'Das OSI-Modell hat 4 Schichten und entspricht direkt dem TCP/IP-Modell', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (260, 97, 'OSI definiert ausschliesslich WLAN-Protokolle', FALSE, 3);
@@ -825,7 +825,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q98
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (98, 1, 'MC', 'Was ist eine IP-Adresse?', NULL, 'IP-Adresse: eindeutige numerische Adresse, identifiziert Geraet im Netzwerk und ermoeglicht Paketweiterleitung.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (98, 9);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (98, 9);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (261, 98, 'Eine eindeutige numerische Adresse, die ein Geraet im Netzwerk identifiziert und die Weiterleitung von Datenpaketen ermoeglicht', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (262, 98, 'Die physische Hardware-Adresse einer Netzwerkkarte', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (263, 98, 'Ein Protokoll zur Verschluesselung von Netzwerkdaten', FALSE, 3);
@@ -833,7 +833,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q99
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (99, 1, 'MC', 'Was ist die Aufgabe von DNS?', NULL, 'DNS: Domain Name System. Uebersetzt Domainnamen in IP-Adressen fuer korrekte Paketweiterleitung.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (99, 9);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (99, 9);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (264, 99, 'DNS uebersetzt Domainnamen in IP-Adressen, damit Pakete korrekt weitergeleitet werden koennen', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (265, 99, 'DNS vergibt automatisch IP-Adressen an neue Geraete im Netzwerk', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (266, 99, 'DNS verschluesselt den Datenverkehr zwischen Client und Server', FALSE, 3);
@@ -841,7 +841,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q100
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (100, 1, 'MC', 'Was macht ein DHCP-Server?', NULL, 'DHCP: vergibt automatisch IP-Adressen, Subnetzmasken, Gateways und DNS-Server an Geraete im Netzwerk.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (100, 9);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (100, 9);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (267, 100, 'Er vergibt automatisch IP-Adressen, Subnetzmasken, Gateways und DNS-Server an Geraete im Netzwerk', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (268, 100, 'Er uebersetzt Domainnamen in IP-Adressen', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (269, 100, 'Er verbindet verschiedene Netzwerke miteinander', FALSE, 3);
@@ -849,7 +849,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q101
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (101, 1, 'MC', 'Was ist der Unterschied zwischen einem Router und einem Switch?', NULL, 'Switch: Layer 2 (MAC), verbindet Geraete im selben Netz. Router: Layer 3 (IP), verbindet verschiedene Netze.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (101, 9);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (101, 9);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (270, 101, 'Ein Switch verbindet Geraete innerhalb eines Netzes (Layer 2, MAC); ein Router verbindet verschiedene Netze (Layer 3, IP)', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (271, 101, 'Ein Router verbindet Geraete im WLAN, ein Switch nur ueber Kabel', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (272, 101, 'Switch und Router sind unterschiedliche Namen fuer dasselbe Geraet', FALSE, 3);
@@ -857,7 +857,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q102
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (102, 1, 'MC', 'Warum sind WPA2 und WPA3 in WLAN-Netzwerken wichtig?', NULL, 'WPA2/WPA3: verschluesseln WLAN-Verbindung und verhindern unbefugten Zugriff. WPA3 ist neuerer Standard.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (102, 9);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (102, 9);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (273, 102, 'Sie verschluesseln die WLAN-Verbindung und verhindern unbefugten Zugriff auf das Netzwerk', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (274, 102, 'Sie erhoehen nur die Uebertragungsgeschwindigkeit des WLANs', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (275, 102, 'Sie ersetzen den Router bei Verbindungsproblemen', FALSE, 3);
@@ -865,7 +865,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q103
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (103, 1, 'MC', 'Was ist eine Firewall und wozu dient sie?', NULL, 'Firewall: filtert Netzwerkverkehr anhand von Regeln (IP, Port, Protokoll) und blockiert unerwuenschten Verkehr.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (103, 9);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (103, 9);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (276, 103, 'Ein System, das Netzwerkverkehr anhand von Regeln filtert und unerwuenschten Datenverkehr blockiert', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (277, 103, 'Eine Software, die Viren aus Dateien entfernt', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (278, 103, 'Ein Protokoll zur verschluesselten Datenuebertragung', FALSE, 3);
@@ -873,7 +873,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q104
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (104, 1, 'MC', 'Was ist ein VPN und wofuer wird es verwendet?', NULL, 'VPN: verschluesselter Tunnel ueber oeffentliches Netz fuer sicheren Zugriff auf privates Netz.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (104, 9);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (104, 9);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (279, 104, 'Ein Virtual Private Network erstellt einen verschluesselten Tunnel ueber ein oeffentliches Netz fuer sicheren Zugriff auf ein privates Netz', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (280, 104, 'Ein VPN ist ein drahtloses Netzwerkprotokoll fuer den Heimbereich', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (281, 104, 'Ein VPN ist ein Dienst zur automatischen IP-Vergabe', FALSE, 3);
@@ -881,7 +881,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q105
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (105, 1, 'MC', 'Was ist TLS und in welchem Zusammenhang steht es mit HTTPS?', NULL, 'TLS: verschluesselt Datenuebertragung. HTTPS = HTTP ueber TLS. Erkennbar am Schloss-Symbol im Browser.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (105, 9);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (105, 9);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (282, 105, 'TLS verschluesselt die Datenuebertragung; HTTPS ist HTTP ueber TLS - erkennbar am Schloss-Symbol im Browser', TRUE, 1);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (283, 105, 'TLS ist ein aelteres, unsicheres Protokoll, das durch HTTPS abgeloest wurde', FALSE, 2);
 INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_order) VALUES (284, 105, 'HTTPS und TLS sind vollstaendig voneinander unabhaengige Protokolle', FALSE, 3);
@@ -889,7 +889,7 @@ INSERT INTO mc_answer (answer_id, question_id, option_text, is_correct, option_o
 
 -- q106 GAP gap_id=23,24
 INSERT INTO question (question_id, question_set_id, question_type, start_text, image_url, end_text, allows_multiple, points) VALUES (106, 1, 'GAP', NULL, NULL, 'MAC-Adresse: eindeutige physische Adresse einer Netzwerkkarte. Verwendet auf Schicht 2 (Data Link Layer) des OSI-Modells.', FALSE, 1);
-INSERT INTO "Question_Theme" (question_id, theme_id) VALUES (106, 9);
+INSERT INTO "QUESTION_THEME" (question_id, theme_id) VALUES (106, 9);
 INSERT INTO gap_field (gap_id, question_id, gap_index, text_before, text_after) VALUES (23, 106, 1, 'Eine MAC-Adresse wird auf Schicht', 'des OSI-Modells verwendet.');
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (30, 23, '2', TRUE, 1);
 INSERT INTO gap_option (gap_option_id, gap_id, option_text, is_correct, option_order) VALUES (66, 23, '3', FALSE, 2);
