@@ -1,0 +1,46 @@
+{
+  "roomCode": "room_wirtschaft",
+  "title": "Wirtschaft",
+  "npcName": "Herr Becker",
+  "description": "Ein Tag mit Herrn Becker – Kosten, Break-even, Make-or-Buy, Liquidität, Projektmanagement. Am Ende der Tagestest.",
+
+  "days": [
+    {
+      "dayIndex": 1,
+      "title": "Tag 1 – Kosten, Kalkulation & Projektmanagement",
+      "setting": "Mittwoch, 14:00 Uhr. Herr Becker ist Betriebswirtschaftslehrer und redet sehr schnell. Er hat eine Folie mit Kurven und Formeln vorbereitet, die Tim beim ersten Anblick leicht panisch macht.",
+      "dialogue": [
+        { "seq": 1,  "speaker": "SYSTEM",   "text": "Mittwoch, 14:00 Uhr. Herr Becker steht bereits vor der Folie. Oben links steht: 'BWL ist Logik, keine Magie.' Tim bezweifelt das." },
+        { "seq": 2,  "speaker": "TEACHER",  "text": "Gut, fangen wir direkt an. Tim – was sind variable Kosten?" },
+        { "seq": 3,  "speaker": "STUDENT",  "text": "Kosten, die sich... ändern? Je nach Auftragslage?" },
+        { "seq": 4,  "speaker": "TEACHER",  "text": "Genauer: Variable Kosten steigen mit der Produktionsmenge. Mehr Produkte – mehr Materialkosten, mehr Versandkosten. Der Gegensatz sind Fixkosten – die bleiben unabhängig von der Menge konstant. Beispiel?" },
+        { "seq": 5,  "speaker": "STUDENT",  "text": "Miete für die Büroräume? Die zahlt man immer, egal ob man viel oder wenig produziert." },
+        { "seq": 6,  "speaker": "TEACHER",  "text": "Exakt. Lizenzkosten pro Nutzer wären dagegen variabel. Jetzt der Break-even-Point – was ist das?" },
+        { "seq": 7,  "speaker": "STUDENT",  "text": "Der Punkt, ab dem man Gewinn macht?" },
+        { "seq": 8,  "speaker": "TEACHER",  "text": "Fast. Am Break-even-Point macht man genau null Gewinn – Erlöse decken die Kosten. Erst danach kommt der Gewinn. Der Break-even zeigt also, ab welcher Absatzmenge man kostendeckend arbeitet. Wozu braucht man das?" },
+        { "seq": 9,  "speaker": "STUDENT",  "text": "Um zu wissen, ob ein Produkt oder Projekt sich überhaupt lohnt?" },
+        { "seq": 10, "speaker": "TEACHER",  "text": "Richtig – und für Investitionsentscheidungen. Ähnlich funktioniert die Kosten-Nutzen-Analyse: Aufwand gegen Nutzen eines Projekts vergleichen, bevor man anfängt. Was ist eine Make-or-Buy-Entscheidung?" },
+        { "seq": 11, "speaker": "STUDENT",  "text": "Ob man etwas selbst entwickelt oder fertig einkauft." },
+        { "seq": 12, "speaker": "TEACHER",  "text": "Genau. Typisch in IT-Projekten: Eigene Entwicklung gibt mehr Kontrolle, kostet aber mehr Zeit und Geld. Standardsoftware kaufen ist schneller, aber man ist von einem Anbieter abhängig. Was ist Liquidität?" },
+        { "seq": 13, "speaker": "STUDENT",  "text": "Ob man... Geld hat?" },
+        { "seq": 14, "speaker": "TEACHER",  "text": "Präziser: Liquidität ist die Fähigkeit eines Unternehmens, seine Verbindlichkeiten zu bezahlen – also fällige Rechnungen, Gehälter, Kredite. Ein Unternehmen kann hohe Umsätze haben und trotzdem illiquide sein, wenn das Geld noch nicht eingegangen ist. Was ist ein Budget in diesem Kontext?" },
+        { "seq": 15, "speaker": "STUDENT",  "text": "Eine Planung für zukünftige Ausgaben – was man ausgeben darf?" },
+        { "seq": 16, "speaker": "TEACHER",  "text": "Korrekt. Budget ist eine Planung, keine Abrechnung. Abweichungen vom Budget werden analysiert. Jetzt Projektmanagement – kennst du das magische Dreieck?" },
+        { "seq": 17, "speaker": "STUDENT",  "text": "Qualität, Zeit, Kosten. Die drei können nicht gleichzeitig alle optimal sein." },
+        { "seq": 18, "speaker": "TEACHER",  "text": "Richtig. Kundenzufriedenheit gehört nicht direkt dazu – sie ist das Ergebnis, nicht das Ziel im Dreieck. Das ist eine Prüfungsfalle: manchmal wird Kundenzufriedenheit als viertes Element angeboten. Das Dreieck hat drei Ecken, nicht vier. Tagestest." },
+        { "seq": 19, "speaker": "STUDENT",  "text": "War das alles? Ich dachte Wirtschaft wäre mehr..." },
+        { "seq": 20, "speaker": "TEACHER",  "text": "Das ist der IHK-relevante Kern. Zehn Fragen." }
+      ],
+      "dailyTest": {
+        "intro": { "speaker": "SYSTEM", "text": "Tagestest – Tag 1: Kosten, Kalkulation & Projektmanagement. 10 Fragen. Herr Becker lehnt sich entspannt zurück." },
+        "questionRefs": [57, 58, 59, 60, 61, 62, 63, 64, 65, 66],
+        "outro": { "speaker": "TEACHER", "text": "Sauber. Wirtschaftsgrundlagen sitzen. Das reicht für die Prüfung." }
+      }
+    }
+  ],
+
+  "completionMessage": {
+    "speaker": "SYSTEM",
+    "text": "Raum abgeschlossen. Herr Becker packt seine Folien ein. Tim hat zum ersten Mal das Gefühl, dass BWL doch logisch ist."
+  }
+}

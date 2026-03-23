@@ -1,0 +1,182 @@
+{
+  "subject": "Wirtschaft & Betriebswirtschaft",
+  "description": "Variable/fixe Kosten, Break-even-Point, Make-or-Buy, Liquidität, Kosten-Nutzen-Analyse, magisches Dreieck, Budget.",
+  "questions": [
+
+    {
+      "id": "wirtschaft_q01",
+      "dbId": 57,
+      "topic": "Kostenarten",
+      "prompt": "Variable Kosten steigen mit der Produktionsmenge.",
+      "explanation": "Variable Kosten sind mengenabhängig – mehr Produktion bedeutet höhere variable Kosten (z.B. Materialkosten, Versandkosten). Fixkosten hingegen bleiben unabhängig von der Menge konstant.",
+      "points": 1,
+      "type": "TF",
+      "options": [
+        { "text": "True", "correct": true },
+        { "text": "False", "correct": false }
+      ]
+    },
+
+    {
+      "id": "wirtschaft_q02",
+      "dbId": 58,
+      "topic": "Break-even",
+      "prompt": "Der Break-even-Point ist erreicht, wenn Gewinn = 0 ist.",
+      "explanation": "Am Break-even-Point decken die Erlöse genau die Kosten – weder Gewinn noch Verlust. Erst bei höherer Absatzmenge entsteht Gewinn.",
+      "points": 1,
+      "type": "TF",
+      "options": [
+        { "text": "True", "correct": true },
+        { "text": "False", "correct": false }
+      ]
+    },
+
+    {
+      "id": "wirtschaft_q03",
+      "dbId": 59,
+      "topic": "Projektmanagement",
+      "prompt": "Was gehört NICHT zu den drei Zielen des magischen Dreiecks?",
+      "explanation": "Das magische Dreieck des Projektmanagements besteht aus Qualität, Zeit und Kosten. Kundenzufriedenheit ist ein Ergebnis, kein Ziel im Dreieck.",
+      "points": 1,
+      "type": "MC",
+      "options": [
+        { "text": "Qualität", "correct": false },
+        { "text": "Zeit", "correct": false },
+        { "text": "Kundenzufriedenheit", "correct": true }
+      ]
+    },
+
+    {
+      "id": "wirtschaft_q04",
+      "dbId": 60,
+      "topic": "Kostenarten",
+      "prompt": "Welche Kostenart zählt zu den fixen Kosten?",
+      "explanation": "Fixe Kosten entstehen unabhängig von der Produktionsmenge. Miete ist ein klassisches Beispiel – sie fällt immer an, egal wie viel produziert wird. Lizenzkosten pro Nutzer oder Versandkosten sind variabel.",
+      "points": 1,
+      "type": "MC",
+      "options": [
+        { "text": "Lizenzkosten pro Nutzer", "correct": false },
+        { "text": "Miete für Büroräume", "correct": true },
+        { "text": "Versandkosten", "correct": false }
+      ]
+    },
+
+    {
+      "id": "wirtschaft_q05",
+      "dbId": 61,
+      "topic": "Make-or-Buy",
+      "prompt": "Was beschreibt eine Make-or-Buy-Entscheidung?",
+      "explanation": "Make-or-Buy bezeichnet die Entscheidung, ob ein Produkt oder eine Leistung selbst entwickelt/hergestellt (Make) oder von außen eingekauft wird (Buy). Typisch in IT-Projekten bei Softwarekomponenten.",
+      "points": 1,
+      "type": "MC",
+      "options": [
+        { "text": "Ob ein Produkt verkauft werden soll", "correct": false },
+        { "text": "Ob ein Produkt selbst entwickelt oder eingekauft wird", "correct": true },
+        { "text": "Ob ein Projekt profitabel ist", "correct": false }
+      ]
+    },
+
+    {
+      "id": "wirtschaft_q06",
+      "dbId": 62,
+      "topic": "Break-even",
+      "prompt": "Der ___ zeigt, ab welcher Absatzmenge ein Unternehmen kostendeckend arbeitet.",
+      "explanation": "Der Break-even-Point ist die Absatzmenge, bei der Erlöse und Gesamtkosten genau gleich sind. Unterhalb des Break-even-Points macht das Unternehmen Verlust.",
+      "points": 1,
+      "type": "GAP",
+      "gaps": [
+        {
+          "gapIndex": 1,
+          "textBefore": "Der",
+          "textAfter": "zeigt, ab welcher Absatzmenge ein Unternehmen kostendeckend arbeitet.",
+          "options": [
+            { "text": "Break-even-Point", "correct": true }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "wirtschaft_q07",
+      "dbId": 63,
+      "topic": "Liquidität",
+      "prompt": "Die Liquidität beschreibt die Fähigkeit, ___ zu bezahlen.",
+      "explanation": "Liquidität ist die Fähigkeit eines Unternehmens, fällige Verbindlichkeiten (Rechnungen, Gehälter, Kredite) termingerecht zu begleichen. Illiquidität führt zur Insolvenz.",
+      "points": 1,
+      "type": "GAP",
+      "gaps": [
+        {
+          "gapIndex": 1,
+          "textBefore": "die Fähigkeit,",
+          "textAfter": "zu bezahlen.",
+          "options": [
+            { "text": "Verbindlichkeiten", "correct": true }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "wirtschaft_q08",
+      "dbId": 64,
+      "topic": "Kosten-Nutzen-Analyse",
+      "prompt": "Eine ___ -Analyse vergleicht Aufwand und Nutzen eines Projekts.",
+      "explanation": "Die Kosten-Nutzen-Analyse stellt den Gesamtaufwand dem erwarteten Nutzen gegenüber. Sie ist eine wichtige Entscheidungsgrundlage vor Projektstart.",
+      "points": 1,
+      "type": "GAP",
+      "gaps": [
+        {
+          "gapIndex": 1,
+          "textBefore": "Eine",
+          "textAfter": "-Analyse vergleicht Aufwand und Nutzen eines Projekts.",
+          "options": [
+            { "text": "Kosten-Nutzen", "correct": true },
+            { "text": "Kosten-Nutzen-Analyse", "correct": true },
+            { "text": "Kosten-Nutzen-", "correct": true }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "wirtschaft_q09",
+      "dbId": 65,
+      "topic": "Kostenarten",
+      "prompt": "Fixe Kosten bleiben unabhängig von der ___ konstant.",
+      "explanation": "Fixe Kosten sind mengenunabhängig – sie entstehen in gleicher Höhe unabhängig davon, wie viel produziert oder verkauft wird.",
+      "points": 1,
+      "type": "GAP",
+      "gaps": [
+        {
+          "gapIndex": 1,
+          "textBefore": "unabhängig von der",
+          "textAfter": "konstant.",
+          "options": [
+            { "text": "Menge", "correct": true }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "wirtschaft_q10",
+      "dbId": 66,
+      "topic": "Budget",
+      "prompt": "Ein Budget ist eine ___ für zukünftige Ausgaben.",
+      "explanation": "Ein Budget ist eine finanzielle Planung für einen bestimmten Zeitraum. Es legt fest, wie viel Geld für welche Bereiche zur Verfügung steht – noch keine Abrechnung, sondern Vorausplanung.",
+      "points": 1,
+      "type": "GAP",
+      "gaps": [
+        {
+          "gapIndex": 1,
+          "textBefore": "Ein Budget ist eine",
+          "textAfter": "für zukünftige Ausgaben.",
+          "options": [
+            { "text": "Planung", "correct": true }
+          ]
+        }
+      ]
+    }
+
+  ]
+}

@@ -12,6 +12,14 @@ import java.util.List;
 public interface QuestionRepository extends JpaRepository<Question, Integer> {
 
     /**
+     * Find Question by ID;
+     * @param questionId the question ID
+     * @return question
+     */
+
+    Question findByQuestionId(Integer questionId);
+
+    /**
      * Find all questions in a specific question set.
      *
      * @param questionSetId the question set ID
@@ -51,4 +59,13 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
             "LEFT JOIN FETCH q.questionThemes " +
             "WHERE q.questionSetId = :questionSetId")
     List<Question> findByQuestionSetIdWithDetails(@Param("questionSetId") Integer questionSetId);
+
+    /**
+     * Fetch questions by a list of IDs with their MC answers eagerly loaded.
+     *
+     * @param ids the question IDs to fetch
+     * @return list of questions with mcAnswers populated
+     */
+    @Query("SELECT DISTINCT q FROM Question q LEFT JOIN FETCH q.mcAnswers WHERE q.questionId IN :ids")
+    List<Question> findByIdsWithAnswers(@Param("ids") List<Integer> ids);
 }

@@ -1,6 +1,8 @@
 const teacherImg = document.getElementById('teacher-img');
 const studentImg = document.getElementById('student-img');
-const character = JSON.parse(wrap.dataset.step).character;
+const raw = wrap.dataset.step;
+if (!raw) { console.warn("scaleCharacters: data-step not set, skipping"); }
+const character = raw ? JSON.parse(raw).character : null;
 
 let isInactive = character === 'SCHUELER';
 
