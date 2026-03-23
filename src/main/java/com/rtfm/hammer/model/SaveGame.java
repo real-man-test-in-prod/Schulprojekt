@@ -33,4 +33,13 @@ public class SaveGame {
     @Column(name = "score")
     private int score;
 
+    @Column(name = "correctAnswers")
+    private int correctAnswers;
+
+    @Column(name = "answeredQuestions")
+    private int answeredQuestions;
+
+    @Column(name = "gameFinished")
+    private boolean gameFinished;
+
 }

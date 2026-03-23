@@ -22,7 +22,7 @@ public class SaveGameService {
         this.saveCodeGenerator = saveCodeGenerator;
     }
 
-    public String save(String playerName, String gameStateJson, LocalDate date, int score) {
+    public String save(String playerName, String gameStateJson, LocalDate date, int score, int correctAnswers, int answeredQuestions, boolean gameFinished) {
         String code = saveCodeGenerator.generate();
 
         while (saveGameRepository.findByCode(code).isPresent()) {
@@ -34,6 +34,10 @@ public class SaveGameService {
         saveGame.setSaveGameName(playerName);
         saveGame.setSaveGameState(gameStateJson);
         saveGame.setScore(score);
+        saveGame.setCorrectAnswers(correctAnswers);
+        saveGame.setAnsweredQuestions(answeredQuestions);
+        saveGame.setGameFinished(gameFinished);
+
         saveGameRepository.save(saveGame);
 
         return code;
@@ -43,16 +47,24 @@ public class SaveGameService {
         return saveGameRepository.findByCode(code.toUpperCase().trim()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
-    public String update(String saveCode, String gameStateJson, LocalDate date, int score) {
+    public String update(String saveCode, String gameStateJson, LocalDate date, int score, int correctAnswers, int answeredQuestions, boolean gameFinished) {
         SaveGame saveGame = loadByCode(saveCode);
         saveGame.setSaveGameState(gameStateJson);
         saveGame.setDate(date);
         saveGame.setScore(score);
+        saveGame.setCorrectAnswers(correctAnswers);
+        saveGame.setAnsweredQuestions(answeredQuestions);
+        saveGame.setGameFinished(gameFinished);
+
         saveGameRepository.save(saveGame);
         return saveCode;
     }
 
     public Medal getMedalForSaveGame(SaveGame saveGame) {
+        if(!saveGame.isGameFinished()) {
+            return Medal.NONE;
+        }
+
         return Medal.MedalForScore(saveGame.getScore());
         
     }
