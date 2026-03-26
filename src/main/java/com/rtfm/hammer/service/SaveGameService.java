@@ -60,12 +60,12 @@ public class SaveGameService {
         return saveCode;
     }
 
-    public Medal getMedalForSaveGame(SaveGame saveGame) {
+   /*  public Medal getMedalForSaveGame(SaveGame saveGame) {
         if(!saveGame.isGameFinished()) {
-            return Medal.NONE;
+        return Medal.NONE;
         }
 
         return Medal.MedalForScore(saveGame.getScore());
         
-    }
+    }  */
 }

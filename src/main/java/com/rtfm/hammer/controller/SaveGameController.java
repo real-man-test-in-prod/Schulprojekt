@@ -22,7 +22,7 @@ public class SaveGameController {
         return Map.of("saveCode", code);
     }
 
-    @GetMapping
+   @GetMapping
     public String index() {
         return "Saves";
     } 
@@ -34,8 +34,8 @@ public class SaveGameController {
     SaveGame saveGame = saveGameService.loadByCode(code);
 
         return Map.of(
-            "saveGame", saveGame,
-            "medal", saveGameService.getMedalForSaveGame(saveGame)
+            "saveGame", saveGame
+            //"medal", saveGameService.getMedalForSaveGame(saveGame)
     );
 }
 
@@ -53,8 +53,8 @@ public class SaveGameController {
             "score", saveGame.getScore(),
             "correctAnswers", saveGame.getCorrectAnswers(),
             "answeredQuestions", saveGame.getAnsweredQuestions(),
-            "gameFinished", saveGame.isGameFinished(),
-            "medal", saveGameService.getMedalForSaveGame(saveGame)
+            "gameFinished", saveGame.isGameFinished()
+            //"medal", saveGameService.getMedalForSaveGame(saveGame)
         );
     }
 

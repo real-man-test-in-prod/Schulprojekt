@@ -251,6 +251,22 @@
             }
             return rooms;
         }
+        function medalForRoom(correctAnswers, wrongAnswers) {
+            
+
+            const totalQuestions = (correctAnswers ?? 0) + (wrongAnswers ?? 0);
+
+            if (totalQuestions === 0) {
+             return 'NONE';
+            }
+
+            const percentage = Math.round(((correctAnswers ?? 0) * 100) / totalQuestions);
+
+            if (percentage >= 85) return 'GOLD';
+            if (percentage >= 65) return 'SILVER';
+            if (percentage >= 40) return 'BRONZE';
+            return 'NONE';
+       }
 
         function renderRoomCard(room) {
             const completedBadges = (room.completedDays || [])
@@ -258,6 +274,11 @@
                 .join('');
 
             const phaseLabel = PHASE_LABELS[room.phase] || room.phase || '–';
+            const points = room.roomPoints ?? room.totalPoints ?? 0;
+            const correctAnswers = room.correctAnswers ?? 0;
+            const wrongAnswers = room.wrongAnswers ?? 0;
+            //const isCompleted = room.phase === 'complete';
+            const medal = medalForRoom(correctAnswers, wrongAnswers);
 
             return `
                 <div class="room-card">
@@ -279,6 +300,10 @@
                             <span class="room-stat-label">Falsch</span>
                             <span class="room-stat-value" style="color:#e06060">${room.wrongAnswers ?? 0}</span>
                         </div>
+                        <div class="room-stat">
+                    <span class="room-stat-label">Medaille</span>
+                    <span class="room-stat-value" style="color:#d4bc50">${medal}</span>
+                </div>
                     </div>
                     ${completedBadges ? `
                     <div>
@@ -295,7 +320,7 @@
                 </div>`;
         }
 
-        function renderPage(rooms) {
+        function renderPage(rooms, medal) {
             const content = document.getElementById('content');
 
             if (!rooms || rooms.length === 0) {
@@ -362,22 +387,28 @@
                 return;
             }
 
-            fetch('/saves/' + encodeURIComponent(saveCode))
-                .then(res => {
-                    if (!res.ok) throw new Error('not_found');
-                    return res.json();
-                })
-                .then(data => {
-                    if (!data.saveGameState) { renderPage([]); return; }
-                    try {
-                        const state = JSON.parse(data.saveGameState);
-                        renderPage(Array.isArray(state) ? state : [state]);
-                    } catch (e) {
-                        renderPage([]);
-                    }
-                })
-                .catch(() => renderPage([]));
-        })();
+        fetch('/saves/' + encodeURIComponent(saveCode))
+            .then(res => {
+                if (!res.ok) throw new Error('not_found');
+                return res.json();
+            })
+            .then(data => {
+                const medal = data.medal;
+
+                if (!data.saveGame || !data.saveGame.saveGameState) {
+                    renderPage([], medal);
+                    return;
+                }
+
+                try {
+                    const state = JSON.parse(data.saveGame.saveGameState);
+                    renderPage(Array.isArray(state) ? state : [state], medal);
+                } catch (e) {
+                    renderPage([], medal);
+                }
+            })
+            .catch(() => renderPage([]));
+    })();
     </script>
 </body>
 </html>
