@@ -8,16 +8,16 @@
     <link rel="stylesheet" th:href="@{/css/homepage.css}">
 </head>
 <body>
-<div id="game" class="game-container relative overflow-hidden">
-    <img src="/images/homepage/homepage_school_day.svg" class="h-[112.5%] absolute">
-    <div class="pt-[50%]">
-<!--        <div class="flex flex-col gap-4 justify-center items-center @container">-->
-<!--            <a th:href="school" class="menu-button">Start Game</a>-->
-<!--            <button onclick="openSaveModal()" class="menu-button">Speichern-->
-<!--            </button>-->
-<!--            <button onclick="openLoadModal()" class="menu-button">Laden</button>-->
-<!--            <a th:href="@{/progress}" class="menu-button">Fortschritt</a>-->
-<!--        </div>-->
+<div id="game" class="relative overflow-hidden">
+    <img src="/images/homepage/homepage_school_day.svg" class="h-[112.5%] absolute z-[-1]">
+    <div class="h-[45%]"></div>
+    <div class="h-[55%]">
+        <div class="mx-[30%] h-full flex flex-col items-center justify-center gap-[2%] @container">
+            <a th:href="school" class="menu-button">Start Game</a>
+            <button onclick="openSaveModal()" class="menu-button">Speichern</button>
+            <button onclick="openLoadModal()" class="menu-button">Laden</button>
+            <a th:href="@{/progress}" class="menu-button">Fortschritt</a>
+        </div>
     </div>
 
     <!-- Save Modal -->
