@@ -238,6 +238,21 @@
             'complete':       'Abgeschlossen'
         };
 
+        function medalForRoom(correctAnswers, wrongAnswers) {
+        const totalQuestions = (correctAnswers ?? 0) + (wrongAnswers ?? 0);
+
+        if (totalQuestions === 0) {
+            return 'NONE';
+        }
+
+        const percentage = Math.round(((correctAnswers ?? 0) * 100) / totalQuestions);
+
+        if (percentage >= 85) return 'GOLD';
+        if (percentage >= 65) return 'SILVER';
+        if (percentage >= 40) return 'BRONZE';
+        return 'NONE';
+    }
+
         function collectFromLocalStorage() {
             const rooms = [];
             for (let i = 0; i < localStorage.length; i++) {
@@ -258,6 +273,10 @@
                 .join('');
 
             const phaseLabel = PHASE_LABELS[room.phase] || room.phase || '–';
+            const points = room.roomPoints ?? 0;
+            const correctAnswers = room.correctAnswers ?? 0;
+            const wrongAnswers = room.wrongAnswers ?? 0;
+            const medal = medalForRoom(correctAnswers, wrongAnswers);
 
             return `
                 <div class="room-card">
@@ -278,6 +297,10 @@
                         <div class="room-stat">
                             <span class="room-stat-label">Falsch</span>
                             <span class="room-stat-value" style="color:#e06060">${room.wrongAnswers ?? 0}</span>
+                        </div>
+                        <div class="room-stat">
+                        <span class="room-stat-label">Medaille</span>
+                        <span class="room-stat-value" style="color:#d4bc50">${medal}</span>
                         </div>
                     </div>
                     ${completedBadges ? `
