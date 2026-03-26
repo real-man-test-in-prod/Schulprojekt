@@ -4,6 +4,10 @@
   "npcName": "Herr Koch",
   "description": "Zwei Tage mit Herr Koch – UML-Diagramme, Beziehungstypen, Pseudocode und Algorithmen. Tagestest am Ende jedes Tages.",
 
+  "characters": {
+    "TEACHER": "Herr Koch – Fachinformatiker-Lehrer seit 14 Jahren. Kommt immer mit einem ER-Diagramm rein, das er an die Tafel malt, obwohl das Smartboard daneben hängt.",
+    "STUDENT": "Tim – Azubi im 2. Lehrjahr, eine Woche vor der IHK. Clever, aber manchmal zu vorschnell. Hat Angst vor Normalisierung. Jonas, sein Kumpel, sitzt neben ihm und schreibt ihm ab und zu Zettel."
+  },
   "days": [
 
     {
