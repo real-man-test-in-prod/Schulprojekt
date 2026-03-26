@@ -1,1 +1,1 @@
-ALTER TABLE save_game ALTER COLUMN save_game_state VARCHAR(1048576);
+ALTER TABLE save_game MODIFY COLUMN save_game_state VARCHAR(255);
