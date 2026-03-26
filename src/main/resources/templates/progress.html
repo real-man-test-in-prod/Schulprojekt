@@ -251,7 +251,16 @@
         if (percentage >= 65) return 'SILVER';
         if (percentage >= 40) return 'BRONZE';
         return 'NONE';
-    }
+    } 
+
+        function medalWithEmoji(medal) {
+             switch (medal) {
+               case 'GOLD': return '🥇 GOLD';
+               case 'SILVER': return '🥈 SILVER';
+               case 'BRONZE': return '🥉 BRONZE';
+              default: return '⚪ NONE';
+           }
+       }
 
         function collectFromLocalStorage() {
             const rooms = [];
@@ -300,7 +309,7 @@
                         </div>
                         <div class="room-stat">
                         <span class="room-stat-label">Medaille</span>
-                        <span class="room-stat-value" style="color:#d4bc50">${medal}</span>
+                        <span class="room-stat-value" style="color:#d4bc50">${medalWithEmoji(medal)}</span>
                         </div>
                     </div>
                     ${completedBadges ? `
