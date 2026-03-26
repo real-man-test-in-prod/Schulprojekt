@@ -1,13 +1,13 @@
-.menu-button {
+.side-button {
 
-height: 15%;
-width: 30%;
+height: 5%;
+width: 11.5%;
 cursor: pointer;
-border-radius: 2cqi;
-background-color: rgb(251,207,232);
+border-radius: 1cqi;
+background-color: rgb(160, 136, 96);
 padding: 2%;
 box-shadow: 0 0 #0000, 0 0 #0000, 0 0.2cqi 0.3cqi -0.1cqi rgb(0,0,0,0.1), 0 0.1cqi 0.2cqi -0.1cqi rgb(0,0,0,0.1);
-font-size: 4.5cqi;
+font-size: 1.2cqi;
 text-align: center;
 
 }
